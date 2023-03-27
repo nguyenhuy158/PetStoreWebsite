@@ -1,9 +1,15 @@
 package vn.petstore.website.controllers;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import vn.petstore.website.model.User;
+import vn.petstore.website.repository.UserRepository;
 
 @Controller
+@RequiredArgsConstructor
 public class MainController {
 
     @GetMapping("")
@@ -17,12 +23,14 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("user", new User());
         return "login";
     }
 
     @GetMapping("/sign-up")
-    public String signUp() {
+    public String signUp(Model model) {
+        model.addAttribute("user", new User());
         return "sign-up";
     }
 
