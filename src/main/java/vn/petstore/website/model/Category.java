@@ -21,4 +21,6 @@ public class Category implements Serializable {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private List<Product> productList;
+
+    private Integer status;
 }
