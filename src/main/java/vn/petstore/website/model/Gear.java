@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Entity(name = "gear")
@@ -17,5 +18,7 @@ public class Gear implements Serializable {
     private String name;
 
     private Integer status;
+
+    private List<String> thumbnail;
 
 }
