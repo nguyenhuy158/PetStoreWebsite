@@ -15,26 +15,9 @@ import java.util.List;
 @Data
 @Entity(name = "pet")
 @Builder
-public class Pet implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+public class Pet extends Product implements Serializable {
 
     private Integer age;
 
-    private String description;
 
-    private Integer price;
-
-    private Integer amount;
-
-    private Date saleDate;
-    
-    private List<String> thumbnail;
-
-    private Integer status;
-
-    private Double rating;
 }

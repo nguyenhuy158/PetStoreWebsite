@@ -19,6 +19,12 @@ public class TransactionDetail {
     @ToString.Exclude
     private Transaction transaction;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Product product;
+
     private Integer amount;
 
     private Integer price;
