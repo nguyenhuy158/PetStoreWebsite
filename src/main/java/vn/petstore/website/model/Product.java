@@ -18,6 +18,13 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Category category;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
