@@ -8,11 +8,16 @@ public class MainController {
 
     @GetMapping("")
     public String index() {
-        return "index";
+        return "login";
     }
 
     @GetMapping("/about")
     public String about() {
         return "about";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 }
