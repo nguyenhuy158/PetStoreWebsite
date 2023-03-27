@@ -20,4 +20,14 @@ public class MainController {
     public String login() {
         return "login";
     }
+
+    @GetMapping("/sign-up")
+    public String signUp() {
+        return "sign-up";
+    }
+
+    @GetMapping("/error")
+    public String error() {
+        return "error";
+    }
 }
