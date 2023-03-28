@@ -52,7 +52,7 @@ CREATE TABLE `category` (
   `name` varchar(255) DEFAULT NULL,
   `status` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +61,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'trang bi',NULL),(2,'thuc an',NULL),(3,'do choi',NULL);
+INSERT INTO `category` VALUES (1,'trang bi',NULL),(2,'trang bi',NULL),(3,'trang bi',NULL),(4,'trang bi',NULL),(5,'trang bi',NULL),(6,'trang bi',NULL),(7,'trang bi',NULL),(8,'trang bi',NULL),(9,'trang bi',NULL),(10,'trang bi',NULL),(11,'trang bi',NULL),(12,'trang bi',NULL);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +98,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES ('gear',1,10000,'Vong co',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',2,10000,'tai nghe',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',3,10000,'thuc an',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',4,10000,'giuong',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',5,10000,'vong',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',6,10000,'nuoc',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',7,10000,'ao ',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',8,10000,'quan',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',9,10000,'ban chai',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',10,10000,'kem cao long',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',11,10000,'day deo',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',12,10000,'chuong',1000,5,NULL,'viet nam',NULL,_binary 'ÔøΩÔøΩ\0sr\0java.util.ArrayListxÔøΩÔøΩÔøΩÔøΩaÔøΩ\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1);
+INSERT INTO `product` VALUES ('gear',1,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,1),('gear',2,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,2),('gear',3,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,3),('gear',4,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,4),('gear',5,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,5),('gear',6,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,6),('gear',7,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,7),('gear',8,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,8),('gear',9,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,9),('gear',10,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,10),('gear',11,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,11),('gear',12,NULL,'Vong co',1000,NULL,NULL,NULL,NULL,_binary '¨\Ì\0sr\0java.util.ArrayListxÅ\“ô\«aù\0I\0sizexp\0\0\0w\0\0\0t\0https://t.ly/MrUpt\0https://t.ly/uC8ex','plastic',NULL,12);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,4 +196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-28 16:53:50
+-- Dump completed on 2023-03-28 17:45:18
