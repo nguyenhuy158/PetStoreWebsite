@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vn.petstore.website.model.Admin;
+import vn.petstore.website.model.Gear;
 import vn.petstore.website.model.Pet;
 import vn.petstore.website.model.Product;
 import vn.petstore.website.repository.AdminRepository;
+import vn.petstore.website.repository.ProductRepository;
 import vn.petstore.website.repository.UserRepository;
 import vn.petstore.website.services.PetService;
 
@@ -23,7 +25,7 @@ public class RestApiController {
     @Autowired
     PetService petService;
     @Autowired
-    PetService petRepository;
+    ProductRepository productRepository;
 
     @Autowired
     UserRepository userRepository;
@@ -33,7 +35,8 @@ public class RestApiController {
     @PostConstruct
     public void init() {
         adminRepository.save(new Admin("admin", "admin", 0));
-//        petRepository.
+        productRepository.save(new Pet());
+        productRepository.save(new Gear());
     }
 
     @GetMapping("/product")
