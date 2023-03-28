@@ -16,7 +16,7 @@
     <form th:action="@{/addUser}" th:object="${user}" method="post" class="form-login">
         <ul class="login-nav">
             <li class="login-nav__item">
-                <a th:href="@{/login}">Login</a>
+                <a th:href="@{/login}">Sign In</a>
             </li>
             <li class="login-nav__item active">
                 <a href="#">Sign Up</a>
@@ -30,13 +30,12 @@
             Password
         </label>
         <input id="login-input-password" class="login__input" type="password" th:field="*{password}"/>
-        <label for="login-sign-up" class="login__label--checkbox">
-            <input id="login-sign-up" type="checkbox" class="login__input--checkbox"/>
-            Keep me Signed in
+        <label for="login-input-password" class="login__label">
+            Confirm Password
         </label>
-        <button class="login__submit" type="submit">Sign up</button>
+        <input id="login-input-confirmPassword" class="login__input" type="password"/>
+        <button class="login__submit signup__submit" type="submit">Sign up</button>
     </form>
-    <a href="#" class="login__forgot">Forgot Password?</a>
 </div>
 </body>
 </html>
