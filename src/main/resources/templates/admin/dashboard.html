@@ -8,10 +8,29 @@
     <title>Document</title>
 </head>
 <body>
-    Dashboard
+Dashboard
 
-    <form th:action="@{/addProduct}">
-        <input type="text"/>
-    </form>
+<form th:action="@{/addProduct}" th:object="${product}" method="post">
+    amount: <input type="text" th:field="*{amount}"/>
+    <br/>
+    name: <input type="text" th:field="*{name}"/>
+    <br/>
+    price: <input type="text" th:field="*{price}"/>
+    <br/>
+    rating: <input type="text" th:field="*{rating}"/>
+    <br/>
+    source: <input type="text" th:field="*{source}"/>
+    <br/>
+    status: <input type="text" th:field="*{status}"/>
+    <br/>
+    thumbnail: <input type="text" th:field="*{thumbnail}"/>
+    <br/>
+    material: <input type="text" th:field="*{material}"/>
+    <br/>
+    catelogy id: <input type="text" th:field="*{catelogyId}"/>
+    <br/>
+    <input type="submit" value="Submit"/>
+    <br/>
+</form>
 </body>
 </html>
