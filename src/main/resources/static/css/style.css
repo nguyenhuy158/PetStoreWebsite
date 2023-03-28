@@ -138,17 +138,13 @@ body {
 
 /* ========== Home Page ========== */
 #hero {
-  background-image: url(./img/hero4.jpg);
   height: 90vh;
   width: 100%;
-  background-size: 300px;
-  background-repeat: no-repeat;
-  background-position: top 25% right 20%;
   padding: 0 80px;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  flex-direction: column;
 }
 
 #hero h4 {
@@ -174,6 +170,57 @@ body {
   font-size: 15px;
 }
 
+/* ========== Slider ========== */
+.hero__content {
+  flex: 1;
+  padding: 50px;
+  text-align: center;
+}
+
+.slider {
+  flex: 1;
+  position: relative;
+}
+
+.slider img {
+  width: 40%;
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.prev, .next {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  margin: 0 10px;
+  outline: none;
+}
+
+.prev:hover, .next:hover {
+  color: #555;
+}
+
+@media screen and (max-width: 767px) {
+  .content {
+    flex: 1 1 100%;
+    order: 2;
+  }
+  
+  .slider {
+    flex: 1 1 100%;
+    order: 1;
+    margin-bottom: 30px;
+  }
+}
+
+/* ========== Feature ========== */
 #feature {
   display: flex;
   align-items: center;
