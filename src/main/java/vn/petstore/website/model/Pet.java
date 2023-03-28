@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,10 +15,7 @@ import java.util.List;
 
 @Data
 @Entity(name = "pet")
-@Builder
+@EqualsAndHashCode(callSuper = true)
 public class Pet extends Product implements Serializable {
-
     private Integer age;
-
-
 }

@@ -1,12 +1,12 @@
 package vn.petstore.website.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import vn.petstore.website.model.Pet;
-import vn.petstore.website.repository.PetRepository;
+import vn.petstore.website.model.Product;
+import vn.petstore.website.repository.ProductRepository;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,12 +14,13 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PetService {
 
-    PetRepository petRepository;
+    @Autowired
+    ProductRepository productRepository;
 
-    public List<Pet> getAllPets(Integer limit) {
+    public List<Product> getAllProducts(Integer limit) {
         return Optional
                 .ofNullable(limit)
-                .map(value -> petRepository.findAll(PageRequest.of(0, limit)).getContent())
-                .orElseGet(() -> petRepository.findAll());
+                .map(value -> productRepository.findAll(PageRequest.of(0, limit)).getContent())
+                .orElseGet(() -> productRepository.findAll());
     }
 }

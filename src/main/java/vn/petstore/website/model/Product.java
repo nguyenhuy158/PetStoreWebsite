@@ -11,7 +11,9 @@ import java.util.List;
 
 
 @Data
-@Entity
+@Entity(name = "product")
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@MappedSuperclass
 public class Product implements Serializable {
 
     @Id
