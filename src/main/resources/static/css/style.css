@@ -143,8 +143,8 @@ body {
   padding: 0 80px;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
+  /* align-items: flex-start;
+  justify-content: center; */
 }
 
 #hero h4 {
@@ -173,17 +173,17 @@ body {
 /* ========== Slider ========== */
 .hero__content {
   flex: 1;
-  padding: 50px;
+  padding: 60px 30px;
   text-align: center;
 }
 
 .slider {
   flex: 1;
-  position: relative;
+  /* position: relative; */
 }
 
 .slider img {
-  width: 40%;
+  width: 50%;
 }
 
 .slider-nav {
@@ -191,7 +191,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  text-align: center;
+  text-align: center; 
 }
 
 .prev, .next {
