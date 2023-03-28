@@ -37,9 +37,20 @@ public class AdminController {
         System.out.println(adminService.isValid(admin));
 
         if (adminService.isValid(admin)) {
-            return "/admin/dashboard";
+            return "redirect:/admin/dashboard";
         } else {
-            return "/admin/fail";
+            return "redirect:/admin";
         }
+    }
+
+    @GetMapping("/admin/dashboard")
+    public String dashboard(Model model) {
+        model.addAttribute("admin", new Admin());
+        return "admin/dashboard";
+    }
+
+    @GetMapping("/admin/fail")
+    public String fail(Model model) {
+        return "admin/fail";
     }
 }
