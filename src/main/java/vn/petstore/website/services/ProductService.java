@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class PetService {
+public class ProductService {
 
     @Autowired
     ProductRepository productRepository;

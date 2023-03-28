@@ -1,9 +1,7 @@
 package vn.petstore.website.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,6 +9,8 @@ import java.util.List;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category implements Serializable {
 
     @Id
@@ -23,4 +23,6 @@ public class Category implements Serializable {
     private List<Product> productList;
 
     private Integer status;
+
+    private String name;
 }

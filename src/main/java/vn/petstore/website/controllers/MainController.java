@@ -5,16 +5,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import vn.petstore.website.model.Product;
 import vn.petstore.website.model.User;
 import vn.petstore.website.repository.UserRepository;
+import vn.petstore.website.services.ProductService;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import static vn.petstore.website.constances.Const.PRODUCT_LIMIT;
 
 @Controller
 @RequiredArgsConstructor
 public class MainController {
 
-    @GetMapping("")
-    public String index() {
-        return "login";
+    @Autowired
+    ProductService productService;
+
+    @GetMapping("/")
+    public String index(Model model) {
+        List<Product> allProducts = productService.getAllProducts(null);
+        model.addAttribute("products",  allProducts);
+        return "index";
     }
 
     @GetMapping("/about")

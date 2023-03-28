@@ -6,15 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import vn.petstore.website.model.Admin;
-import vn.petstore.website.model.Gear;
-import vn.petstore.website.model.Pet;
-import vn.petstore.website.model.Product;
+import vn.petstore.website.model.*;
 import vn.petstore.website.repository.AdminRepository;
+import vn.petstore.website.repository.CategoryRepository;
 import vn.petstore.website.repository.ProductRepository;
 import vn.petstore.website.repository.UserRepository;
-import vn.petstore.website.services.PetService;
+import vn.petstore.website.services.ProductService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,7 +22,7 @@ import java.util.List;
 public class RestApiController {
 
     @Autowired
-    PetService petService;
+    ProductService productService;
     @Autowired
     ProductRepository productRepository;
 
@@ -32,15 +31,28 @@ public class RestApiController {
     @Autowired
     AdminRepository adminRepository;
 
+    @Autowired
+    CategoryRepository categoryRepository;
+
     @PostConstruct
     public void init() {
         adminRepository.save(new Admin("admin", "admin", 0));
-        productRepository.save(new Pet());
-        productRepository.save(new Gear());
+        Product gear = new Gear("plastic");
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("https://t.ly/MrUp");
+        strings.add("https://t.ly/uC8e");
+        gear.setThumbnail(strings);
+        gear.setName("Vong co");
+        gear.setPrice(1000);
+        Category category = new Category();
+        category.setName("trang bi");
+        categoryRepository.save(category);
+        gear.setCategory(category);
+        productRepository.save(gear);
     }
 
     @GetMapping("/product")
     public List<Product> getPets() {
-        return petService.getAllProducts(null);
+        return productService.getAllProducts(null);
     }
 }
