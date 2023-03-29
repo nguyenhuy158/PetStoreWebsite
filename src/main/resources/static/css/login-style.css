@@ -18,12 +18,14 @@ body {
 	position: relative;
 	z-index: 0;
 	margin: 2rem auto 0;
-  padding: 4rem 4rem 0 4rem;
+    padding: 4rem 4rem 0 4rem;
 	width: 100%;
 	max-width: 525px;
 	min-height: 680px;
-	background-image: url(https://www.toc-designstudio.de/toc_wp2019/wp-content/uploads/2018/12/scott-jackson-574184-unsplash-525x680.jpg);
+	background-image: url(https://sun9-40.userapi.com/impg/ifqgldo3hiVQnWWDfd3QX8axrcJW7X1Nxrl_FQ/eP3IoHvBBUs.jpg?size=525x680&quality=96&sign=09ad62cccabdeedb8a5807ac4c9abc2a&type=album);
 	box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85);
+	border-radius: 5%;
+
 }
 
 .login-container:after {
@@ -37,6 +39,7 @@ body {
 	left: 0;
 	background-image: radial-gradient(ellipse at left bottom, rgba(22 24 47 / 65%) 0%,rgba(38, 20, 72, .9) 59%, rgba(17, 27, 75, .9) 100%);
 	box-shadow: 0 -20px 150px -20px rgba(0, 0, 0, 0.5);
+	border-radius: 5%;
 }
 
 
