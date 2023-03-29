@@ -138,19 +138,23 @@ body {
 
 /* ========== Home Page ========== */
 #hero {
-    height: 40vh;
-    width: 100%;
-    padding: 0 80px;
-    display: flex;
-    flex-direction: row;
-    align-content: flex-start;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  height: 40vh;
+  width: 100%;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  margin: 10vh 0 30vh 0;
 }
 
-#hero h4 {
-  padding-bottom: 15px;
+.hero__content {
+  flex: 1;
+  padding: 60px 30px;
+  text-align: center;
+  margin: 5px 0;
 }
 
 #hero h1 {
@@ -173,20 +177,14 @@ body {
 }
 
 /* ========== Slider ========== */
-.hero__content {
-  flex: 1;
-  padding: 60px 30px;
-  text-align: center;
-}
-
 .slider {
   flex: 1;
-  /* position: relative; */
+  position: relative;
   text-align: -webkit-center;
 }
 
 .slider img {
-  width: 50%;
+  width: 60%;
 }
 
 .slider-nav {
@@ -201,12 +199,12 @@ body {
   background-color: transparent;
   border: none;
   font-size: 24px;
-  margin: 0 10px;
+  margin: 0 15px;
   outline: none;
 }
 
 .prev:hover, .next:hover {
-  color: #555;
+  color: #5b5b5b;
 }
 
 @media screen and (max-width: 767px) {
@@ -1181,16 +1179,4 @@ footer .copyright {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    flex-direction: column;
-}
-
-.dflex_gap {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.active {
-    opacity: 0.5;
-    pointer-events: none;
 }
