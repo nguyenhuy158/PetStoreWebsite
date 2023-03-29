@@ -62,7 +62,8 @@
  .column-labels label {
 	 padding-bottom: 15px;
 	 margin-bottom: 15px;
-	 border-bottom: 1px solid #eee;
+     color: white;
+     font-weight: bold;
 }
  .column-labels .product-image, .column-labels .product-details, .column-labels .product-removal {
 	 text-indent: -9999px;
@@ -71,7 +72,6 @@
  .product {
 	 margin-bottom: 20px;
 	 padding-bottom: 10px;
-	 border-bottom: 1px solid #eee;
 }
  .product .product-image {
 	 text-align: center;
@@ -108,12 +108,15 @@
 	 clear: both;
 	 width: 100%;
 	 margin-bottom: 10px;
+	 color: white;
+     font-weight: bold;
 }
  .totals .totals-item label {
 	 float: left;
 	 clear: both;
 	 width: 79%;
 	 text-align: right;
+     color: white;
 }
  .totals .totals-item .totals-value {
 	 float: right;
@@ -199,4 +202,8 @@
 	 .totals .totals-item .totals-value {
 		 width: 40%;
 	}
+}
+
+label {
+    code: white;
 }
