@@ -36,6 +36,10 @@ public class Product implements Serializable {
 
     private Integer status;
     private Double rating;
+
+    @ElementCollection // 1
+    @CollectionTable(name = "list_thumbnail", joinColumns = @JoinColumn(name = "id")) // 2
+    @Column(name = "thumbnail") // 3
     private List<String> thumbnail;
 
     private Date saleDate;
