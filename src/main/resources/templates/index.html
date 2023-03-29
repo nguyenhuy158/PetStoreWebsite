@@ -16,8 +16,9 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
+<!--nav-->
 <section id="header">
-    <a href="#">
+    <a th:href="@{/home}">
         <img th:src="@{/img/main_logo.png}" alt="" class="logo"/>
     </a>
 
@@ -27,6 +28,7 @@
             <li><a th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
             <li><a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
             <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
+            <li><a th:href="@{/logout}" th:text="#{pet.html.header.navbar.logout}"></a></li>
         </ul>
     </div>
     <div id="mobile">
@@ -35,6 +37,7 @@
     </div>
 </section>
 
+<!--hero-->
 <section id="hero">
     <div class="hero__content">
         <h2 th:text="#{pet.html.hero.content.info1}"></h2>

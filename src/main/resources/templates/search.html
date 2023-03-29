@@ -18,7 +18,7 @@
 <body>
 <!--chổ navbar đồ nè-->
 <section id="header">
-    <a href="#">
+    <a th:href="@{/home}">
         <img th:src="@{/img/main_logo.png}" alt="" class="logo"/>
     </a>
 
@@ -28,6 +28,7 @@
             <li><a class="active" th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
             <li><a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
             <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
+            <li><a th:href="@{/logout}" th:text="#{pet.html.header.navbar.logout}"></a></li>
         </ul>
     </div>
     <div id="mobile">
