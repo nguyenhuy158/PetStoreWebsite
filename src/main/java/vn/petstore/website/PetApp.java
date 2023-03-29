@@ -33,6 +33,5 @@ public class PetApp implements CommandLineRunner {
             userRepository.save(user);
             System.out.println(user);
         }
-
     }
 }
