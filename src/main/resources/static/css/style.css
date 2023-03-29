@@ -1186,3 +1186,18 @@ footer .copyright {
     justify-content: space-evenly;
     width: 100%;
 }
+
+.viMoney::after {
+    content:" VND";
+}
+
+.dflex_gap {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.active {
+    opacity: 0.5;
+    pointer-events: none;
+}

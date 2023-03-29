@@ -93,9 +93,8 @@
 
                 <img th:src="*{product.thumbnail?.get(0)}" alt=""/>
                 <div class="des">
-                    <span th:text="*{product.name}"></span>
-                    <b><span> Loại: </span></b>
                     <span th:text="*{product.category.name}"></span>
+                    <h5 th:text="*{product.name}"></h5>
                     <div class="star">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -103,7 +102,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <h4 th:text="*{product.getPrice()}"></h4>
+                    <h4 th:text="${#numbers.formatCurrency(product.price)}" class=""></h4>
                 </div>
                 <a href=""><i class="fal fa-shopping-cart cart"></i></a>
             </a>

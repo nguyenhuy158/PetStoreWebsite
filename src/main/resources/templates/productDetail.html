@@ -55,7 +55,8 @@
     <div class="single-pro-details">
         <h6 th:text="*{product.category.name}"></h6>
         <h4 th:text="*{product.name}"></h4>
-        <h2 th:text="*{product.price}">VNĐ</h2>
+        <h2 th:text="${#numbers.formatCurrency(product.price)}" class=""></h2>
+
 
         <input type="number" value="1"/>
         <button class="normal">Thêm vào giỏ hàng</button>
