@@ -795,13 +795,47 @@ footer .copyright {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+#about-head p{
+  font-size: 17px;
+}
+
 #about-head img {
   width: 50%;
   height: auto;
+  border-radius: 20px;
 }
 
 #about-head div {
   padding-left: 40px;
+}
+
+.marquee {
+  height: 35px;
+  width: 100%;
+  font-size: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee div {
+  display: block;
+  width: 200%;
+  height: 30px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 5s linear infinite;
+}
+
+.marquee span {
+  float: left;
+  width: 50%;
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
 }
 
 #about-app {

@@ -51,14 +51,21 @@
         <br/>
         <h2>Về chúng tôi?</h2>
         <p>
-            Ba sinh viên IT tại trường Tôn Đức Thắng đã nỗ lực hết sức để hoàn thành đồ án của mình. Họ là những học sinh có tinh thần sáng tạo và tính kiên trì cao, luôn tìm cách để giải quyết các vấn đề phức tạp bằng cách nghiên cứu và phát triển công nghệ mới. Dù đôi khi gặp khó khăn, nhưng ba sinh viên đều tin tưởng rằng bằng sự cố gắng và chăm chỉ, họ sẽ hoàn thành đồ án một cách xuất sắc với một câu Slogan.
+            Ba sinh viên IT tại trường Tôn Đức Thắng đã nỗ lực hết sức để hoàn thành đồ án của mình. Họ là những học sinh có tinh thần sáng tạo và tính kiên trì cao, luôn tìm cách để giải quyết các vấn đề phức tạp bằng cách nghiên cứu và phát triển công nghệ mới. Dù đôi khi gặp khó khăn, nhưng ba sinh viên đều tin tưởng rằng bằng sự cố gắng và chăm chỉ, họ sẽ hoàn thành đồ án một cách xuất sắc với một câu Slogan:
 
         </p>
         <br/>
         <br/>
-        <marquee bgcolor="#ccc" loot="-1" scrollamount="5" width="100%">
-            If it works, don't touch it!
-        </marquee>
+        <div class="marquee">
+            <div>
+                <span>
+                    If it works, don't touch it!
+                </span>
+                <span>
+                    If it works, don't touch it!
+                </span>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -98,7 +105,7 @@
 <section id="form-details" class="section-p1">
     <div class="people">
         <div>
-            <img th:src="@{/img/avatar.png}" alt=""/>
+            <img th:src="@{/img/avatar/avatarHuy.png}" alt=""/>
             <p>
                 <span>Nguyễn Trần Quang Huy</span>
                 Student
@@ -109,18 +116,18 @@
             </p>
         </div>
         <div>
-            <img th:src="@{/img/avatar.png}" alt=""/>
+            <img th:src="@{/img/avatar/avatarBao.png}" alt=""/>
             <p>
                 <span>Lương Gia Bảo</span>
                 Student
                 <br/>
                 Phone: +84 37377377
                 <br/>
-                Email: baoluong1310@gmail.com
+                Email: luonggiabao1310@gmail.com
             </p>
         </div>
         <div>
-            <img th:src="@{/img/avatar.png}" alt=""/>
+            <img th:src="@{/img/avatar/avatarQAnh.png}" alt=""/>
             <p>
                 <span>Phạm Quốc Anh</span>
                 Student
@@ -169,9 +176,9 @@
     <div class="col">
         <h4 th:text="#{pet.html.footer.about}"></h4>
         <a th:href="@{/about}" th:text="#{pet.html.footer.about}"></a>
-        <a th:href="@{/home}" th:text="#{pet.html.footer.delivery}"></a>
-        <a th:href="@{/home}" th:text="#{pet.html.footer.policy}"></a>
-        <a th:href="@{/home}" th:text="#{pet.html.footer.term}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.delivery}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.policy}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.term}"></a>
     </div>
 
     <div class="col">
