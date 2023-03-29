@@ -37,9 +37,9 @@
 
 <section id="hero">
     <div class="hero__content">
-        <h4 th:text="#{pet.html.hero.content.info1}"></h4>
-        <h2 th:text="#{pet.html.hero.content.info2}"></h2>
-        <h2 th:text="#{pet.html.hero.content.info3}"></h2>
+        <h2 th:text="#{pet.html.hero.content.info1}"></h2>
+        <h3 th:text="#{pet.html.hero.content.info2}"></h3>
+        <h3 th:text="#{pet.html.hero.content.info3}"></h3>
         <p th:text="#{pet.html.hero.content.info4}"></p>
         <button th:text="#{pet.html.hero.content.searchNow}"></button>
     </div>
@@ -57,28 +57,28 @@
 
 <section id="feature" class="section-p1">
     <div class="fe-box">
-        <img src="./img/fe1.png" alt="" class="fe-img" th:text="#{pet.html.feature.freeShip}"/>
-        <h6></h6>
+        <img src="./img/fe1.png" alt="" class="fe-img" x/>
+        <h6 th:text="#{pet.html.feature.freeShip}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe2.png" alt="" class="fe-img" th:text="#{pet.html.feature.order}"/>
-        <h6></h6>
+        <img src="./img/fe2.png" alt="" class="fe-img" />
+        <h6 th:text="#{pet.html.feature.order}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe3.png" alt="" class="fe-img" th:text="#{pet.html.feature.saveMoney}"/>
-        <h6></h6>
+        <img src="./img/fe3.png" alt="" class="fe-img" />
+        <h6 th:text="#{pet.html.feature.saveMoney}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe4.png" alt="" class="fe-img" th:text="#{pet.html.feature.promotion}"/>
-        <h6></h6>
+        <img src="./img/fe4.png" alt="" class="fe-img" />
+        <h6 th:text="#{pet.html.feature.promotion}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe5.png" alt="" class="fe-img" th:text="#{pet.html.feature.happySell}"/>
-        <h6></h6>
+        <img src="./img/fe5.png" alt="" class="fe-img" />
+        <h6 th:text="#{pet.html.feature.happySell}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe6.png" alt="" class="fe-img" th:text="#{pet.html.feature.Support}"/>
-        <h6></h6>
+        <img src="./img/fe6.png" alt="" class="fe-img" />
+        <h6 th:text="#{pet.html.feature.Support}"></h6>
     </div>
 </section>
 
@@ -145,11 +145,10 @@
 
     <div class="col">
         <h4 th:text="#{pet.html.footer.about}"></h4>
-        <a href=" #">About us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Contact us</a>
+        <a href=" #" th:text="#{pet.html.footer.about}"></a>
+        <a href="#" th:text="#{pet.html.footer.delivery}"></a>
+        <a href="#" th:text="#{pet.html.footer.policy}"></a>
+        <a href="#" th:text="#{pet.html.footer.term}"></a>
     </div>
 
     <div class="col">
