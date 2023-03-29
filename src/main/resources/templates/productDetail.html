@@ -16,7 +16,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<!--chổ navbar đồ nè-->
+<!--header ne-->
 <section id="header">
     <a href="#">
         <img th:src="@{/img/main_logo.png}" alt="" class="logo"/>
@@ -25,7 +25,7 @@
     <div>
         <ul id="navbar">
             <li><a th:href="@{/home}">Home</a></li>
-            <li><a class="active" th:href="@{/search}">Search</a></li>
+            <li><a th:href="@{/search}">Search</a></li>
             <li><a th:href="@{/cart}">Cart</a></li>
             <li><a th:href="@{/about}">About</a></li>
         </ul>
@@ -36,50 +36,36 @@
     </div>
 </section>
 
-<!--dòng chữ header to to-->
-<section id="page-header">
-    <h2>#stayhome</h2>
-    <p>Chúng tôi luôn có mọi thứ bạn cần <br/> Khám phá ngay thôi</p>
-</section>
+<section th:if="${product != null}" id="prodetails" class="section-p1">
+    <div class="single-pro-img">
+        <img th:src="*{product.thumbnail?.get(0)}" width="100%" id="MainImg" alt=""/>
 
-<!--chổ render dữ liệu nè-->
-<section id="product1" class="section-p1">
-    <div class="pro-container">
-        <div th:each="product : ${productPage.content}" class="pro">
-            <!-- link to view detail -->
-            <a style="text-decoration: none;" th:href="@{/productDetail(id=${product.id})}">
-                <!--content-->
-                <img th:src="*{product.thumbnail?.get(0)}" alt=""/>
-                <div class="des">
-                    <span th:text="*{product.category.name}"></span>
-                    <h5 th:text="*{product.name}"></h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 th:text="*{product.getPrice()}"></h4>
-                </div>
-                <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-            </a>
+        <div class="smaill-img-group">
+            <div th:each="thumbnail : ${product.thumbnail}" class="small-img-col">
+                <img
+                        th:src="*{thumbnail}"
+                        width="100%"
+                        class="small-img"
+                        alt=""
+                />
+            </div>
         </div>
+    </div>
+
+    <div class="single-pro-details">
+        <h6 th:text="*{product.category.name}"></h6>
+        <h4 th:text="*{product.name}"></h4>
+        <h2 th:text="*{product.price}">VNĐ</h2>
+
+        <input type="number" value="1"/>
+        <button class="normal">Thêm vào giỏ hàng</button>
+        <h4>Mô tả sản phẩm</h4>
+        <span th:text="*{product.description}">
+        </span>
     </div>
 </section>
 
-<!--phân trang-->
-<section th:if="${productPage.totalPages > 0}"
-         id="pagination" class="section-p1 dflex_gap">
-
-    <a th:each="pageNumber : ${pageNumbers}"
-       th:href="@{/search(size=${productPage.size}, page=${pageNumber})}"
-       th:text=${pageNumber}
-       th:class="${pageNumber==productPage.number + 1} ? active"
-    >
-    </a>
-</section>
-
+<!--footer nè-->
 <footer class="section-p1">
     <div class="col">
         <img th:src="@{/img/main_logo.png}" alt="" class="logo"/>
@@ -133,5 +119,6 @@
 </footer>
 
 <script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/productDetail.js}"></script>
 </body>
 </html>

@@ -87,7 +87,7 @@
     <p>Summer Collection New Morden Design</p>
     <div th:if="${products != null}" class="pro-container">
         <div th:each="product : ${products}" class="pro">
-            <img th:src="*{product.thumbnail.get(0)}" alt=""/>
+            <img th:src="*{product.thumbnail?.get(0)}" alt=""/>
             <div class="des">
                 <span th:text="*{product.name}"></span>
                 <b><span> Loại: </span></b>

@@ -45,5 +45,7 @@ public class Product implements Serializable {
     private Integer price;
 
     private Integer amount;
+
+    private String description;
 }
 

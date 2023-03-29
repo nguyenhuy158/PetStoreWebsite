@@ -4,8 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +18,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static vn.petstore.website.constances.Const.PRODUCT_LIMIT;
-import static vn.petstore.website.constances.Const.PRODUCT_PAGE;
+import static vn.petstore.website.constances.Const.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -35,9 +32,7 @@ public class SearchController {
 
     //    @GetMapping("/search")
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String search(Model model,
-                         @RequestParam("page") Optional<Integer> page,
-                         @RequestParam("size") Optional<Integer> size) {
+    public String search(Model model, @RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(PRODUCT_PAGE);
         int pageSize = size.orElse(PRODUCT_LIMIT);
 
@@ -47,20 +42,26 @@ public class SearchController {
 
         int totalPages = productPage.getTotalPages();
         if (totalPages > 0) {
-            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
-                    .boxed()
-                    .collect(Collectors.toList());
+            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
             model.addAttribute("pageNumbers", pageNumbers);
         }
         return "search";
-//        Pageable firstPageWithTwoElements = PageRequest.of(0,
-//                PRODUCT_LIMIT,
-//                Sort.by("price").descending());
-//        Page<Product> productPage = productPagingRepository.findAll(firstPageWithTwoElements);
-//        List<Product> content = productPage.getContent();
-//        model.addAttribute("products", content);
-//
-//        int totalPages = productPage.getTotalPages();
-//        model.addAttribute("totalPages", totalPages);
+    }
+
+    @RequestMapping(value = "/productDetail", method = RequestMethod.GET)
+    public String productDetail(Model model, @RequestParam("id") Optional<Long> id) {
+        Long productId = id.orElse(PRODUCT_ID);
+
+        System.out.println("productId");
+        System.out.println(productId);
+
+        Product productById = productService.getProductById(productId);
+
+        System.out.println("productById");
+        System.out.println(productById);
+
+        model.addAttribute("product", productById);
+
+        return "productDetail";
     }
 }

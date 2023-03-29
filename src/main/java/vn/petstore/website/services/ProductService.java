@@ -21,6 +21,10 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
+    public Product getProductById(Long id) {
+        return productRepository.findById(id).isPresent() ? productRepository.findById(id).get() : null;
+    }
+
     public List<Product> getAllProducts(Integer limit) {
         return Optional
                 .ofNullable(limit)
