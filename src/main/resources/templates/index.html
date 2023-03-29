@@ -12,6 +12,7 @@
             href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     />
 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
@@ -48,17 +49,17 @@
         <h3 th:text="#{pet.html.hero.content.info2}"></h3>
         <h3 th:text="#{pet.html.hero.content.info3}"></h3>
         <p th:text="#{pet.html.hero.content.info4}"></p>
-        <a th:href="@{/search}"><button th:text="#{pet.html.hero.content.searchNow}"></button></a>
+        <button th:text="#{pet.html.hero.content.searchNow}"></button>
     </div>
 
-    <div class="slider">
-        <img th:src="@{/img/slider/slider_img1.jpg}" alt="Slider Image">
-        <img th:src="@{/img/slider/slider_img2.jpg}" alt="Slider Image">
-        <img th:src="@{/img/slider/slider_img3.jpg}" alt="Slider Image">
-        <div class="slider-nav">
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-        </div>
+    <div class="w3-content w3-display-container">
+        <img th:src="@{/img/slider/slider_img1.jpg}" alt="Slider Image" class="mySlides fade">
+        <img th:src="@{/img/slider/slider_img2.jpg}" alt="Slider Image" class="mySlides fade">
+        <img th:src="@{/img/slider/slider_img3.jpg}" alt="Slider Image" class="mySlides fade">
+        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:70%">
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
     </div>
 </section>
 
@@ -111,7 +112,7 @@
                     </div>
                     <h4 th:text="${#numbers.formatCurrency(product.price)}" class=""></h4>
                 </div>
-                <a th:href="@{/cart(id=${product.id})}"><i class="fal fa-shopping-cart cart"></i></a>
+                <a href=""><i class="fal fa-shopping-cart cart"></i></a>
             </a>
         </div>
     </div>
@@ -151,10 +152,10 @@
 
     <div class="col">
         <h4 th:text="#{pet.html.footer.about}"></h4>
-        <a th:href="@{/about}" th:text="#{pet.html.footer.about}"></a>
-        <a th:href="@{/home}" th:text="#{pet.html.footer.delivery}"></a>
-        <a th:href="@{/home}" th:text="#{pet.html.footer.policy}"></a>
-        <a th:href="@{/home}" th:text="#{pet.html.footer.term}"></a>
+        <a href=" #" th:text="#{pet.html.footer.about}"></a>
+        <a href="#" th:text="#{pet.html.footer.delivery}"></a>
+        <a href="#" th:text="#{pet.html.footer.policy}"></a>
+        <a href="#" th:text="#{pet.html.footer.term}"></a>
     </div>
 
     <div class="col">

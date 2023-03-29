@@ -1,32 +1,32 @@
-const slider = document.querySelector('.slider');
-const prevBtn = slider.querySelector('.prev');
-const nextBtn = slider.querySelector('.next');
-const images = slider.querySelectorAll('img');
-let currentSlide = 0;
+var slideIndex = 0;
+showDivs(slideIndex);
 
-function showSlide(n) {
-  images.forEach(img => {
-    img.style.display = 'none';
-  });
-  images[n].style.display = 'block';
+function plusDivs(n) {
+  showDivs(slideIndex += n);
 }
 
-function nextSlide() {
-  currentSlide++;
-  if (currentSlide >= images.length) {
-    currentSlide = 0;
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
   }
-  showSlide(currentSlide);
-}
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
 
-function prevSlide() {
-  currentSlide--;
-  if (currentSlide < 0) {
-    currentSlide = images.length - 1;
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-white", "");
   }
-  showSlide(currentSlide);
-}
 
-showSlide(currentSlide);
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+  
+  dots[slideIndex-1].className += " w3-white";
+  x[slideIndex-1].style.display = "block";
+  setTimeout(showDivs, 2000); // Change image every 2 seconds
+}
