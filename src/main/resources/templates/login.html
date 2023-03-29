@@ -2,8 +2,8 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}">
 
     <title>Login</title>
@@ -32,6 +32,13 @@
             Password
         </label>
         <input id="login-input-password" class="login__input" type="password" th:field="*{password}"/>
+
+        <!--login fail nè-->
+        <label for="login-input-password"
+               class="login__label hidden_text" th:classappend="${param.fail} ? login_error : login_success"
+        >
+            Tài khoảng, mật khẩu không hợp lệ
+        </label>
 
         <button class="login__submit" type="submit">Sign in</button>
     </form>
