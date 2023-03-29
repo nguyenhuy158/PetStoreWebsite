@@ -83,7 +83,7 @@
 </section>
 
 <section id="product1" class="section-p1">
-    <h2>Gear for pet</h2>
+    <h2 th:text="#{pet.html.title.gear}"></h2>
     <p>Summer Collection New Morden Design</p>
     <div th:if="${products != null}" class="pro-container">
         <div th:each="product : ${products}" class="pro">
