@@ -48,7 +48,7 @@
         <h3 th:text="#{pet.html.hero.content.info2}"></h3>
         <h3 th:text="#{pet.html.hero.content.info3}"></h3>
         <p th:text="#{pet.html.hero.content.info4}"></p>
-        <button th:text="#{pet.html.hero.content.searchNow}"></button>
+        <a th:href="@{/search}"><button th:text="#{pet.html.hero.content.searchNow}"></button></a>
     </div>
 
     <div class="slider">
@@ -151,10 +151,10 @@
 
     <div class="col">
         <h4 th:text="#{pet.html.footer.about}"></h4>
-        <a href=" #" th:text="#{pet.html.footer.about}"></a>
-        <a href="#" th:text="#{pet.html.footer.delivery}"></a>
-        <a href="#" th:text="#{pet.html.footer.policy}"></a>
-        <a href="#" th:text="#{pet.html.footer.term}"></a>
+        <a th:href="@{/about}" th:text="#{pet.html.footer.about}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.delivery}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.policy}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.term}"></a>
     </div>
 
     <div class="col">

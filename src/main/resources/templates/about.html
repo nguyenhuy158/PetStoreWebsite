@@ -41,8 +41,8 @@
 </section>
 
 <section id="page-header" class="about-header">
-    <h2>#KnowUS</h2>
-    <p>Đến với chúng tôi là sự lựa chọn số 1</p>
+    <h2>MỤC TIÊU</h2>
+    <p>Đây là sản phẩm đồ án dùng để nghiên cứu không phải để kinh doanh.</p>
 </section>
 
 <section id="about-head" class="section-p1">
@@ -168,10 +168,10 @@
 
     <div class="col">
         <h4 th:text="#{pet.html.footer.about}"></h4>
-        <a href=" #" th:text="#{pet.html.footer.about}"></a>
-        <a href="#" th:text="#{pet.html.footer.delivery}"></a>
-        <a href="#" th:text="#{pet.html.footer.policy}"></a>
-        <a href="#" th:text="#{pet.html.footer.term}"></a>
+        <a th:href="@{/about}" th:text="#{pet.html.footer.about}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.delivery}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.policy}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.term}"></a>
     </div>
 
     <div class="col">

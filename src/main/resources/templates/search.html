@@ -43,7 +43,7 @@
 
 <!--dòng chữ header to to-->
 <section id="page-header">
-    <h2>#stayhome</h2>
+    <h2>DANH MỤC CÁC SẢN PHẨM</h2>
     <p>Chúng tôi luôn có mọi thứ bạn cần <br/> Khám phá ngay thôi</p>
 </section>
 
@@ -119,10 +119,10 @@
 
     <div class="col">
         <h4 th:text="#{pet.html.footer.about}"></h4>
-        <a href=" #" th:text="#{pet.html.footer.about}"></a>
-        <a href="#" th:text="#{pet.html.footer.delivery}"></a>
-        <a href="#" th:text="#{pet.html.footer.policy}"></a>
-        <a href="#" th:text="#{pet.html.footer.term}"></a>
+        <a th:href="@{/about}" th:text="#{pet.html.footer.about}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.delivery}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.policy}"></a>
+        <a th:href="@{/error}" th:text="#{pet.html.footer.term}"></a>
     </div>
 
     <div class="col">
