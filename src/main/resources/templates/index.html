@@ -87,23 +87,27 @@
     <p>Summer Collection New Morden Design</p>
     <div th:if="${products != null}" class="pro-container">
         <div th:each="product : ${products}" class="pro">
-            <img th:src="*{product.thumbnail?.get(0)}" alt=""/>
-            <div class="des">
-                <span th:text="*{product.name}"></span>
-                <b><span> Loại: </span></b>
-                <span th:text="*{product.category.name}"></span>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4 th:text="*{product.getPrice()}"></h4>
-            </div>
-            <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
+            <!-- link to view detail -->
+            <a style="text-decoration: none;" th:href="@{/productDetail(id=${product.id})}">
+                <!--content-->
 
+                <img th:src="*{product.thumbnail?.get(0)}" alt=""/>
+                <div class="des">
+                    <span th:text="*{product.name}"></span>
+                    <b><span> Loại: </span></b>
+                    <span th:text="*{product.category.name}"></span>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 th:text="*{product.getPrice()}"></h4>
+                </div>
+                <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+            </a>
+        </div>
     </div>
 </section>
 
