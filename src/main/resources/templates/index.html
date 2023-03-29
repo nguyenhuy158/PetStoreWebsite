@@ -28,13 +28,17 @@
             <li><a th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
             <li><a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
             <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
-            <li><a th:href="@{/logout}" th:text="#{pet.html.header.navbar.logout}"></a></li>
+            <li><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
         </ul>
     </div>
     <div id="mobile">
         <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
         <i id="bar" class="fas fa-outdent"></i>
     </div>
+    <!--    logout-->
+    <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+        <input type="submit" value="Logout"/>
+    </form>
 </section>
 
 <!--hero-->
@@ -64,23 +68,23 @@
         <h6 th:text="#{pet.html.feature.freeShip}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe2.png" alt="" class="fe-img" />
+        <img src="./img/fe2.png" alt="" class="fe-img"/>
         <h6 th:text="#{pet.html.feature.order}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe3.png" alt="" class="fe-img" />
+        <img src="./img/fe3.png" alt="" class="fe-img"/>
         <h6 th:text="#{pet.html.feature.saveMoney}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe4.png" alt="" class="fe-img" />
+        <img src="./img/fe4.png" alt="" class="fe-img"/>
         <h6 th:text="#{pet.html.feature.promotion}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe5.png" alt="" class="fe-img" />
+        <img src="./img/fe5.png" alt="" class="fe-img"/>
         <h6 th:text="#{pet.html.feature.happySell}"></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe6.png" alt="" class="fe-img" />
+        <img src="./img/fe6.png" alt="" class="fe-img"/>
         <h6 th:text="#{pet.html.feature.Support}"></h6>
     </div>
 </section>

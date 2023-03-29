@@ -22,14 +22,17 @@
                 <a th:href="@{/sign-up}">Sign Up</a>
             </li>
         </ul>
+
         <label for="login-input-user" class="login__label">
             Username
         </label>
         <input id="login-input-user" class="login__input" type="text" th:field="*{username}"/>
+
         <label for="login-input-password" class="login__label">
             Password
         </label>
         <input id="login-input-password" class="login__input" type="password" th:field="*{password}"/>
+
         <button class="login__submit" type="submit">Sign in</button>
     </form>
     <a href="#" class="login__forgot">Forgot Password?</a>
