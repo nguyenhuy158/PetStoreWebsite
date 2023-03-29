@@ -1169,3 +1169,8 @@ footer .copyright {
     margin-bottom: 30px;
   }
 }
+
+.icon i{
+    font-size: 30px;
+    margin-right: 20px;
+}

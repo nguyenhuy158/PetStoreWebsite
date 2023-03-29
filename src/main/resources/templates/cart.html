@@ -23,9 +23,9 @@
 
     <div>
         <ul id="navbar">
-            <li><a class="active" th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/home}">Home</a></li>
             <li><a th:href="@{/search}">Search</a></li>
-            <li><a th:href="@{/cart}">Cart</a></li>
+            <li><a class="active" th:href="@{/cart}">Cart</a></li>
             <li><a th:href="@{/about}">About</a></li>
         </ul>
     </div>
@@ -35,56 +35,7 @@
     </div>
 </section>
 
-<section id="hero">
-    <div class="hero__content">
-        <h4>Thiên đường cho dế yêu</h4>
-        <h2>Giá cả phải chăng</h2>
-        <h1>PET STORE</h1>
-        <p>Cam kết phụ kiện chính hãng 100%</p>
-        <button>TÌM KIẾM NGAY</button>
-    </div>
-
-    <div class="slider">
-        <img th:src="@{/img/slider/slider_img1.jpg}" alt="Slider Image">
-        <img th:src="@{/img/slider/slider_img2.jpg}" alt="Slider Image">
-        <img th:src="@{/img/slider/slider_img3.jpg}" alt="Slider Image">
-        <div class="slider-nav">
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-        </div>
-    </div>
-</section>
-
-<section id="feature" class="section-p1">
-    <div class="fe-box">
-        <img src="./img/fe1.png" alt="" class="fe-img"/>
-        <h6>Free Shipping</h6>
-    </div>
-    <div class="fe-box">
-        <img src="./img/fe2.png" alt="" class="fe-img"/>
-        <h6>Online Order</h6>
-    </div>
-    <div class="fe-box">
-        <img src="./img/fe3.png" alt="" class="fe-img"/>
-        <h6>Save Money</h6>
-    </div>
-    <div class="fe-box">
-        <img src="./img/fe4.png" alt="" class="fe-img"/>
-        <h6>Promotions</h6>
-    </div>
-    <div class="fe-box">
-        <img src="./img/fe5.png" alt="" class="fe-img"/>
-        <h6>Happy Sell</h6>
-    </div>
-    <div class="fe-box">
-        <img src="./img/fe6.png" alt="" class="fe-img"/>
-        <h6>F24/7 Support</h6>
-    </div>
-</section>
-
 <section id="product1" class="section-p1">
-    <h2>Gear for pet</h2>
-    <p>Summer Collection New Morden Design</p>
     <div th:if="${products != null}" class="pro-container">
         <div th:each="product : ${products}" class="pro">
             <img th:src="*{product.thumbnail.get(0)}" alt=""/>
@@ -103,7 +54,6 @@
             </div>
             <a href=""><i class="fal fa-shopping-cart cart"></i></a>
         </div>
-
     </div>
 </section>
 
@@ -160,6 +110,5 @@
 </footer>
 
 <script th:src="@{/js/script.js}"></script>
-<script th:src="@{/js/slider.js}"></script>
 </body>
 </html>
