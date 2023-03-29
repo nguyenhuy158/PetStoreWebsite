@@ -24,10 +24,13 @@ public class PetApp implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        User user = new User();
-        user.setUsername("ntqhuy2k2");
-        user.setPassword(passwordEncoder.encode(" "));
-        userRepository.save(user);
-        System.out.println(user);
+        User ntqhuy2k2 = userRepository.findByUsername("ntqhuy2k2");
+        if (ntqhuy2k2 == null) {
+            User user = new User();
+            user.setUsername("ntqhuy2k2");
+            user.setPassword(passwordEncoder.encode(" "));
+            userRepository.save(user);
+            System.out.println(user);
+        }
     }
 }

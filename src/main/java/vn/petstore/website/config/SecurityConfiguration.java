@@ -38,7 +38,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/about").permitAll() // Cho phép tất cả mọi người truy cập vào 2 địa chỉ này
+                .requestMatchers("/").permitAll() // Cho phép tất cả mọi người truy cập vào 2 địa chỉ này
                 .anyRequest().authenticated() // Tất cả các request khác đều cần phải xác thực mới được truy cập
                 .and()
                 .formLogin() // Cho phép người dùng xác thực bằng form login
@@ -46,6 +46,7 @@ public class SecurityConfiguration {
                 .permitAll() // Tất cả đều được truy cập vào địa chỉ này
                 .and()
                 .logout() // Cho phép logout
+                .logoutSuccessUrl("/login")
                 .permitAll();
 
         return http.build();
