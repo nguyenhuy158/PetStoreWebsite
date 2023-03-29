@@ -1181,6 +1181,7 @@ footer .copyright {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    flex-direction: column;
 }
 
 .dflex_gap {
