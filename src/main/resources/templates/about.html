@@ -35,28 +35,99 @@
     </div>
 </section>
 
-<section id="product1" class="section-p1">
-    <div th:if="${products != null}" class="pro-container">
-        <div th:each="product : ${products}" class="pro">
-            <img th:src="*{product.thumbnail.get(0)}" alt=""/>
-            <div class="des">
-                <span th:text="*{product.name}"></span>
-                <b><span> Loại: </span></b>
-                <span th:text="*{product.category.name}"></span>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4 th:text="*{product.getPrice()}"></h4>
-            </div>
-            <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+<section id="page-header" class="about-header">
+    <h2>#KnowUS</h2>
+    <p>Đến với chúng tôi là sự lựa chọn số 1</p>
+</section>
+
+<section id="about-head" class="section-p1">
+    <img th:src="@{/img/about.png}" alt=""/>
+    <div>
+        <br/>
+        <h2>Who We Are?</h2>
+        <p>
+            Viết một đoạn mô tả dài dài cỡ 100 chữ nha mn
+        </p>
+        <br/>
+        <br/>
+        <marquee bgcolor="#ccc" loot="-1" scrollamount="5" width="100%">
+            Một câu slogran chạy chạy nữa nè
+        </marquee>
+    </div>
+</section>
+
+<!--chổ này là phần thông tin liện hệ shop nè-->
+<!--<section id="page-header" class="about-header">-->
+<!--    <h2>#let's_talk</h2>-->
+<!--    <p>LEAVE A MESSAGE, We love to hear from you!</p>-->
+<!--</section>-->
+
+<!--<section id="contact-details" class="section-p1">-->
+<!--    <div class="details">-->
+<!--        <span>GET IN TOUCH</span>-->
+<!--        <h2>Visit one of our agency locations or contact us today</h2>-->
+<!--        <h3>Head Office</h3>-->
+<!--        <div>-->
+<!--            <li>-->
+<!--                <i class="fal fa-map"></i>-->
+<!--                <p>56 Glassford Street Glasgow G1 !UL New York</p>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <i class="far fa-envelope"></i>-->
+<!--                <p>contact@example.com</p>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <i class="fas fa-phone-alt"></i>-->
+<!--                <p>contact@example.com</p>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <i class="far fa-clock"></i>-->
+<!--                <p>Monday to Saturday: 9.00am to 16.00pm</p>-->
+<!--            </li>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--này là phần gửi thông tin email-->
+<section id="form-details" class="section-p1">
+    <div class="people">
+        <div>
+            <img th:src="@{/img/avatar.png}" alt=""/>
+            <p>
+                <span>Nguyen Tran Quang Huy</span>
+                Student
+                <br/>
+                Phone: +84 37377377
+                <br/>
+                Email: ntqhuy2k2@gmail.com
+            </p>
+        </div>
+        <div>
+            <img th:src="@{/img/avatar.png}" alt=""/>
+            <p>
+                <span>Lương Gia Bảo</span>
+                Student
+                <br/>
+                Phone: +84 37377377
+                <br/>
+                Email: baoluong@gmail.com
+            </p>
+        </div>
+        <div>
+            <img th:src="@{/img/avatar.png}" alt=""/>
+            <p>
+                <span>Phạm Quốc Anh</span>
+                Student
+                <br/>
+                Phone: +84 37377377
+                <br/>
+                Email: quocanh@gmail.com
+            </p>
         </div>
     </div>
 </section>
 
+<!--này là phần footer-->
 <footer class="section-p1">
     <div class="col">
         <img th:src="@{/img/main_logo.png}" alt="" class="logo"/>

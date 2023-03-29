@@ -885,7 +885,6 @@ footer .copyright {
 }
 
 #form-details .people div {
-  padding-bottom: 25px;
   display: flex;
   align-items: flex-start;
 }
@@ -1173,4 +1172,11 @@ footer .copyright {
 .icon i{
     font-size: 30px;
     margin-right: 20px;
+}
+
+.people {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
 }
