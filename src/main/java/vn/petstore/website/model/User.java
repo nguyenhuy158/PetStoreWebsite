@@ -35,4 +35,8 @@ public class User {
 
     private String gender;
 
+//    @ElementCollection // 1
+//    @CollectionTable(name = "list_products", joinColumns = @JoinColumn(name = "id")) // 2
+//    @Column(name = "productList") // 3
+//    private List<Product> productList;
 }

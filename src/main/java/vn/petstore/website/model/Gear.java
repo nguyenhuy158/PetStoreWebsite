@@ -1,10 +1,7 @@
 package vn.petstore.website.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,7 +11,10 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(callSuper=true)
 public class Gear extends Product implements Serializable {
 
     private String material;
+
+
 }
