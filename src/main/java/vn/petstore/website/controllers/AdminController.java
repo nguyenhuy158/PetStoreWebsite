@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import vn.petstore.website.model.Admin;
+import vn.petstore.website.model.Gear;
 import vn.petstore.website.model.Product;
 import vn.petstore.website.services.AdminService;
 
@@ -25,7 +26,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String login(Model model) {
-        System.out.println("get ne");
+        System.out.println("get ne 1");
         model.addAttribute("admin", new Admin());
         return "admin/login";
     }
@@ -39,18 +40,14 @@ public class AdminController {
         if (adminService.isValid(admin)) {
             return "redirect:/admin/dashboard";
         } else {
-            return "redirect:/admin";
+            return "redirect:/admin?fail";
         }
     }
 
     @GetMapping("/admin/dashboard")
     public String dashboard(Model model) {
-        model.addAttribute("admin", new Admin());
+        model.addAttribute("product", new Gear());
         return "admin/dashboard";
     }
 
-    @GetMapping("/admin/fail")
-    public String fail(Model model) {
-        return "admin/fail";
-    }
 }

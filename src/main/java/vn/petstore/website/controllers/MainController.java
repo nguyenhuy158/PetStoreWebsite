@@ -23,16 +23,21 @@ public class MainController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/")
+    @GetMapping(value = {"/", "/home"})
     public String index(Model model) {
-        List<Product> allProducts = productService.getAllProducts(null);
-        model.addAttribute("products",  allProducts);
+        List<Product> allProducts = productService.getAllProducts(PRODUCT_LIMIT);
+        model.addAttribute("products", allProducts);
         return "index";
     }
 
     @GetMapping("/about")
     public String about() {
         return "about";
+    }
+
+    @GetMapping("/cart")
+    public String cart() {
+        return "cart";
     }
 
     @GetMapping("/login")
