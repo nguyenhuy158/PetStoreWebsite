@@ -40,8 +40,8 @@
 }
 /* Apply clearfix in a few places */
 /* Apply dollar signs */
- .product .product-price:before, .product .product-line-price:before, .totals-value:before {
-	 content: '$';
+ .product .product-price:after, .product .product-line-price:after, .totals-value:after {
+	 content: ' VND';
 }
 /* Body/Header stuff */
  body {
@@ -206,4 +206,30 @@
 
 label {
     code: white;
+}
+
+
+/*quantity--------------------------------------------------*/
+.quantity-number-v2 {
+
+}
+
+.quantity-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 5px;
+    justify-content: space-between;
+}
+ .quantity-number-v2 #prodQuantity {
+	 max-width: 30px;
+    text-align: center;
+    border: none;
+    background: transparent;
+}
+ .quantity-number-v2 i {
+     border-radius: 5px;
+	 padding: 6.8px 10px;
+	 border: 1px solid #222;
+	 cursor: pointer;
 }

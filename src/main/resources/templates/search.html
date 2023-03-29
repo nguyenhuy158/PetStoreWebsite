@@ -67,7 +67,7 @@
                     </div>
                     <h4 th:text="${#numbers.formatCurrency(product.price)}" class=""></h4>
                 </div>
-                <a th:href="@{/cart(id=${product.id})}"><i class="fal fa-shopping-cart cart"></i></a>
+                <a th:href="@{/cart/addProduct(id=${product.id})}"><i class="fal fa-shopping-cart cart"></i></a>
             </a>
         </div>
     </div>

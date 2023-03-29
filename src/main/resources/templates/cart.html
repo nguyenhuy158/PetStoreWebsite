@@ -49,74 +49,69 @@
     <div class="shopping-cart">
 
         <div class="column-labels">
+            <label class="product-removal">Handle</label>
             <label class="product-image">Image</label>
             <label class="product-details">Product</label>
             <label class="product-price">Price</label>
             <label class="product-quantity">Quantity</label>
-            <label class="product-removal">Remove</label>
             <label class="product-line-price">Total</label>
         </div>
 
-        <div class="product">
+        <div th:each="cartDto : ${cartDtos}" class="product">
             <div class="product-removal">
                 <button class="remove-product">
-                    Remove
+                    <a th:href="@{/cart/removeProduct(id=${cartDto.product.id})}">Remove</a>
                 </button>
             </div>
             <div class="product-image">
-                <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
+                <img th:src="*{cartDto.product.thumbnail?.get(0)}">
             </div>
             <div class="product-details">
-                <div class="product-title">Dingo Dog Bones</div>
-                <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for
-                    these
-                    things! I got curious once and ate one myself. I'm a fan.</p>
+                <div th:text="*{cartDto.product.name}" class="product-title"></div>
+                <p th:text="*{cartDto.product.description}" class="product-description"></p>
             </div>
-            <div class="product-price">12.99</div>
-            <div class="product-quantity">
-                <input type="number" value="2" min="1">
-            </div>
+            <div th:text="*{cartDto.product.price}" class="product-price"></div>
+            <!--            <div class="product-quantity">-->
+            <!--                <input type="number" th:value="*{cartDto.quantity}" min="1">-->
+            <!--            </div>-->
+            <!-- Quantity -->
+            <div class="product-quantity quantity-number-v2 clearfix">
+                <div class="quantity-wrapper">
+                    <a style="text-decoration: none;padding: 0;height: fit-content;" class="normal" th:href="@{/cart/decrementProduct(id=${cartDto.product.id})}">
+                        <i class="add-down add-action fa fa-minus"></i>
+                    </a>
 
-            <div class="product-line-price">25.98</div>
+                    <input class="" disabled id="prodQuantity" type="text" name="quantity" min="1"
+                           th:value="${cartDto.quantity}"/>
+
+                    <a style="text-decoration: none;padding: 0;height: fit-content;" class="normal" th:href="@{/cart/incrementProduct(id=${cartDto.product.id})}">
+                        <i class="add-up add-action fa fa-plus"></i>
+                    </a>
+                </div>
+                <div id="stock" class="text-center"></div>
+            </div>
+            <!-- /Quantity -->
+            <!--total product price-->
+            <div th:text="${cartDto.quantity * cartDto.product.price}" class="product-line-price"></div>
         </div>
 
-        <div class="product">
-            <div class="product-removal">
-                <button class="remove-product">
-                    Remove
-                </button>
-            </div>
-            <div class="product-image">
-                <img src="https://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">
-            </div>
-            <div class="product-details">
-                <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
-                <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while
-                    quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
-            </div>
-            <div class="product-price">45.99</div>
-            <div class="product-quantity">
-                <input type="number" value="1" min="1">
-            </div>
-            <div class="product-line-price">45.99</div>
-        </div>
 
         <div class="totals">
             <div class="totals-item">
                 <label>Subtotal</label>
-                <div class="totals-value" id="cart-subtotal">71.97</div>
+                <div th:text="${subTotal}" class="totals-value" id="cart-subtotal"></div>
             </div>
             <div class="totals-item">
                 <label>Tax (5%)</label>
-                <div class="totals-value" id="cart-tax">3.60</div>
+                <div th:text="${tax}" class="totals-value" id="cart-tax"></div>
             </div>
             <div class="totals-item">
                 <label>Shipping</label>
-                <div class="totals-value" id="cart-shipping">15.00</div>
+                <div class="totals-value" id="cart-shipping">50000</div>
             </div>
             <div class="totals-item totals-item-total">
                 <label>Grand Total</label>
-                <div class="totals-value" id="cart-total">90.57</div>
+                <div th:text="${grandTotal}" class="totals-value" id="cart-total"></div>
             </div>
         </div>
 

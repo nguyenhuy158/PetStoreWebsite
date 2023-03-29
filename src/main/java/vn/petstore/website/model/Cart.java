@@ -20,4 +20,6 @@ public class Cart implements Serializable {
     private Long productId;
 
     private Long userId;
+
+    private Long quantity = 1L;
 }

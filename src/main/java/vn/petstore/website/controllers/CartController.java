@@ -3,17 +3,12 @@ package vn.petstore.website.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import vn.petstore.website.model.CustomUserDetails;
-import vn.petstore.website.model.Product;
-import vn.petstore.website.model.User;
+import vn.petstore.website.model.CartDto;
 import vn.petstore.website.services.CartService;
-import vn.petstore.website.services.CustomUserDetailService;
 import vn.petstore.website.services.UserService;
 
 import java.util.List;
@@ -29,25 +24,66 @@ public class CartController {
     @Autowired
     CartService cartService;
 
-    @GetMapping("/cart")
-    public String cart(Model model, @RequestParam("id") Optional<Long> productId) {
+    @GetMapping(value = {"/cart", "/cartBack"})
+    public String addProduct(Model model) {
+        List<CartDto> cartDtos = cartService.getCart();
+        Long subtotal = cartService.getSubtotal();
+        Double grandTotal = cartService.getGrandTotal();
+        Double tax = cartService.getTax();
+        model.addAttribute("cartDtos", cartDtos);
+        model.addAttribute("subTotal", subtotal);
+        model.addAttribute("grandTotal", grandTotal);
+        model.addAttribute("tax", tax);
+
+        cartDtos.stream().forEach(System.out::println);
+        return "cart";
+    }
+
+    @GetMapping("/cart/addProduct")
+    public String addProduct(Model model, @RequestParam("id") Optional<Long> productId) {
         // add product to cart
-        System.out.println("dat hang productId");
+        System.out.println("add productId");
         System.out.println(productId);
         if (productId.isPresent()) {
             cartService.addProductToCart(productId.get());
         }
 
-        System.out.println("username");
-        System.out.println(userService.getCurrentUser().toString());
-
-        // return list product in cart
-        List<Product> products = cartService.getCart(userService.getCurrentUserId());
-        model.addAttribute("products", products);
-
-        products.stream().forEach(System.out::println);
-        return "cart";
+        return "redirect:/cartBack";
     }
 
+    @GetMapping("/cart/incrementProduct")
+    public String incrementProduct(Model model, @RequestParam("id") Optional<Long> productId) {
+        // add product to cart
+        System.out.println("incrementProduct");
+        System.out.println(productId);
+        if (productId.isPresent()) {
+            cartService.incrementProductToCart(productId.get());
+        }
 
+        return "redirect:/cartBack";
+    }
+
+    @GetMapping("/cart/decrementProduct")
+    public String decrementProduct(Model model, @RequestParam("id") Optional<Long> productId) {
+        // add product to cart
+        System.out.println("decrementProduct");
+        System.out.println(productId);
+        if (productId.isPresent()) {
+            cartService.decrementProductToCart(productId.get());
+        }
+
+        return "redirect:/cartBack";
+    }
+
+    @GetMapping("/cart/removeProduct")
+    public String removeProduct(Model model, @RequestParam("id") Optional<Long> productId) {
+        // remove product from cart
+        System.out.println("remove productId");
+        System.out.println(productId);
+        if (productId.isPresent()) {
+            cartService.removeProductToCart(productId.get());
+        }
+
+        return "redirect:/cartBack";
+    }
 }
