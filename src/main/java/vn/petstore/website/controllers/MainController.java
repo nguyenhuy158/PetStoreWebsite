@@ -35,11 +35,6 @@ public class MainController {
         return "about";
     }
 
-    @GetMapping("/cart")
-    public String cart() {
-        return "cart";
-    }
-
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("user", new User());
