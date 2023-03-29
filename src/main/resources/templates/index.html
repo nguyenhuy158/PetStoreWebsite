@@ -41,7 +41,7 @@
         <h2 th:text="#{pet.html.hero.content.info2}"></h2>
         <h2 th:text="#{pet.html.hero.content.info3}"></h2>
         <p th:text="#{pet.html.hero.content.info4}"></p>
-        <button th:text="#{pet.html.hero.content.searchNow}">TÌM KIẾM NGAY</button>
+        <button th:text="#{pet.html.hero.content.searchNow}"></button>
     </div>
 
     <div class="slider">
@@ -57,34 +57,34 @@
 
 <section id="feature" class="section-p1">
     <div class="fe-box">
-        <img src="./img/fe1.png" alt="" class="fe-img"/>
-        <h6>Free Shipping</h6>
+        <img src="./img/fe1.png" alt="" class="fe-img" th:text="#{pet.html.feature.freeShip}"/>
+        <h6></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe2.png" alt="" class="fe-img"/>
-        <h6>Online Order</h6>
+        <img src="./img/fe2.png" alt="" class="fe-img" th:text="#{pet.html.feature.order}"/>
+        <h6></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe3.png" alt="" class="fe-img"/>
-        <h6>Save Money</h6>
+        <img src="./img/fe3.png" alt="" class="fe-img" th:text="#{pet.html.feature.saveMoney}"/>
+        <h6></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe4.png" alt="" class="fe-img"/>
-        <h6>Promotions</h6>
+        <img src="./img/fe4.png" alt="" class="fe-img" th:text="#{pet.html.feature.promotion}"/>
+        <h6></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe5.png" alt="" class="fe-img"/>
-        <h6>Happy Sell</h6>
+        <img src="./img/fe5.png" alt="" class="fe-img" th:text="#{pet.html.feature.happySell}"/>
+        <h6></h6>
     </div>
     <div class="fe-box">
-        <img src="./img/fe6.png" alt="" class="fe-img"/>
-        <h6>F24/7 Support</h6>
+        <img src="./img/fe6.png" alt="" class="fe-img" th:text="#{pet.html.feature.Support}"/>
+        <h6></h6>
     </div>
 </section>
 
 <section id="product1" class="section-p1">
     <h2 th:text="#{pet.html.title.gear}"></h2>
-    <p>Summer Collection New Morden Design</p>
+    <p th:text="#{pet.html.title.collection}"></p>
     <div th:if="${products != null}" class="pro-container">
         <div th:each="product : ${products}" class="pro">
             <!-- link to view detail -->
