@@ -1,6 +1,5 @@
 package vn.petstore.website.controllers;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,7 @@ public class CartController {
     @Autowired
     CartService cartService;
 
-    @GetMapping(value = {"/cart", "/cartBack"})
+    @GetMapping(value = { "/cart", "/cartBack" })
     public String addProduct(Model model) {
         List<CartDto> cartDtos = cartService.getCart();
         Long subtotal = cartService.getSubtotal();

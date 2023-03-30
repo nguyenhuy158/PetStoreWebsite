@@ -1,6 +1,5 @@
 package vn.petstore.website.config;
 
-
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +17,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import vn.petstore.website.services.CustomUserDetailService;
-
 
 @Configuration
 @AllArgsConstructor
@@ -38,7 +36,9 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/sign-up", "/img/**", "/css/**", "/js/**").permitAll() // Cho phép tất cả mọi người truy cập vào 2 địa chỉ này
+                .requestMatchers("/", "/sign-up", "/img/**", "/css/**", "/js/**").permitAll() // Cho phép tất cả mọi
+                                                                                              // người truy cập vào 2
+                                                                                              // địa chỉ này
                 .anyRequest().authenticated() // Tất cả các request khác đều cần phải xác thực mới được truy cập
                 .and()
                 .formLogin() // Cho phép người dùng xác thực bằng form login

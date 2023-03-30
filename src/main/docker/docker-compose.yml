@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   pet_store_3_chang_trai:
     image: mysql:8.0
@@ -9,7 +9,7 @@ services:
       - MYSQL_DATABASE=PetStore
       - MYSQL_ROOT_PASSWORD=petstoremaidinh
     ports:
-      - '3306:3306'
+      - "3306:3306"
 volumes:
   db:
     driver: local

@@ -9,11 +9,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-
 @Data
 @Entity(name = "product")
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@MappedSuperclass
+// @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+// @MappedSuperclass
 public class Product implements Serializable {
 
     @Id
@@ -52,4 +51,3 @@ public class Product implements Serializable {
 
     private String description;
 }
-

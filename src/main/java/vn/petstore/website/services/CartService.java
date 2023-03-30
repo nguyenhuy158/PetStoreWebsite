@@ -35,7 +35,9 @@ public class CartService {
     public List<CartDto> getCart() {
         List<Cart> carts = cartRepository.findAllByUserId(userService.getCurrentUserId());
 
-        List<CartDto> cartDtos = carts.stream().map(cart -> new CartDto(productService.getProductById(cart.getProductId()), cart.getQuantity())).toList();
+        List<CartDto> cartDtos = carts.stream()
+                .map(cart -> new CartDto(productService.getProductById(cart.getProductId()), cart.getQuantity()))
+                .toList();
 
         return cartDtos;
     }
@@ -43,7 +45,9 @@ public class CartService {
     public Long getSubtotal() {
         List<Cart> carts = cartRepository.findAllByUserId(userService.getCurrentUserId());
 
-        Long subTotal = carts.stream().map(cart -> cart.getQuantity() * productService.getProductById(cart.getProductId()).getPrice()).reduce((aLong, aLong2) -> aLong + aLong2).get();
+        Long subTotal = carts.stream()
+                .map(cart -> cart.getQuantity() * productService.getProductById(cart.getProductId()).getPrice())
+                .reduce((aLong, aLong2) -> aLong + aLong2).get();
 
         return subTotal;
     }
@@ -57,8 +61,9 @@ public class CartService {
     }
 
     public void addProductToCart(Long productId) {
-//        check is product is existed
-        List<Cart> allByUserIdAndProductId = cartRepository.findAllByUserIdAndProductId(userService.getCurrentUserId(), productId);
+        // check is product is existed
+        List<Cart> allByUserIdAndProductId = cartRepository.findAllByUserIdAndProductId(userService.getCurrentUserId(),
+                productId);
         Cart cart;
         if (allByUserIdAndProductId.size() != 0) {
             cart = allByUserIdAndProductId.get(0);
@@ -75,7 +80,8 @@ public class CartService {
     }
 
     public void removeProductToCart(Long productId) {
-        List<Cart> allByUserIdAndProductId = cartRepository.findAllByUserIdAndProductId(userService.getCurrentUserId(), productId);
+        List<Cart> allByUserIdAndProductId = cartRepository.findAllByUserIdAndProductId(userService.getCurrentUserId(),
+                productId);
         if (allByUserIdAndProductId.size() != 0) {
             Cart cart = allByUserIdAndProductId.get(0);
             cartRepository.delete(cart);
@@ -83,8 +89,9 @@ public class CartService {
     }
 
     public void decrementProductToCart(Long productId) {
-        //        check is product is existed
-        List<Cart> allByUserIdAndProductId = cartRepository.findAllByUserIdAndProductId(userService.getCurrentUserId(), productId);
+        // check is product is existed
+        List<Cart> allByUserIdAndProductId = cartRepository.findAllByUserIdAndProductId(userService.getCurrentUserId(),
+                productId);
         if (allByUserIdAndProductId.size() != 0) {
             Cart cart = allByUserIdAndProductId.get(0);
 
@@ -101,8 +108,9 @@ public class CartService {
     }
 
     public void incrementProductToCart(Long productId) {
-        //        check is product is existed
-        List<Cart> allByUserIdAndProductId = cartRepository.findAllByUserIdAndProductId(userService.getCurrentUserId(), productId);
+        // check is product is existed
+        List<Cart> allByUserIdAndProductId = cartRepository.findAllByUserIdAndProductId(userService.getCurrentUserId(),
+                productId);
         if (allByUserIdAndProductId.size() != 0) {
             Cart cart = allByUserIdAndProductId.get(0);
             cart.setQuantity(cart.getQuantity() + 1);

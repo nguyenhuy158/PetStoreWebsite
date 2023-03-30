@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}" />
 
     <title>Sign up</title>
 
-    <link rel="stylesheet" th:href="@{/css/login-style.css}"/>
-</head>
-<body>
-
-<div class="login-container">
-    <form th:action="@{/addUser}" th:object="${user}" method="post" class="form-login no-border">
+    <link rel="stylesheet" th:href="@{/css/login-style.css}" />
+  </head>
+  <body>
+    <div class="login-container">
+      <form th:action="@{/addUser}" th:object="${user}" method="post" class="form-login no-border">
         <ul class="login-nav">
-            <li class="login-nav__item">
-                <a th:href="@{/login}" th:text="#{pet.html.sign-up.sign-in}"></a>
-            </li>
-            <li class="login-nav__item active" th:text="#{pet.html.sign-up.signUp}">
-                <a href="#"></a>
-            </li>
+          <li class="login-nav__item">
+            <a th:href="@{/login}" th:text="#{pet.html.sign-up.sign-in}"></a>
+          </li>
+          <li class="login-nav__item active" th:text="#{pet.html.sign-up.signUp}">
+            <a href="#"></a>
+          </li>
         </ul>
 
-        <label for="login-input-user" class="login__label" th:text="#{pet.html.sign-up.username}">
-            
-        </label>
-        <input id="login-input-user" class="login__input" type="text" th:field="*{username}"/>
+        <label for="login-input-user" class="login__label" th:text="#{pet.html.sign-up.username}"> </label>
+        <input id="login-input-user" class="login__input" type="text" th:field="*{username}" />
 
-        <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.password}">
-            
-        </label>
-        <input id="login-input-password" class="login__input" type="password" th:field="*{password}"/>
+        <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.password}"> </label>
+        <input id="login-input-password" class="login__input" type="password" th:field="*{password}" />
 
-        <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.confirm}">
-            
-        </label>
-        <input id="login-input-confirmPassword" class="login__input" type="password"/>
+        <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.confirm}"> </label>
+        <input id="login-input-confirmPassword" class="login__input" type="password" />
         <button class="login__submit signup__submit" type="submit" th:text="#{pet.html.sign-up.submit}">Sign up</button>
-    </form>
-</div>
-</body>
+      </form>
+    </div>
+  </body>
 </html>

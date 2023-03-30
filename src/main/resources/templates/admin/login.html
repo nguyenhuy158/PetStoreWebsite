@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Login</title>
 
-    <link rel="stylesheet" th:href="@{/admin/login-css.css}"/>
-</head>
-<body>
-<div class="login">
-    <div class="login-screen">
+    <link rel="stylesheet" th:href="@{/admin/login-css.css}" />
+  </head>
+  <body>
+    <div class="login">
+      <div class="login-screen">
         <div class="app-title">
-            <h1>Login</h1>
+          <h1>Login</h1>
         </div>
 
         <form th:action="@{/admin/login}" th:object="${admin}" method="post" class="login-form">
-            <!-- error message -->
-            <div class="control-group" th:if="${param.fail}">
-                <div class="alert alert-danger">Invalid username or password.</div>
-            </div>
+          <!-- error message -->
+          <div class="control-group" th:if="${param.fail}">
+            <div class="alert alert-danger">Invalid username or password.</div>
+          </div>
 
-            <div class="control-group">
-                <input th:field="*{username}" type="text" class="login-field" value="" placeholder="username" id="login-name">
-                <label class="login-field-icon fui-user" for="login-name"></label>
-            </div>
+          <div class="control-group">
+            <input
+              th:field="*{username}"
+              type="text"
+              class="login-field"
+              value=""
+              placeholder="username"
+              id="login-name"
+            />
+            <label class="login-field-icon fui-user" for="login-name"></label>
+          </div>
 
-            <div class="control-group">
-                <input th:field="*{password}" type="password" class="login-field" value="" placeholder="password" id="login-pass">
-                <label class="login-field-icon fui-lock" for="login-pass"></label>
-            </div>
+          <div class="control-group">
+            <input
+              th:field="*{password}"
+              type="password"
+              class="login-field"
+              value=""
+              placeholder="password"
+              id="login-pass"
+            />
+            <label class="login-field-icon fui-lock" for="login-pass"></label>
+          </div>
 
-            <button class="btn btn-primary btn-large btn-block" type="submit">login</button>
+          <button class="btn btn-primary btn-large btn-block" type="submit">login</button>
         </form>
-
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>

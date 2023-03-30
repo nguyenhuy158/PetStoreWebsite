@@ -11,10 +11,9 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(callSuper=true)
+@ToString(callSuper = true)
 public class Gear extends Product implements Serializable {
 
     private String material;
-
 
 }

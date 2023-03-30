@@ -30,9 +30,10 @@ public class SearchController {
     @Autowired
     ProductPagingRepository productPagingRepository;
 
-    //    @GetMapping("/search")
+    // @GetMapping("/search")
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String search(Model model, @RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size) {
+    public String search(Model model, @RequestParam("page") Optional<Integer> page,
+            @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(PRODUCT_PAGE);
         int pageSize = size.orElse(PRODUCT_LIMIT);
 

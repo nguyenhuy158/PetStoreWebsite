@@ -1,177 +1,190 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}" />
 
     <title th:text="#{pet.html.title.name}"></title>
-    <link
-            rel="stylesheet"
-            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-
-    <link rel="stylesheet" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" th:href="@{/css/cart-style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/cart-style.css}" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-</head>
-<body>
-<!--nav nè-->
-<section id="header">
-    <a th:href="@{/home}">
-        <img th:src="@{/img/main_logo.png}" alt="" class="logo"/>
-    </a>
+  </head>
+  <body>
+    <!--nav nè-->
+    <section id="header">
+      <a th:href="@{/home}">
+        <img th:src="@{/img/main_logo.png}" alt="" class="logo" />
+      </a>
 
-    <div>
+      <div>
         <ul id="navbar">
-            <li><a th:href="@{/home}" th:text="#{pet.html.header.navbar.home}"></a></li>
-            <li><a th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
-            <li><a class="active" th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
-            <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
-            <li><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
+          <li><a th:href="@{/home}" th:text="#{pet.html.header.navbar.home}"></a></li>
+          <li><a th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
+          <li><a class="active" th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
+          <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
+          <li><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
         </ul>
-    </div>
-    <div id="mobile">
+      </div>
+      <div id="mobile">
         <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
         <i id="bar" class="fas fa-outdent"></i>
-    </div>
-    <!--    logout-->
-    <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
-        <input type="submit" value="Logout"/>
-    </form>
-</section>
+      </div>
+      <!--    logout-->
+      <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+        <input type="submit" value="Logout" />
+      </form>
+    </section>
 
-<!--thanh toán nè-->
-<section class="section-p1" style="margin-top: 32px;">
-
-    <div class="shopping-cart">
-
+    <!--thanh toán nè-->
+    <section class="section-p1" style="margin-top: 32px">
+      <div class="shopping-cart">
         <div class="column-labels">
-            <label class="product-removal" th:text="#{pet.html.cart.shopping-cart.handle}"></label>
-            <label class="product-image" th:text="#{pet.html.cart.shopping-cart.image}"></label>
-            <label class="product-details" th:text="#{pet.html.cart.shopping-cart.details}"></label>
-            <label class="product-price" th:text="#{pet.html.cart.shopping-cart.price}"></label>
-            <label class="product-quantity" th:text="#{pet.html.cart.shopping-cart.quantity}"></label>
-            <label class="product-line-price" th:text="#{pet.html.cart.shopping-cart.total}"></label>
+          <label class="product-removal" th:text="#{pet.html.cart.shopping-cart.handle}"></label>
+          <label class="product-image" th:text="#{pet.html.cart.shopping-cart.image}"></label>
+          <label class="product-details" th:text="#{pet.html.cart.shopping-cart.details}"></label>
+          <label class="product-price" th:text="#{pet.html.cart.shopping-cart.price}"></label>
+          <label class="product-quantity" th:text="#{pet.html.cart.shopping-cart.quantity}"></label>
+          <label class="product-line-price" th:text="#{pet.html.cart.shopping-cart.total}"></label>
         </div>
 
         <div th:each="cartDto : ${cartDtos}" class="product">
-            <div class="product-removal">
-                <button class="remove-product">
-                    <a th:href="@{/cart/removeProduct(id=${cartDto.product.id})}">Remove</a>
-                </button>
-            </div>
-            <div class="product-image">
-                <img th:src="*{cartDto.product.thumbnail?.get(0)}">
-            </div>
-            <div class="product-details">
-                <div th:text="*{cartDto.product.name}" class="product-title"></div>
-                <p th:text="*{cartDto.product.description}" class="product-description"></p>
-            </div>
-            <div th:text="*{cartDto.product.price}" class="product-price"></div>
-            <!--            <div class="product-quantity">-->
-            <!--                <input type="number" th:value="*{cartDto.quantity}" min="1">-->
-            <!--            </div>-->
-            <!-- Quantity -->
-            <div class="product-quantity quantity-number-v2 clearfix">
-                <div class="quantity-wrapper">
-                    <a style="text-decoration: none;padding: 0;height: fit-content;" class="normal" th:href="@{/cart/decrementProduct(id=${cartDto.product.id})}">
-                        <i class="add-down add-action fa fa-minus"></i>
-                    </a>
+          <div class="product-removal">
+            <button class="remove-product">
+              <a th:href="@{/cart/removeProduct(id=${cartDto.product.id})}">Remove</a>
+            </button>
+          </div>
+          <div class="product-image">
+            <img th:src="*{cartDto.product.thumbnail?.get(0)}" />
+          </div>
+          <div class="product-details">
+            <div th:text="*{cartDto.product.name}" class="product-title"></div>
+            <p th:text="*{cartDto.product.description}" class="product-description"></p>
+          </div>
+          <div th:text="*{cartDto.product.price}" class="product-price"></div>
+          <!--            <div class="product-quantity">-->
+          <!--                <input type="number" th:value="*{cartDto.quantity}" min="1">-->
+          <!--            </div>-->
+          <!-- Quantity -->
+          <div class="product-quantity quantity-number-v2 clearfix">
+            <div class="quantity-wrapper">
+              <a
+                style="text-decoration: none; padding: 0; height: fit-content"
+                class="normal"
+                th:href="@{/cart/decrementProduct(id=${cartDto.product.id})}"
+              >
+                <i class="add-down add-action fa fa-minus"></i>
+              </a>
 
-                    <input class="" disabled id="prodQuantity" type="text" name="quantity" min="1"
-                           th:value="${cartDto.quantity}"/>
+              <input
+                class=""
+                disabled
+                id="prodQuantity"
+                type="text"
+                name="quantity"
+                min="1"
+                th:value="${cartDto.quantity}"
+              />
 
-                    <a style="text-decoration: none;padding: 0;height: fit-content;" class="normal" th:href="@{/cart/incrementProduct(id=${cartDto.product.id})}">
-                        <i class="add-up add-action fa fa-plus"></i>
-                    </a>
-                </div>
-                <div id="stock" class="text-center"></div>
+              <a
+                style="text-decoration: none; padding: 0; height: fit-content"
+                class="normal"
+                th:href="@{/cart/incrementProduct(id=${cartDto.product.id})}"
+              >
+                <i class="add-up add-action fa fa-plus"></i>
+              </a>
             </div>
-            <!-- /Quantity -->
-            <!--total product price-->
-            <div th:text="${cartDto.quantity * cartDto.product.price}" class="product-line-price"></div>
+            <div id="stock" class="text-center"></div>
+          </div>
+          <!-- /Quantity -->
+          <!--total product price-->
+          <div th:text="${cartDto.quantity * cartDto.product.price}" class="product-line-price"></div>
         </div>
 
-
         <div class="totals">
-            <div class="totals-item">
-                <label th:text="#{pet.html.cart.shopping-cart.subTotal}"></label>
-                <div th:text="${subTotal}" class="totals-value" id="cart-subtotal"></div>
-            </div>
-            <div class="totals-item">
-                <label th:text="#{pet.html.cart.shopping-cart.tax}"></label>
-                <div th:text="${tax}" class="totals-value" id="cart-tax"></div>
-            </div>
-            <div class="totals-item">
-                <label th:text="#{pet.html.cart.shopping-cart.Shipping}"></label>
-                <div class="totals-value" id="cart-shipping">50000</div>
-            </div>
-            <div class="totals-item totals-item-total">
-                <label th:text="#{pet.html.cart.shopping-cart.grandTotal}"></label>
-                <div th:text="${grandTotal}" class="totals-value" id="cart-total"></div>
-            </div>
+          <div class="totals-item">
+            <label th:text="#{pet.html.cart.shopping-cart.subTotal}"></label>
+            <div th:text="${subTotal}" class="totals-value" id="cart-subtotal"></div>
+          </div>
+          <div class="totals-item">
+            <label th:text="#{pet.html.cart.shopping-cart.tax}"></label>
+            <div th:text="${tax}" class="totals-value" id="cart-tax"></div>
+          </div>
+          <div class="totals-item">
+            <label th:text="#{pet.html.cart.shopping-cart.Shipping}"></label>
+            <div class="totals-value" id="cart-shipping">50000</div>
+          </div>
+          <div class="totals-item totals-item-total">
+            <label th:text="#{pet.html.cart.shopping-cart.grandTotal}"></label>
+            <div th:text="${grandTotal}" class="totals-value" id="cart-total"></div>
+          </div>
         </div>
 
         <button class="checkout" th:text="#{pet.html.cart.shopping-cart.order}"></button>
-
-    </div>
-</section>
-<!--footer nè-->
-<footer class="section-p1">
-    <div class="col">
-        <img th:src="@{/img/main_logo.png}" alt="" class="logo"/>
+      </div>
+    </section>
+    <!--footer nè-->
+    <footer class="section-p1">
+      <div class="col">
+        <img th:src="@{/img/main_logo.png}" alt="" class="logo" />
         <h4 th:text="#{pet.html.footer.contact.name}"></h4>
         <p>
-            <strong th:text="#{pet.html.footer.contact.address}"></strong>
-            <span th:text="#{pet.html.footer.contact.address.value}"></span>
+          <strong th:text="#{pet.html.footer.contact.address}"></strong>
+          <span th:text="#{pet.html.footer.contact.address.value}"></span>
         </p>
         <p>
-            <strong th:text="#{pet.html.footer.contact.phone}"></strong>
-            <span th:text="#{pet.html.footer.contact.phone.value}"></span>
+          <strong th:text="#{pet.html.footer.contact.phone}"></strong>
+          <span th:text="#{pet.html.footer.contact.phone.value}"></span>
         </p>
         <p>
-            <strong th:text="#{pet.html.footer.contact.hours}"></strong>
-            <span th:text="#{pet.html.footer.contact.hours.value}"></span>
+          <strong th:text="#{pet.html.footer.contact.hours}"></strong>
+          <span th:text="#{pet.html.footer.contact.hours.value}"></span>
         </p>
         <div class="follow">
-            <h4 th:text="#{pet.html.footer.follow}"></h4>
-            <div class="icon">
-                <a th:href="@{https://fb.com/nguyenhuy158}">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a th:href="@{https://github.com/nguyenhuy158/}">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a th:href="@{https://www.youtube.com/@ntqhuy2k2}">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
+          <h4 th:text="#{pet.html.footer.follow}"></h4>
+          <div class="icon">
+            <a th:href="@{https://fb.com/nguyenhuy158}">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a th:href="@{https://github.com/nguyenhuy158/}">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a th:href="@{https://www.youtube.com/@ntqhuy2k2}">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="col">
+      <div class="col">
         <h4 th:text="#{pet.html.footer.about}"></h4>
         <a th:href="@{/about}" th:text="#{pet.html.footer.about}"></a>
         <a th:href="@{/home}" th:text="#{pet.html.footer.delivery}"></a>
         <a th:href="@{/home}" th:text="#{pet.html.footer.policy}"></a>
         <a th:href="@{/home}" th:text="#{pet.html.footer.term}"></a>
-    </div>
+      </div>
 
-    <div class="col">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.023524698755!2d106.69758091388026!3d10.732668892351265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fbd7d343a57%3A0xb5ca26918dff0578!2zMTkgxJAuIE5ndXnhu4VuIEjhu691IFRo4buNLCBUw6JuIEjGsG5nLCBRdeG6rW4gNywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1680063686308!5m2!1sen!2s"
-                width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+      <div class="col">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.023524698755!2d106.69758091388026!3d10.732668892351265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fbd7d343a57%3A0xb5ca26918dff0578!2zMTkgxJAuIE5ndXnhu4VuIEjhu691IFRo4buNLCBUw6JuIEjGsG5nLCBRdeG6rW4gNywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1680063686308!5m2!1sen!2s"
+          width="500"
+          height="250"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
 
-    <div class="copyright">
+      <div class="copyright">
         <p th:text="#{pet.html.footer.copyright}"></p>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script th:src="@{/js/script.js}"></script>
-<script th:src="@{/js/cart.js}"></script>
-</body>
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/cart.js}"></script>
+  </body>
 </html>

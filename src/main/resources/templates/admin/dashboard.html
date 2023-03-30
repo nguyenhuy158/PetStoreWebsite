@@ -1,36 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-Dashboard
+  </head>
+  <body>
+    Dashboard
 
-<form th:action="@{/addProduct}" th:object="${product}" method="post">
-    amount: <input type="text" th:field="*{amount}"/>
-    <br/>
-    name: <input type="text" th:field="*{name}"/>
-    <br/>
-    price: <input type="text" th:field="*{price}"/>
-    <br/>
-    rating: <input type="text" th:field="*{rating}"/>
-    <br/>
-    source: <input type="text" th:field="*{source}"/>
-    <br/>
-    status: <input type="text" th:field="*{status}"/>
-    <br/>
-    thumbnail: <input type="text" th:field="*{thumbnail}"/>
-    <br/>
-    material: <input type="text" th:field="*{material}"/>
-    <br/>
-<!--    catelogy id: <input type="text" th:field="*{catelogyId}"/>-->
-    <br/>
-    <input type="submit" value="Submit"/>
-    <br/>
-</form>
-</body>
+    <form th:action="@{/addProduct}" th:object="${product}" method="post">
+      amount: <input type="text" th:field="*{amount}" />
+      <br />
+      name: <input type="text" th:field="*{name}" />
+      <br />
+      price: <input type="text" th:field="*{price}" />
+      <br />
+      rating: <input type="text" th:field="*{rating}" />
+      <br />
+      source: <input type="text" th:field="*{source}" />
+      <br />
+      status: <input type="text" th:field="*{status}" />
+      <br />
+      thumbnail: <input type="text" th:field="*{thumbnail}" />
+      <br />
+      material: <input type="text" th:field="*{material}" />
+      <br />
+      <!--    catelogy id: <input type="text" th:field="*{catelogyId}"/>-->
+      <br />
+      <input type="submit" value="Submit" />
+      <br />
+    </form>
+  </body>
 </html>

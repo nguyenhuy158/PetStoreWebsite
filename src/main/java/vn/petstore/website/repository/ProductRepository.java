@@ -11,11 +11,13 @@ import vn.petstore.website.model.Product;
 
 @Component
 @Repository
-//public interface ProductRepository<T extends Product> extends CrudRepository<T, Long> {
+// public interface ProductRepository<T extends Product> extends
+// CrudRepository<T, Long> {
 public interface ProductRepository extends JpaRepository<Product, Long> {
-//    @Query(value = "SELECT * FROM Product p WHERE p.name = :name and p.age = :age", nativeQuery = true)
-//    Pet findByNamedAndAgeNative(@Param("name") Integer name, @Param("age") String age);
+    // @Query(value = "SELECT * FROM Product p WHERE p.name = :name and p.age =
+    // :age", nativeQuery = true)
+    // Pet findByNamedAndAgeNative(@Param("name") Integer name, @Param("age") String
+    // age);
 
-
-//    <S extends Product> S save(Pet entity);
+    // <S extends Product> S save(Pet entity);
 }

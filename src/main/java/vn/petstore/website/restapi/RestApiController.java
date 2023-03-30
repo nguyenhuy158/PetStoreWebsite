@@ -36,19 +36,19 @@ public class RestApiController {
 
     @PostConstruct
     public void init() {
-//        adminRepository.save(new Admin("admin", "admin", 0));
-//        Product gear = new Gear("plastic");
-//        ArrayList<String> strings = new ArrayList<>();
-//        strings.add("https://t.ly/MrUp");
-//        strings.add("https://t.ly/uC8e");
-//        gear.setThumbnail(strings);
-//        gear.setName("Vong co");
-//        gear.setPrice(1000);
-//        Category category = new Category();
-//        category.setName("trang bi");
-//        categoryRepository.save(category);
-//        gear.setCategory(category);
-//        productRepository.save(gear);
+        // adminRepository.save(new Admin("admin", "admin", 0));
+        // Product gear = new Gear("plastic");
+        // ArrayList<String> strings = new ArrayList<>();
+        // strings.add("https://t.ly/MrUp");
+        // strings.add("https://t.ly/uC8e");
+        // gear.setThumbnail(strings);
+        // gear.setName("Vong co");
+        // gear.setPrice(1000);
+        // Category category = new Category();
+        // category.setName("trang bi");
+        // categoryRepository.save(category);
+        // gear.setCategory(category);
+        // productRepository.save(gear);
     }
 
     @GetMapping("/product")

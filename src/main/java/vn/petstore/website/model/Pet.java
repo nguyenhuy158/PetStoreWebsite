@@ -1,6 +1,5 @@
 package vn.petstore.website.model;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +16,7 @@ import java.util.List;
 @Data
 @Entity(name = "pet")
 @EqualsAndHashCode(callSuper = true)
-@ToString(callSuper=true)
+@ToString(callSuper = true)
 public class Pet extends Product implements Serializable {
     private Integer age;
 }
