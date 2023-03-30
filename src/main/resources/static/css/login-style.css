@@ -20,7 +20,7 @@ body {
   padding: 4rem 4rem 0 4rem;
   width: 100%;
   max-width: 525px;
-  min-height: 680px;
+  min-height: 525px;
   background-image: url(https://sun9-40.userapi.com/impg/ifqgldo3hiVQnWWDfd3QX8axrcJW7X1Nxrl_FQ/eP3IoHvBBUs.jpg?size=525x680&quality=96&sign=09ad62cccabdeedb8a5807ac4c9abc2a&type=album);
   box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85);
   border-radius: 5%;
@@ -50,7 +50,6 @@ body {
   position: relative;
   z-index: 1;
   padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 /* =============== CSS for navbar and child nav class ===============*/
@@ -218,4 +217,7 @@ body {
   display: block;
   color: red;
   text-align: center;
+}
+.active {
+  pointer-events: none;
 }
