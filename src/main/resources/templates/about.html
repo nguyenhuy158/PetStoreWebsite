@@ -41,16 +41,16 @@
 </section>
 
 <section id="page-header" class="about-header">
-    <h2>MỤC TIÊU</h2>
-    <p>Đây là sản phẩm đồ án dùng để nghiên cứu không phải để kinh doanh.</p>
+    <h2 th:text="#{pet.html.about.title}"></h2>
+    <p th:text="#{pet.html.about.title-description}"></p>
 </section>
 
 <section id="about-head" class="section-p1">
     <img th:src="@{/img/about.png}" alt=""/>
     <div>
         <br/>
-        <h2>Về chúng tôi?</h2>
-        <p>
+        <h2 th:text="#{pet.html.about.aboutUs}"></h2>
+        <p  th:text="#{pet.html.about.aboutUs.details}">
             Ba sinh viên IT tại trường Tôn Đức Thắng đã nỗ lực hết sức để hoàn thành đồ án của mình. Họ là những học sinh có tinh thần sáng tạo và tính kiên trì cao, luôn tìm cách để giải quyết các vấn đề phức tạp bằng cách nghiên cứu và phát triển công nghệ mới. Dù đôi khi gặp khó khăn, nhưng ba sinh viên đều tin tưởng rằng bằng sự cố gắng và chăm chỉ, họ sẽ hoàn thành đồ án một cách xuất sắc với một câu Slogan:
 
         </p>

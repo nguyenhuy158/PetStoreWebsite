@@ -16,28 +16,28 @@
     <form th:action="@{/addUser}" th:object="${user}" method="post" class="form-login no-border">
         <ul class="login-nav">
             <li class="login-nav__item">
-                <a th:href="@{/login}">Sign In</a>
+                <a th:href="@{/login}" th:text="#{pet.html.sign-up.sign-in}"></a>
             </li>
-            <li class="login-nav__item active">
-                <a href="#">Sign Up</a>
+            <li class="login-nav__item active" th:text="#{pet.html.sign-up.signUp}">
+                <a href="#"></a>
             </li>
         </ul>
 
-        <label for="login-input-user" class="login__label">
-            Username
+        <label for="login-input-user" class="login__label" th:text="#{pet.html.sign-up.username}">
+            
         </label>
         <input id="login-input-user" class="login__input" type="text" th:field="*{username}"/>
 
-        <label for="login-input-password" class="login__label">
-            Password
+        <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.password}">
+            
         </label>
         <input id="login-input-password" class="login__input" type="password" th:field="*{password}"/>
 
-        <label for="login-input-password" class="login__label">
-            Confirm Password
+        <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.confirm}">
+            
         </label>
         <input id="login-input-confirmPassword" class="login__input" type="password"/>
-        <button class="login__submit signup__submit" type="submit">Sign up</button>
+        <button class="login__submit signup__submit" type="submit" th:text="#{pet.html.sign-up.submit}">Sign up</button>
     </form>
 </div>
 </body>

@@ -161,26 +161,36 @@ body {
 #hero h2 {
   font-size: 35px;
   padding-bottom: 15px;
+  font-weight: 700;
 }
 
 #hero h3 {
   padding-bottom: 10px;
   font-size: 20px;
+  font-weight: 700;
+}
+
+#hero p {
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 #hero button {
+  width: fit-content;
   background-image: url(./img/button.png);
   background-size: 150px;
   background-position-x: center;
   background-position-y: center;
-  background-color: transparent;
+  background-color: #cce7d0;
   color: #088178;
+  border-radius: 20px;
   border: 0;
   padding: 14px 80px 14px 65px;
   background-repeat: no-repeat;
   cursor: pointer;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* ========== Slider ========== */
@@ -201,7 +211,7 @@ body {
 }
 
 .w3-display-container img {
-  width: 70%;
+  width: 75%;
   border-radius: 10%;
 }
 
@@ -295,6 +305,7 @@ body {
 
 #product1 {
   text-align: center;
+  font-weight: 700;
 }
 
 #product1 .pro-container {

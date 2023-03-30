@@ -49,12 +49,12 @@
     <div class="shopping-cart">
 
         <div class="column-labels">
-            <label class="product-removal">Handle</label>
-            <label class="product-image">Image</label>
-            <label class="product-details">Product</label>
-            <label class="product-price">Price</label>
-            <label class="product-quantity">Quantity</label>
-            <label class="product-line-price">Total</label>
+            <label class="product-removal" th:text="#{pet.html.cart.shopping-cart.handle}"></label>
+            <label class="product-image" th:text="#{pet.html.cart.shopping-cart.image}"></label>
+            <label class="product-details" th:text="#{pet.html.cart.shopping-cart.details}"></label>
+            <label class="product-price" th:text="#{pet.html.cart.shopping-cart.price}"></label>
+            <label class="product-quantity" th:text="#{pet.html.cart.shopping-cart.quantity}"></label>
+            <label class="product-line-price" th:text="#{pet.html.cart.shopping-cart.total}"></label>
         </div>
 
         <div th:each="cartDto : ${cartDtos}" class="product">
@@ -98,24 +98,24 @@
 
         <div class="totals">
             <div class="totals-item">
-                <label>Subtotal</label>
+                <label th:text="#{pet.html.cart.shopping-cart.subTotal}"></label>
                 <div th:text="${subTotal}" class="totals-value" id="cart-subtotal"></div>
             </div>
             <div class="totals-item">
-                <label>Tax (5%)</label>
+                <label th:text="#{pet.html.cart.shopping-cart.tax}"></label>
                 <div th:text="${tax}" class="totals-value" id="cart-tax"></div>
             </div>
             <div class="totals-item">
-                <label>Shipping</label>
+                <label th:text="#{pet.html.cart.shopping-cart.Shipping}"></label>
                 <div class="totals-value" id="cart-shipping">50000</div>
             </div>
             <div class="totals-item totals-item-total">
-                <label>Grand Total</label>
+                <label th:text="#{pet.html.cart.shopping-cart.grandTotal}"></label>
                 <div th:text="${grandTotal}" class="totals-value" id="cart-total"></div>
             </div>
         </div>
 
-        <button class="checkout">Checkout</button>
+        <button class="checkout" th:text="#{pet.html.cart.shopping-cart.order}"></button>
 
     </div>
 </section>

@@ -56,10 +56,10 @@
         <img th:src="@{/img/slider/slider_img1.jpg}" alt="Slider Image" class="mySlides fade">
         <img th:src="@{/img/slider/slider_img2.jpg}" alt="Slider Image" class="mySlides fade">
         <img th:src="@{/img/slider/slider_img3.jpg}" alt="Slider Image" class="mySlides fade">
-        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:70%">
+        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:75%">
             <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
             <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
-            <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
+            <span class="w3-ba*---dge demo w3-border w3-transparent w3-hover-white"></span>/
     </div>
 </section>
 
@@ -92,7 +92,7 @@
 
 <section id="product1" class="section-p1">
     <h2 th:text="#{pet.html.title.gear}"></h2>
-    <p th:text="#{pet.html.title.collection}"></p>
+    <p th:text="#{pet.html.title.collection}" style="font-size: 18px; padding-top: 5px"></p>
     <div th:if="${products != null}" class="pro-container">
         <div th:each="product : ${products}" class="pro">
             <!-- link to view detail -->
