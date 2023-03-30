@@ -2,21 +2,11 @@ package vn.petstore.website.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import vn.petstore.website.model.Cart;
 import vn.petstore.website.model.CartDto;
-import vn.petstore.website.model.Product;
 import vn.petstore.website.repository.CartRepository;
-import vn.petstore.website.repository.ProductRepository;
-
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
-
 import static vn.petstore.website.constances.Const.SHIPPING;
 
 @Service
@@ -32,8 +22,12 @@ public class CartService {
     @Autowired
     UserService userService;
 
+    private List<Cart> getCarts() {
+        return cartRepository.findAllByUserId(userService.getCurrentUserId());
+    }
+
     public List<CartDto> getCart() {
-        List<Cart> carts = cartRepository.findAllByUserId(userService.getCurrentUserId());
+        List<Cart> carts = getCarts();
 
         List<CartDto> cartDtos = carts.stream()
                 .map(cart -> new CartDto(productService.getProductById(cart.getProductId()), cart.getQuantity()))
@@ -43,13 +37,18 @@ public class CartService {
     }
 
     public Long getSubtotal() {
-        List<Cart> carts = cartRepository.findAllByUserId(userService.getCurrentUserId());
+        List<Cart> carts = getCarts();
 
-        Long subTotal = carts.stream()
-                .map(cart -> cart.getQuantity() * productService.getProductById(cart.getProductId()).getPrice())
-                .reduce((aLong, aLong2) -> aLong + aLong2).get();
+        carts.forEach(System.out::println);
 
-        return subTotal;
+        if (carts.size() != 0) {
+            Long subTotal = carts.stream()
+                    .map(cart -> cart.getQuantity() * productService.getProductById(cart.getProductId()).getPrice())
+                    .reduce((aLong, aLong2) -> aLong + aLong2).get();
+            return subTotal;
+        } else {
+            return 0L;
+        }
     }
 
     public Double getTax() {
