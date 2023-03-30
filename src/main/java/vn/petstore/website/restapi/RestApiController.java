@@ -13,7 +13,6 @@ import vn.petstore.website.repository.ProductRepository;
 import vn.petstore.website.repository.UserRepository;
 import vn.petstore.website.services.ProductService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

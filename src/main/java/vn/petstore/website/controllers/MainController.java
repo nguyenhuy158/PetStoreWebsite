@@ -7,13 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.petstore.website.model.Product;
 import vn.petstore.website.model.User;
-import vn.petstore.website.repository.UserRepository;
 import vn.petstore.website.services.ProductService;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-
 import static vn.petstore.website.constances.Const.PRODUCT_LIMIT;
 
 @Controller
