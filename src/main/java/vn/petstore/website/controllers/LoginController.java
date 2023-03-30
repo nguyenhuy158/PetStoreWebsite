@@ -24,8 +24,6 @@ public class LoginController {
 
         User byUserName = userRepository.findByUsername(user.getUsername());
         if (byUserName == null) {
-            System.out.println("user ne" + user.toString());
-            userRepository.findAll().forEach(System.out::println);
             userRepository.save(user);
         } else {
 

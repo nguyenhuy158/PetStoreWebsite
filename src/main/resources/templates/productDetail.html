@@ -55,10 +55,13 @@
       <h4 th:text="*{product.name}"></h4>
       <h2 th:text="${#numbers.formatCurrency(product.price)}" class=""></h2>
 
-      <input type="number" value="1" min="1" />
-      <a style="text-decoration: none" class="normal" th:href="@{/cart/addProduct(id=${product.id})}">
-        Thêm vào giỏ hàng
-      </a>
+      <form th:action="@{/cart/addProduct(id=${product.id})}" th:object="${cartOnlyQuantity}" method="post">
+        <input type="number" value="1" min="1" th:field="*{quantity}" />
+        <!-- <a style="text-decoration: none" class="normal" th:href="@{/cart/addProduct(id=${product.id})}">
+          Thêm vào giỏ hàng
+        </a> -->
+        <input type="submit" value="Thêm vào giỏ hàng" class="normal">
+      </form>
       <h4>Mô tả sản phẩm</h4>
       <span th:text="*{product.description}"> </span>
     </div>

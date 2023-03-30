@@ -5,7 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import vn.petstore.website.model.Cart;
 import vn.petstore.website.model.CartDto;
 import vn.petstore.website.services.CartService;
 import vn.petstore.website.services.UserService;
@@ -34,17 +38,30 @@ public class CartController {
         model.addAttribute("grandTotal", grandTotal);
         model.addAttribute("tax", tax);
 
-        cartDtos.stream().forEach(System.out::println);
         return "cart";
     }
 
     @GetMapping("/cart/addProduct")
-    public String addProduct(Model model, @RequestParam("id") Optional<Long> productId) {
+    public String getAddProduct(Model model, @RequestParam("id") Optional<Long> productId) {
         // add product to cart
-        System.out.println("add productId");
-        System.out.println(productId);
+        System.out.println("get to add productId");
+        System.out.println(productId.get());
         if (productId.isPresent()) {
-            cartService.addProductToCart(productId.get());
+            cartService.addProductToCartWithQuantity(productId.get(), 1L);
+        }
+
+        return "redirect:/cartBack";
+    }
+
+    @PostMapping("/cart/addProduct")
+    public String postAddProduct(@ModelAttribute Cart cartOnlyQuantity, Model model,
+            @RequestParam("id") Optional<Long> productId) {
+        // remove product from cart
+        System.out.println("post to add product by productId");
+        System.out.println(productId.get());
+        System.out.println("quantity" + cartOnlyQuantity.getQuantity().toString());
+        if (productId.isPresent()) {
+            cartService.addProductToCartWithQuantity(productId.get(), cartOnlyQuantity.getQuantity());
         }
 
         return "redirect:/cartBack";
@@ -54,7 +71,7 @@ public class CartController {
     public String incrementProduct(Model model, @RequestParam("id") Optional<Long> productId) {
         // add product to cart
         System.out.println("incrementProduct");
-        System.out.println(productId);
+        System.out.println(productId.get());
         if (productId.isPresent()) {
             cartService.incrementProductToCart(productId.get());
         }
@@ -66,7 +83,7 @@ public class CartController {
     public String decrementProduct(Model model, @RequestParam("id") Optional<Long> productId) {
         // add product to cart
         System.out.println("decrementProduct");
-        System.out.println(productId);
+        System.out.println(productId.get());
         if (productId.isPresent()) {
             cartService.decrementProductToCart(productId.get());
         }
@@ -75,10 +92,10 @@ public class CartController {
     }
 
     @GetMapping("/cart/removeProduct")
-    public String removeProduct(Model model, @RequestParam("id") Optional<Long> productId) {
+    public String getRemoveProduct(Model model, @RequestParam("id") Optional<Long> productId) {
         // remove product from cart
         System.out.println("remove productId");
-        System.out.println(productId);
+        System.out.println(productId.get());
         if (productId.isPresent()) {
             cartService.removeProductToCart(productId.get());
         }

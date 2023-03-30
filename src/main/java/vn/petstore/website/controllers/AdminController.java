@@ -28,8 +28,6 @@ public class AdminController {
     @PostMapping("/admin/login")
     public String isAdmin(@ModelAttribute Admin admin) {
         System.out.println("post ne");
-        System.out.println(admin.toString());
-        System.out.println(adminService.isValid(admin));
 
         if (adminService.isValid(admin)) {
             return "redirect:/admin/dashboard";

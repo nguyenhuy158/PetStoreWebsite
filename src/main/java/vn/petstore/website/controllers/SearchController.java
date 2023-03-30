@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import vn.petstore.website.model.Cart;
 import vn.petstore.website.model.Product;
 import vn.petstore.website.repository.ProductPagingRepository;
 import vn.petstore.website.services.ProductService;
@@ -62,6 +64,7 @@ public class SearchController {
         System.out.println(productById);
 
         model.addAttribute("product", productById);
+        model.addAttribute("cartOnlyQuantity", new Cart());
 
         return "productDetail";
     }

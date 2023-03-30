@@ -39,8 +39,6 @@ public class CartService {
     public Long getSubtotal() {
         List<Cart> carts = getCarts();
 
-        carts.forEach(System.out::println);
-
         if (carts.size() != 0) {
             Long subTotal = carts.stream()
                     .map(cart -> cart.getQuantity() * productService.getProductById(cart.getProductId()).getPrice())
@@ -59,21 +57,19 @@ public class CartService {
         return getSubtotal() + getTax() + SHIPPING;
     }
 
-    public void addProductToCart(Long productId) {
+    public void addProductToCartWithQuantity(Long productId, Long quantity) {
         // check is product is existed
         List<Cart> allByUserIdAndProductId = cartRepository.findAllByUserIdAndProductId(userService.getCurrentUserId(),
                 productId);
         Cart cart;
         if (allByUserIdAndProductId.size() != 0) {
             cart = allByUserIdAndProductId.get(0);
-            cart.setQuantity(cart.getQuantity() + 1);
-
-            System.out.println(cart.toString());
-            System.out.println("cart exited");
+            cart.setQuantity(cart.getQuantity() + quantity);
         } else {
             cart = new Cart();
             cart.setUserId(userService.getCurrentUserId());
             cart.setProductId(productId);
+            cart.setQuantity(quantity + 0L);
         }
         cartRepository.save(cart);
     }
@@ -101,8 +97,6 @@ public class CartService {
             cart.setQuantity(cart.getQuantity() - 1);
 
             cartRepository.save(cart);
-            System.out.println(cart.toString());
-            System.out.println("cart exited");
         }
     }
 
@@ -115,8 +109,7 @@ public class CartService {
             cart.setQuantity(cart.getQuantity() + 1);
 
             cartRepository.save(cart);
-            System.out.println(cart.toString());
-            System.out.println("cart exited");
         }
     }
+
 }
