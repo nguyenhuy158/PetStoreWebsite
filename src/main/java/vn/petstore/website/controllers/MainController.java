@@ -31,18 +31,6 @@ public class MainController {
         return "about";
     }
 
-    @GetMapping("/login")
-    public String login(Model model) {
-        model.addAttribute("user", new User());
-        return "login";
-    }
-
-    @GetMapping("/sign-up")
-    public String signUp(Model model) {
-        model.addAttribute("user", new User());
-        return "sign-up";
-    }
-
     @GetMapping("/error")
     public String error() {
         return "error";

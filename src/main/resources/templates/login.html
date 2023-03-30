@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}" />
 
-    <title>Login</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}" />
 
-    <link rel="stylesheet" th:href="@{/css/login-style.css}" />
-  </head>
-  <body>
-    <div class="login-container">
-      <form th:action="@{/login}" th:object="${user}" method="post" class="form-login">
-        <ul class="login-nav">
-          <li class="login-nav__item active">
-            <a href="#" th:text="#{pet.html.login.sign-in}"></a>
-          </li>
-          <li class="login-nav__item">
-            <a th:href="@{/sign-up}" th:text="#{pet.html.login.signUp}"></a>
-          </li>
-        </ul>
+  <title>Login</title>
 
-        <label for="login-input-user" class="login__label" th:text="#{pet.html.login.username}"> </label>
-        <input id="login-input-user" class="login__input" type="text" th:field="*{username}" />
+  <link rel="stylesheet" th:href="@{/css/login-style.css}" />
+</head>
 
-        <label for="login-input-password" class="login__label" th:text="#{pet.html.login.password}"> </label>
-        <input id="login-input-password" class="login__input" type="password" th:field="*{password}" />
+<body>
+  <div class="login-container">
+    <form th:action="@{/login}" th:object="${user}" method="post" class="form-login">
+      <ul class="login-nav">
+        <li class="login-nav__item active">
+          <a href="#" th:text="#{pet.html.login.sign-in}"></a>
+        </li>
+        <li class="login-nav__item">
+          <a th:href="@{/sign-up}" th:text="#{pet.html.login.signUp}"></a>
+        </li>
+      </ul>
 
-        <!--login fail nè-->
-        <label
-          for="login-input-password"
-          th:text="#{pet.html.login.invalid}"
-          class="login__label hidden_text"
-          th:classappend="${param.fail} ? login_error : login_success"
-        >
-        </label>
+      <label for="login-input-user" class="login__label" th:text="#{pet.html.login.username}"> </label>
+      <input id="login-input-user" class="login__input" type="text" th:field="*{username}" />
 
-        <button class="login__submit" type="submit" th:text="#{pet.html.login.submit}"></button>
-      </form>
-      <a href="#" class="login__forgot" th:text="#{pet.html.login.forgotPwd}">Forgot Password?</a>
-    </div>
-  </body>
+      <label for="login-input-password" class="login__label" th:text="#{pet.html.login.password}"> </label>
+      <input id="login-input-password" class="login__input" type="password" th:field="*{password}" />
+
+      <!--login fail nè-->
+      <label for="login-input-password" th:text="#{pet.html.login.invalid}" class="login__label hidden_text"
+        th:classappend="${param.fail} ? login_error : login_success">
+      </label>
+
+      <button class="login__submit" type="submit" th:text="#{pet.html.login.submit}"></button>
+    </form>
+    <!-- <a href="#" class="login__forgot" th:text="#{pet.html.login.forgotPwd}">Forgot Password?</a> -->
+  </div>
+</body>
+
 </html>
