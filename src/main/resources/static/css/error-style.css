@@ -315,7 +315,7 @@ body {
   width: 500px;
   position: absolute;
   top: 65%;
-  left: 63%;
+  left: 65%;
   margin-top: -100px;
   margin-left: 50px;
   color: #fff;
@@ -331,7 +331,7 @@ body {
   margin-top: 40px;
 }
 .buttons-con .action-link-wrap a {
-  background: #5a5c6c;
+  background: #8a8a8d;
   padding: 8px 25px;
   border-radius: 4px;
   color: #fff;
@@ -344,7 +344,7 @@ body {
 }
 .buttons-con .action-link-wrap a:hover {
   background: #dadade;
-  color: #2c7570;
+  color: #3eafa8;
 }
 
 #Polygon-1,

@@ -3,8 +3,8 @@
 <div class="message-box">
   <div class="buttons-con">
     <div class="action-link-wrap">
-      <a onclick="history.back(-1)" class="link-button link-back-button">Go Back</a>
-      <a th:href="@{/home}" class="link-button">Go to Home Page</a>
+      <a onclick="history.back(-1)" class="link-button link-back-button" th:text="#{pet.html.goBack}">Go Back</a>
+      <a th:href="@{/home}" class="link-button" th:text="#{pet.html.goToHomePage}">Go to Home Page</a>
     </div>
   </div>
 </div>
