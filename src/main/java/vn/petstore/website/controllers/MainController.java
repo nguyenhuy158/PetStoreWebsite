@@ -1,12 +1,15 @@
 package vn.petstore.website.controllers;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.petstore.website.model.Product;
+import vn.petstore.website.model.User;
 import vn.petstore.website.services.ProductService;
+import vn.petstore.website.services.UserService;
 
 import java.util.List;
 import static vn.petstore.website.constances.Const.PRODUCT_LIMIT;
@@ -18,10 +21,17 @@ public class MainController {
     @Autowired
     ProductService productService;
 
+    @Autowired
+    UserService userService;
+
     @GetMapping(value = { "/", "/home" })
     public String index(Model model) {
         List<Product> allProducts = productService.getAllProducts(PRODUCT_LIMIT);
         model.addAttribute("products", allProducts);
+
+        User user = userService.getCurrentUser();
+
+        model.addAttribute("isLogout", user);
         return "index";
     }
 

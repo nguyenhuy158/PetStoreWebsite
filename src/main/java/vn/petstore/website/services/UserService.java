@@ -11,10 +11,14 @@ import vn.petstore.website.model.User;
 @RequiredArgsConstructor
 public class UserService {
     public User getCurrentUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        CustomUserDetails currentUser = (CustomUserDetails) authentication.getPrincipal();
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            CustomUserDetails currentUser = (CustomUserDetails) authentication.getPrincipal();
 
-        return currentUser.getUser();
+            return currentUser.getUser();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public Long getCurrentUserId() {
