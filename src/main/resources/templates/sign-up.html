@@ -14,7 +14,8 @@
 
 <body>
   <div class="login-container">
-    <form th:action="@{/sign-up}" th:object="${user}" method="post" class="form-login no-border">
+    <form th:action="@{/sign-up}" th:object="${user}" method="post" class="form-login no-border"
+      onsubmit="return validate()">
       <ul class="login-nav">
         <li class="login-nav__item">
           <a th:href="@{/login}" th:text="#{pet.html.sign-up.sign-in}"></a>
@@ -24,17 +25,49 @@
         </li>
       </ul>
 
-      <label for="login-input-user" class="login__label" th:text="#{pet.html.sign-up.username}"> </label>
-      <input id="login-input-user" class="login__input" type="text" th:field="*{username}" />
+      <label for="login-input-user" class="login__label" th:text="#{pet.html.sign-up.username}"></label>
+      <input class="login__input" type="text" th:field="*{username}" onchange="removeError()" />
 
-      <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.password}"> </label>
-      <input id="login-input-password" class="login__input" type="password" th:field="*{password}" />
+      <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.password}"></label>
+      <input id="pwd" class="login__input" type="password" th:field="*{password}" onmouseout="validate_password()"
+        onkeyup="validate_password()" onchange="removeError()" />
 
-      <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.confirm}"> </label>
-      <input id="login-input-confirmPassword" class="login__input" type="password" />
-      <button class="login__submit signup__submit" type="submit" th:text="#{pet.html.sign-up.submit}">Sign up</button>
+      <label for="login-input-password" class="login__label" th:text="#{pet.html.sign-up.confirm}"></label>
+      <input id="cpwd" class="login__input" type="password" onmouseout="validate_password()"
+        onkeyup="validate_password()" onchange="removeError()" />
+
+      <span id="wrong_pass_alert"></span>
+      <span th:if="${param.fail}" class="wrong_alert">Invalid username and password.</span>
+
+      <button id="create" class="login__submit signup__submit" type="submit" th:text="#{pet.html.sign-up.submit}">
+        Sign up
+      </button>
     </form>
   </div>
+
+  <script>
+    function removeError() {
+      document.getElementsByClassName('wrong_alert')[0].innerHTML = "";
+    }
+
+    function validate_password() {
+      var pass = document.getElementById('pwd').value;
+      var confirm_pass = document.getElementById('cpwd').value;
+      if (pass != confirm_pass || pass == '') {
+        document.getElementById('wrong_pass_alert').style.color = 'red';
+        document.getElementById('wrong_pass_alert').innerHTML
+          = '☒ Use same password';
+        document.getElementById('create').disabled = true;
+        document.getElementById('create').style.opacity = (0.4);
+      } else {
+        document.getElementById('wrong_pass_alert').style.color = 'green';
+        document.getElementById('wrong_pass_alert').innerHTML =
+          '🗹 Password Matched';
+        document.getElementById('create').disabled = false;
+        document.getElementById('create').style.opacity = (1);
+      }
+    }
+  </script>
 </body>
 
 </html>

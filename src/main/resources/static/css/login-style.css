@@ -221,3 +221,11 @@ body {
 .active {
   pointer-events: none;
 }
+
+#wrong_pass_alert,
+.wrong_alert {
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+  display: block;
+}

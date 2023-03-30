@@ -36,7 +36,11 @@ public class SignInSignUpController {
     @RequestMapping(value = "/sign-up", method = RequestMethod.POST)
     public String addUser(@ModelAttribute User user) {
         System.out.println("add user post");
-        System.out.println(user.toString());
+
+        if (user.getUsername().equals("") || user.getPassword().equals("")) {
+            return "redirect:sign-up?fail";
+        }
+
         String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
         user.setPassword(encodedPassword);
 
@@ -44,8 +48,7 @@ public class SignInSignUpController {
         if (byUserName == null) {
             userRepository.save(user);
         } else {
-
-            System.out.println(byUserName.toString());
+            return "redirect:sign-up?fail";
         }
 
         return "redirect:login";
