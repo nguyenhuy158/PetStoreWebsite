@@ -226,3 +226,6 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-03-29 17:00:18
+
+INSERT INTO PetStore.`user` (address,email,gender,name,password,phone,username) VALUES
+	 ('Quan 7, HCM','ntqhuy2k2@gmail.com',NULL,'Nguyen Huy','$2a$10$Lk6xnMgxHnY3mTiLnxapS.XcFnKsqpFFW9Tdb6LqxJRHRwqGGJtl6',NULL,'1');
