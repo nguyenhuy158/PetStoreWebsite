@@ -20,20 +20,23 @@ public class SignInSignUpController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
         model.addAttribute("user", new User());
         return "login";
     }
 
-    @GetMapping("/sign-up")
+    @RequestMapping(value = "/sign-up", method = RequestMethod.GET)
     public String signUp(Model model) {
+        System.out.println("get sign up");
         model.addAttribute("user", new User());
         return "sign-up";
     }
 
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/sign-up", method = RequestMethod.POST)
     public String addUser(@ModelAttribute User user) {
+        System.out.println("add user post");
+        System.out.println(user.toString());
         String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
         user.setPassword(encodedPassword);
 
@@ -45,7 +48,7 @@ public class SignInSignUpController {
             System.out.println(byUserName.toString());
         }
 
-        return "login";
+        return "redirect:login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -59,7 +62,7 @@ public class SignInSignUpController {
                 return "index";
             }
         }
-        return "sign-up";
+        return "redirect:sign-up";
     }
 
 }

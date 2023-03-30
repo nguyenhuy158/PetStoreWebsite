@@ -14,7 +14,7 @@
 
 <body>
   <div class="login-container">
-    <form th:action="@{/addUser}" th:object="${user}" method="post" class="form-login no-border">
+    <form th:action="@{/sign-up}" th:object="${user}" method="post" class="form-login no-border">
       <ul class="login-nav">
         <li class="login-nav__item">
           <a th:href="@{/login}" th:text="#{pet.html.sign-up.sign-in}"></a>
