@@ -25,6 +25,15 @@
         </li>
       </ul>
 
+      <label for="login-input-user" class="login__label" th:text="#{pet.html.sign-up.name}"></label>
+      <input class="login__input" type="text" th:field="*{name}" onchange="removeError()" />
+
+      <label for="login-input-user" class="login__label" th:text="#{pet.html.sign-up.email}"></label>
+      <input class="login__input" type="text" th:field="*{email}" onchange="removeError()" />
+
+      <label for="login-input-user" class="login__label" th:text="#{pet.html.sign-up.address}"></label>
+      <input class="login__input" type="text" th:field="*{address}" onchange="removeError()" />
+
       <label for="login-input-user" class="login__label" th:text="#{pet.html.sign-up.username}"></label>
       <input class="login__input" type="text" th:field="*{username}" onchange="removeError()" />
 

@@ -28,10 +28,7 @@ public class MainController {
     public String index(Model model) {
         List<Product> allProducts = productService.getAllProducts(PRODUCT_LIMIT);
         model.addAttribute("products", allProducts);
-
-        User user = userService.getCurrentUser();
-
-        model.addAttribute("isLogout", user);
+        model.addAttribute("isLogout", userService.getCurrentUser());
         return "index";
     }
 
@@ -46,7 +43,8 @@ public class MainController {
     }
 
     @GetMapping("/userInfo")
-    public String userInfo() {
+    public String userInfo(Model model) {
+        model.addAttribute("currentUser", userService.getCurrentUser());
         return "userInfo";
     }
 }

@@ -17,18 +17,25 @@
 
 <body>
   <div class="container">
+
     <div id="profile" class="profile">
-      <div class="user-info">
+
+      <!-- info -->
+      <div th:object="${currentUser}" class="user-info">
+
         <div class="user-info_avatar">
           <img src="https://tackexinh.com/wp-content/uploads/2022/03/hinh-anh-meo-ngao-hai-huoc-9.jpg" alt="" />
         </div>
-        <h2 th:text="#{pet.html.userInfo.name}"></h2>
+
+        <h2 th:text="*{name}"></h2>
+
         <div class="profile_nav">
           <ul>
-            <li th:text="#{pet.html.userInfo.gmail}"></li>
-            <li th:text="#{pet.html.userInfo.address}"></li>
-            <li th:text="#{pet.html.userInfo.phone}"></li>
+            <li th:text="*{email}"></li>
+            <li th:text="*{address}"></li>
+            <li th:text="*{phone}"></li>
           </ul>
+          <!-- box -->
           <div class="message-box">
             <div class="buttons-con">
               <div class="action-link-wrap">
@@ -36,8 +43,11 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
+
+      <!-- content -->
       <div class="content">
         <span class="bg-float">
         </span>
@@ -47,6 +57,7 @@
           </keep-alive>
         </transition>
       </div>
+
     </div>
   </div>
 
