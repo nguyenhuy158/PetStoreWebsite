@@ -4,17 +4,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import vn.petstore.website.services.CustomUserDetailService;
 
@@ -36,22 +31,19 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/sign-up", "/img/**", "/css/**", "/js/**").permitAll() // Cho phép tất cả mọi
-                                                                                              // người truy cập vào 2
-                                                                                              // địa chỉ này
-                .anyRequest().authenticated() // Tất cả các request khác đều cần phải xác thực mới được truy cập
+                .requestMatchers("/", "/sign-up", "/img/**", "/css/**", "/js/**").permitAll()
+                .anyRequest().authenticated() //
                 .and()
-                .formLogin() // Cho phép người dùng xác thực bằng form login
-                .loginPage("/login")
-                .defaultSuccessUrl("/home")
-                .failureUrl("/login?fail")
-                .permitAll() // Tất cả đều được truy cập vào địa chỉ này
-                .and()
-                .logout() // Cho phép logout
-                .logoutSuccessUrl("/home")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
-                .permitAll();
+                .formLogin(login -> login
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/home")
+                        .failureUrl("/login?fail")
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/home")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll());
 
         return http.build();
     }

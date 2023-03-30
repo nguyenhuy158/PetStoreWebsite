@@ -6,7 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.thymeleaf.expression.Numbers;
 import vn.petstore.website.model.User;
 import vn.petstore.website.repository.UserRepository;
 
