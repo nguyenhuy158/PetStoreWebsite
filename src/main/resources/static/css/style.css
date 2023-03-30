@@ -1065,8 +1065,16 @@ footer .copyright {
   /*  Contact Page */
   #form-details {
     padding: 40px;
+    display:flex;
+    flex-direction:column;
   }
-
+    .people {
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+    }
   #form-details form {
     width: 50%;
   }
