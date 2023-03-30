@@ -56,8 +56,9 @@
       <h2 th:text="${#numbers.formatCurrency(product.price)}" class=""></h2>
 
       <input type="number" value="1" min="1" />
-      <a style="text-decoration: none" class="normal" th:href="@{/cart/addProduct(id=${product.id})}">Thêm vào giỏ
-        hàng</a>
+      <a style="text-decoration: none" class="normal" th:href="@{/cart/addProduct(id=${product.id})}">
+        Thêm vào giỏ hàng
+      </a>
       <h4>Mô tả sản phẩm</h4>
       <span th:text="*{product.description}"> </span>
     </div>
