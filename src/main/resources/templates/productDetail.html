@@ -48,11 +48,11 @@
       <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
       <i id="bar" class="fas fa-outdent"></i>
     </div>
-    <!--    logout-->
-    <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
-      <input type="submit" value="Logout" th:hidden="true" />
-    </form>
   </section>
+  <!--    logout-->
+  <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+    <input type="submit" value="Logout" th:hidden="true" />
+  </form>
 
   <section th:if="${product != null}" id="prodetails" class="section-p1">
     <div class="single-pro-img">

@@ -56,14 +56,14 @@
 
   <!--thanh toán nè-->
   <section class="section-p1" style="margin-top: 32px">
-    <div class="shopping-cart">
-      <div class="column-labels">
-        <label class="product-removal" th:text="#{pet.html.cart.shopping-cart.handle}"></label>
-        <label class="product-image" th:text="#{pet.html.cart.shopping-cart.image}"></label>
-        <label class="product-details" th:text="#{pet.html.cart.shopping-cart.details}"></label>
-        <label class="product-price" th:text="#{pet.html.cart.shopping-cart.price}"></label>
-        <label class="product-quantity" th:text="#{pet.html.cart.shopping-cart.quantity}"></label>
-        <label class="product-line-price" th:text="#{pet.html.cart.shopping-cart.total}"></label>
+    <div class="shopping-cart" style="font-family: 'Josefin Sans', sans-serif !important;">
+      <div class=" column-labels">
+        <label class="product-removal" th:text="#{pet.html.cart.shopping-cart.handle} "></label>
+        <label class="product-image" th:text="#{pet.html.cart.shopping-cart.image} "></label>
+        <label class="product-details" th:text="#{pet.html.cart.shopping-cart.details} "></label>
+        <label class="product-price" th:text="#{pet.html.cart.shopping-cart.price} "></label>
+        <label class="product-quantity" th:text="#{pet.html.cart.shopping-cart.quantity} "></label>
+        <label class="product-line-price" th:text="#{pet.html.cart.shopping-cart.total} "></label>
       </div>
 
       <div th:each="cartDto : ${cartDtos}" class="product">
