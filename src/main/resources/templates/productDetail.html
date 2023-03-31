@@ -86,10 +86,10 @@
         </button>
 
         <!-- add -->
-        <input type="submit" value="Thêm vào giỏ hàng" class="normal">
+        <input type="submit" value="Thêm vào giỏ hàng" class="normal" style="font-weight: 600;">
       </form>
 
-      <h4>Mô tả sản phẩm</h4>
+      <h4 th:text="#{pet.html.prodetails.description}"></h4>
       <span th:text="*{product.description}"> </span>
     </div>
   </section>
