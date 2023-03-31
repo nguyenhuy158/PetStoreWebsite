@@ -369,6 +369,10 @@ body {
   color: #088178;
 }
 
+#product1 .pro .des h4::after {
+  content: " VND";
+}
+
 #product1 .pro .cart {
   width: 40px;
   height: 40px;
@@ -700,6 +704,10 @@ footer .copyright {
 
 #prodetails .single-pro-details h2 {
   font-size: 26px;
+}
+
+#prodetails .single-pro-details h2::after {
+  content: " VND";
 }
 
 #prodetails .single-pro-details select {
