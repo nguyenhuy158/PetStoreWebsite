@@ -27,7 +27,7 @@ public class TransactionService {
         List<Transaction> transactions = transactionRepository.findByUser(userService.getCurrentUser());
         List<HistoryItemDto> historyItemDtos = transactions.stream().map(arg0 -> new HistoryItemDto(
                 arg0,
-                "#" + arg0.getId().toString(),
+                arg0.getId().toString(),
                 arg0.getTransactionDetailList().get(0).getProduct(),
                 arg0.getTransactionDetailList().get(0).getAmount(),
                 getTotalPrice(arg0))).toList();
@@ -40,6 +40,10 @@ public class TransactionService {
         }
         return transaction.getTransactionDetailList().stream().map(arg0 -> arg0.getAmount() * arg0.getPrice())
                 .reduce(0L, (arg0, arg1) -> arg0 + arg1);
+    }
+
+    public Transaction getTrasactionById(Long transactionId) {
+        return transactionRepository.findById(transactionId).get();
     }
 
 }

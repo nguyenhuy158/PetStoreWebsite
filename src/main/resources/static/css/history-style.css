@@ -128,8 +128,13 @@ img {
   width: 100%;
 }
 .cart .items .cartSection {
+  width: 200px;
   display: table-cell;
   vertical-align: middle;
+}
+
+.cart .items .cartSection .itemNumber::before {
+  content: "## ";
 }
 .cart .items .cartSection .itemNumber {
   font-size: 0.75em;
@@ -218,7 +223,7 @@ a.remove {
   padding: 0.5em;
   font-size: 0.75em;
   display: inline-block;
-  border-radius: 100%;
+  border-radius: 10px;
   line-height: 0.85;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;

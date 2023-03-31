@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.petstore.website.model.HistoryItemDto;
+import vn.petstore.website.model.Transaction;
 
 @Service
 public class HistoryService {
@@ -20,7 +21,20 @@ public class HistoryService {
         List<HistoryItemDto> historyItemDtos = transactionService.getHistoryItemDtos();
 
         System.out.println("list history");
-        historyItemDtos.forEach(System.out::println);
         return historyItemDtos;
+    }
+
+    public Transaction getHistoryDetailsById(Long transactionId) {
+        return transactionService.getTrasactionById(transactionId);
+    }
+
+    public Long getTotalPricesById(Long transactionId) {
+        return getHistoryDetailsById(transactionId).getTransactionDetailList()
+                .stream()
+                .map(
+                        arg0 -> arg0.getAmount() * arg0.getProduct().getPrice())
+                .reduce(
+                        0L,
+                        (arg0, arg1) -> arg0 + arg1);
     }
 }

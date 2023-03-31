@@ -19,15 +19,10 @@
         'GRAD' 0,
         'opsz' 48
     }
-
-    textarea:focus,
-    input:focus {
-      outline: none;
-    }
   </style>
 
   <link rel="stylesheet" th:href="@{/css/style.css}" />
-  <link rel="stylesheet" th:href="@{/css/history-style.css}" />
+  <link rel="stylesheet" th:href="@{/css/cart-style.css}" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
@@ -45,7 +40,7 @@
         <li><a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
         <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
         <li><a th:href="@{/userInfo}" th:text="#{pet.html.header.navbar.userInfo}"></a>
-        <li><a class="active" th:href="@{/history}" th:text="#{pet.html.header.navbar.history}"></a>
+        <li><a th:href="@{/history}" th:text="#{pet.html.header.navbar.history}"></a>
         <li><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
       </ul>
     </div>
@@ -59,43 +54,57 @@
     </form>
   </section>
 
-  <!--lịch sử nè-->
-  <div class="wrap cf">
-    <h1 class="projTitle">Lịch sử mua hàng</h1>
-    <div class="heading cf">
-      <h1>Các don hang đã mua</h1>
-      <a th:href="@{/search}" class="continue">Tiếp tục mua</a>
-    </div>
-    <div class="cart">
+  <!--thanh toán nè-->
+  <section class="section-p1" style="margin-top: 32px">
+    <div class="shopping-cart" style="font-family: 'Josefin Sans', sans-serif !important;">
+      <div class=" column-labels">
+        <label class="product-removal" th:text="#{pet.html.cart.shopping-cart.handle} "></label>
+        <label class="product-image" th:text="#{pet.html.cart.shopping-cart.image} "></label>
+        <label class="product-details" th:text="#{pet.html.cart.shopping-cart.details} "></label>
+        <label class="product-price" th:text="#{pet.html.cart.shopping-cart.price} "></label>
+        <label class="product-quantity" th:text="#{pet.html.cart.shopping-cart.quantity} "></label>
+        <label class="product-line-price" th:text="#{pet.html.cart.shopping-cart.total} "></label>
+      </div>
 
-      <ul class="cartWrap">
+      <div th:each="transactionDetail : ${transaction.transactionDetailList}" class="product">
+        <div class="product-removal">
+          <button style="background-color: transparent !important;" class="remove-product">
+            <a th:href="@{/cart/removeProduct(id=${transactionDetail.product.id})}">
+            </a>
+          </button>
+        </div>
+        <div class="product-image">
+          <a th:href="@{/productDetail(id=${transactionDetail.product.id})}">
+            <img th:src="*{transactionDetail.product.thumbnail?.get(0)}" />
+          </a>
+        </div>
+        <div class="product-details">
+          <div th:text="*{transactionDetail.product.name}" class="product-title"></div>
+          <p th:text="*{transactionDetail.product.description}" class="product-description"></p>
+        </div>
 
-        <li th:each="historyItemDtos, iterStat : ${historyItemDtos}" class="items"
-          th:classappend="${iterStat.even}? 'odd' : 'even'">
-
-
-          <div class="infoWrap">
-            <div class="cartSection">
-              <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-              <p th:text="*{historyItemDtos.id}" class="itemNumber"></p>
-              <h3 th:text="*{historyItemDtos.firstProduct.name}"></h3>
-              <input type="text" class="qty" readonly th:value="*{historyItemDtos.amount}" />
-              </span>x
-              <span class="vnd" th:text="*{historyItemDtos.firstProduct.price}">
-            </div>
-
-            <div class="prodTotal cartSection">
-              <p th:text="*{historyItemDtos.totalPrice}"></p>
-            </div>
-            <div class="cartSection removeWrap">
-              <a th:href="@{/history/detail(id=${historyItemDtos.id})}" class="remove">View details</a>
-            </div>
+        <div th:text="*{transactionDetail.product.price}" class="product-price"></div>
+        <!-- Quantity -->
+        <div class="product-quantity quantity-number-v2 clearfix">
+          <div class="quantity-wrapper">
+            <input class="" disabled id="prodQuantity" type="text" name="quantity" min="1"
+              th:value="${transactionDetail.amount}" />
           </div>
+          <div id="stock" class="text-center"></div>
+        </div>
+        <!-- /Quantity -->
+        <!--total product price-->
+        <div th:text="${transactionDetail.amount * transactionDetail.product.price}" class="product-line-price"></div>
+      </div>
 
-        </li>
-
+      <div class="totals">
+        <div class="totals-item totals-item-total">
+          <label th:text="#{pet.html.cart.shopping-cart.grandTotal}"></label>
+          <div th:text="${totalPrice}" class="totals-value" id="cart-total"></div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
   <!--footer nè-->
   <footer class="section-p1">
     <div class="col">
@@ -131,10 +140,10 @@
 
     <div class="col">
       <h4 th:text="#{pet.html.footer.about}"></h4>
-      <a href=" #" th:text="#{pet.html.footer.about}"></a>
-      <a href="#" th:text="#{pet.html.footer.delivery}"></a>
-      <a href="#" th:text="#{pet.html.footer.policy}"></a>
-      <a href="#" th:text="#{pet.html.footer.term}"></a>
+      <a th:href="@{/about}" th:text="#{pet.html.footer.about}"></a>
+      <a th:href="@{/home}" th:text="#{pet.html.footer.delivery}"></a>
+      <a th:href="@{/home}" th:text="#{pet.html.footer.policy}"></a>
+      <a th:href="@{/home}" th:text="#{pet.html.footer.term}"></a>
     </div>
 
     <div class="col">
