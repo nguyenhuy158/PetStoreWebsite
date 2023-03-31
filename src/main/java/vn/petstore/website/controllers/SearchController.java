@@ -60,9 +60,6 @@ public class SearchController {
 
         Product productById = productService.getProductById(productId);
 
-        System.out.println("productById");
-        System.out.println(productById);
-
         model.addAttribute("product", productById);
         model.addAttribute("cartOnlyQuantity", new Cart());
 
