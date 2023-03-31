@@ -30,6 +30,8 @@
                 <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
                 <li><a th:if="${isLogout != null}" th:href="@{/userInfo}"
                         th:text="#{pet.html.header.navbar.userInfo}"></a>
+                <li><a th:if="${isLogout != null}" th:href="@{/history}"
+                        th:text="#{pet.html.header.navbar.history}"></a>
                 <li><a th:if="${isLogout != null}" href="javascript: document.logoutForm.submit()"
                         th:text="#{pet.html.header.navbar.logout}"></a>
                 </li>
