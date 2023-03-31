@@ -109,13 +109,12 @@
                     <div class="des">
                         <span th:text="*{product.category.name}"></span>
                         <h5 th:text="*{product.name}"></h5>
-                        <div class="star">
+                        <span class="star">
+                            <span th:text="*{product.rating}"></span>
                             <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                        </span>
+
+
                         <h4 th:text="${product.price}" class=""></h4>
                     </div>
                     <a th:href="@{/cart/addProduct(id=${product.id})}"><i class="fal fa-shopping-cart cart"></i></a>
