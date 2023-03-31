@@ -3,10 +3,12 @@ package vn.petstore.website.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class TransactionDetail {
 
     @Id
@@ -25,8 +27,15 @@ public class TransactionDetail {
     @ToString.Exclude
     private Product product;
 
-    private Integer amount;
+    private Long amount;
 
     private Integer price;
+
+    public TransactionDetail(Transaction transaction, Product product, Long amount, Integer price) {
+        this.transaction = transaction;
+        this.product = product;
+        this.amount = amount;
+        this.price = price;
+    }
 
 }

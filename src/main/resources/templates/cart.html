@@ -28,7 +28,7 @@
         <li><a th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
         <li><a class="active" th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
         <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
-        <li><a  th:href="@{/userInfo}" th:text="#{pet.html.header.navbar.userInfo}"></a>
+        <li><a th:href="@{/userInfo}" th:text="#{pet.html.header.navbar.userInfo}"></a>
         <li><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
       </ul>
     </div>
@@ -115,7 +115,10 @@
         </div>
       </div>
 
-      <button class="checkout" th:text="#{pet.html.cart.shopping-cart.order}"></button>
+      <form th:action="@{/checkout}" method="post">
+        <!-- button checkout -->
+        <button class="checkout" th:text="#{pet.html.cart.shopping-cart.order}" type="submit"></button>
+      </form>
     </div>
   </section>
   <!--footer nè-->

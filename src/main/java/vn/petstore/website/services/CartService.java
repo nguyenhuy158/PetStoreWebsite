@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vn.petstore.website.model.Cart;
 import vn.petstore.website.model.CartDto;
+import vn.petstore.website.model.Product;
+import vn.petstore.website.model.Transaction;
+import vn.petstore.website.model.TransactionDetail;
 import vn.petstore.website.repository.CartRepository;
 import java.util.List;
 import static vn.petstore.website.constances.Const.SHIPPING;
@@ -21,6 +24,9 @@ public class CartService {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    TransactionService transactionService;
 
     private List<Cart> getCarts() {
         return cartRepository.findAllByUserId(userService.getCurrentUserId());
@@ -110,6 +116,38 @@ public class CartService {
 
             cartRepository.save(cart);
         }
+    }
+
+    public boolean isHasProduct() {
+        List<Cart> carts = getCurrentCarts();
+
+        if (carts.size() != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private List<Cart> getCurrentCarts() {
+        return cartRepository.findAllByUserId(userService.getCurrentUserId());
+    }
+
+    public void checkout() {
+        List<Cart> carts = getCurrentCarts();
+
+        Transaction transaction = new Transaction();
+        List<TransactionDetail> transactionDetails = carts.stream().map(arg0 -> new TransactionDetail(
+                transaction,
+                productService.getProductById(arg0.getProductId()),
+                arg0.getQuantity(),
+                productService.getProductById(arg0.getProductId()).getPrice())).toList();
+
+        transaction.setUser(userService.getCurrentUser());
+        transaction.setTransactionDetailList(transactionDetails);
+
+        transactionService.checkout(transaction);
+        // remove products in cart after checkout
+        carts.forEach(arg0 -> cartRepository.delete(arg0));
     }
 
 }
