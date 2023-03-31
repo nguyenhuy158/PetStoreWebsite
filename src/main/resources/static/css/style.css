@@ -644,7 +644,7 @@ footer .copyright {
 #page-header h2,
 #page-header p {
   color: #fff;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #pagination {
@@ -712,6 +712,11 @@ footer .copyright {
   padding-left: 10px;
   font-size: 16px;
   margin-right: 10px;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  border-radius: 10px;
 }
 
 #prodetails .single-pro-details input:focus {
@@ -1280,5 +1285,7 @@ footer .copyright {
 
 input.normal {
   width: auto !important;
-  padding: 10px 20px;
+  padding: 10px 20px !important;
+  background-color: #ffcfcf;
+  cursor: pointer;
 }

@@ -3,3 +3,17 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 0px 10px;
+  background: #fff !important;
+  color: #000 !important;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
