@@ -10,8 +10,32 @@
   <title th:text="#{pet.html.title.name}"></title>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
+<<<<<<< Updated upstream
   <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
+=======
+      <div>
+        <ul id="navbar">
+          <li><a th:href="@{/home}" th:text="#{pet.html.header.navbar.home}"></a></li>
+          <li><a class="active" th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
+          <li><a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
+          <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
+          <li><a  th:href="@{/userInfo}" th:text="#{pet.html.header.navbar.userInfo}"></a>
+          <li><a th:if="${isLogout != null}" th:href="@{/history}"
+                 th:text="#{pet.html.header.navbar.history}"></a>
+          <li><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+      <!--    logout-->
+      <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+        <input type="submit" value="Logout" />
+      </form>
+    </section>
+>>>>>>> Stashed changes
 
 <body>
   <!--chổ navbar đồ nè-->

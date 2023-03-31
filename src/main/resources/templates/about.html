@@ -98,6 +98,7 @@
   <section id="form-details" class="section-p1">
     <div class="people">
       <div>
+<<<<<<< Updated upstream
         <img th:src="@{/img/avatar/huy.png}" alt="" />
         <p>
           <span>Nguyễn Trần Quang Huy</span>
@@ -107,6 +108,18 @@
           <br />
           Email: ntqhuy2k2@gmail.com
         </p>
+=======
+        <ul id="navbar">
+          <li><a th:href="@{/home}" th:text="#{pet.html.header.navbar.home}"></a></li>
+          <li><a th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
+          <li><a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
+          <li><a class="active" th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
+          <li><a  th:href="@{/userInfo}" th:text="#{pet.html.header.navbar.userInfo}"></a>
+          <li><a th:if="${isLogout != null}" th:href="@{/history}"
+                 th:text="#{pet.html.header.navbar.history}"></a>
+          <li><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
+        </ul>
+>>>>>>> Stashed changes
       </div>
       <div>
         <img th:src="@{/img/avatar/bao.png}" alt="" />
