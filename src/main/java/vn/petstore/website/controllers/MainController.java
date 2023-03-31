@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.petstore.website.model.Product;
-import vn.petstore.website.model.User;
 import vn.petstore.website.services.ProductService;
 import vn.petstore.website.services.UserService;
 

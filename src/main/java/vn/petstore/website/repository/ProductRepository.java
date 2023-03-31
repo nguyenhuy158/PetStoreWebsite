@@ -2,11 +2,9 @@ package vn.petstore.website.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import vn.petstore.website.model.Product;
 
 @Component
-@Repository
 // public interface ProductRepository<T extends Product> extends
 // CrudRepository<T, Long> {
 public interface ProductRepository extends JpaRepository<Product, Long> {

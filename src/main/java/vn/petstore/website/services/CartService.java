@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vn.petstore.website.model.Cart;
 import vn.petstore.website.model.CartDto;
-import vn.petstore.website.model.Product;
 import vn.petstore.website.model.Transaction;
 import vn.petstore.website.model.TransactionDetail;
 import vn.petstore.website.repository.CartRepository;

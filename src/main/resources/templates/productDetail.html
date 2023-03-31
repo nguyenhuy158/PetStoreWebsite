@@ -49,7 +49,7 @@
     </div>
     <!--    logout-->
     <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
-      <input type="submit" value="Logout" />
+      <input type="submit" value="Logout" th:hidden="true" />
     </form>
   </section>
 
