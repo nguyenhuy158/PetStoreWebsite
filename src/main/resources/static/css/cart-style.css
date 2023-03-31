@@ -11,14 +11,17 @@
 .product-details {
   float: left;
   width: 37%;
+  font-family: "Josefin Sans", sans-serif !important;
 }
 .product-price {
   float: left;
   width: 12%;
+  font-family: "Josefin Sans", sans-serif !important;
 }
 .product-quantity {
   float: left;
   width: 10%;
+  font-family: "Josefin Sans", sans-serif !important;
 }
 .product-removal {
   float: left;
@@ -27,6 +30,7 @@
 .product-line-price {
   float: left;
   width: 12%;
+  font-family: "Josefin Sans", sans-serif !important;
   text-align: right;
 }
 /* This is used as the traditional .clearfix class */
@@ -56,6 +60,7 @@
 .product,
 .totals-item {
   zoom: 1;
+  font-family: "Josefin Sans", sans-serif !important;
 }
 /* Apply clearfix in a few places */
 /* Apply dollar signs */
@@ -108,10 +113,12 @@ label {
 }
 .product .product-details .product-title {
   margin-right: 20px;
+  font-family: "Josefin Sans", sans-serif !important;
 }
 .product .product-details .product-description {
   margin: 5px 20px 5px 0;
   line-height: 1.4em;
+  font-family: "Josefin Sans", sans-serif !important;
 }
 .product .product-quantity input {
   width: 40px;
@@ -191,6 +198,10 @@ label {
   .product-price {
     clear: both;
     width: 70px;
+    font-family: "Josefin Sans", sans-serif !important;
+  }
+  .product div {
+    font-family: "Josefin Sans", sans-serif !important;
   }
   .product-quantity {
     width: 100px;

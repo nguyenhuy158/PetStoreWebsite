@@ -40,8 +40,7 @@
         <li><a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
         <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
         <li><a th:href="@{/userInfo}" th:text="#{pet.html.header.navbar.userInfo}"></a>
-        <li><a th:if="${isLogout != null}" th:href="@{/history}"
-               th:text="#{pet.html.header.navbar.history}"></a>
+        <li><a th:href="@{/history}" th:text="#{pet.html.header.navbar.history}"></a>
         <li><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
       </ul>
     </div>
@@ -49,11 +48,11 @@
       <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
       <i id="bar" class="fas fa-outdent"></i>
     </div>
-    <!--    logout-->
-    <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
-      <input type="submit" value="Logout" th:hidden="true" />
-    </form>
   </section>
+  <!--    logout-->
+  <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+    <input type="submit" value="Logout" th:hidden="true" />
+  </form>
 
   <section th:if="${product != null}" id="prodetails" class="section-p1">
     <div class="single-pro-img">
