@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}" />
+
+  <title th:text="#{pet.html.title.name}"></title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+    }
+  </style>
+
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <link rel="stylesheet" th:href="@{/css/history-style.css}" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+<!--nav nè-->
+<section id="header">
+  <a th:href="@{/home}">
+    <img th:src="@{/img/main_logo.png}" alt="" class="logo" />
+  </a>
+
+  <div>
+    <ul id="navbar">
+      <li><a th:href="@{/home}" th:text="#{pet.html.header.navbar.home}"></a></li>
+      <li><a th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
+      <li><a class="active" th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
+      <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
+      <li><a th:href="@{/userInfo}" th:text="#{pet.html.header.navbar.userInfo}"></a>
+      <li><a th:href="@{/history}" th:text="#{pet.html.header.navbar.history}"></a>
+      <li><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
+    </ul>
+  </div>
+  <div id="mobile">
+    <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+    <i id="bar" class="fas fa-outdent"></i>
+  </div>
+  <!--    logout-->
+  <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+    <input type="submit" value="Logout" />
+  </form>
+</section>
+
+<!--lịch sử nè-->
+<div class="wrap cf">
+  <h1 class="projTitle">Lịch sử mua hàng</h1>
+  <div class="heading cf">
+    <h1>Các sản phẩm đã mua</h1>
+    <a href="#" class="continue">Tiếp tục mua</a>
+  </div>
+  <div class="cart">
+    <!--    <ul class="tableHead">
+          <li class="prodHeader">Product</li>
+          <li>Quantity</li>
+          <li>Total</li>
+           <li>Remove</li>
+        </ul>-->
+    <ul class="cartWrap">
+      <li class="items odd">
+
+        <div class="infoWrap">
+          <div class="cartSection">
+            <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+            <p class="itemNumber">#QUE-007544-002</p>
+            <h3>Item Name 1</h3>
+            <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
+          </div>
+
+          <div class="prodTotal cartSection">
+            <p>$15.00</p>
+          </div>
+          <div class="cartSection removeWrap">
+            <a href="#" class="remove">x</a>
+          </div>
+        </div>
+      </li>
+      <li class="items even">
+
+        <div class="infoWrap">
+          <div class="cartSection">
+
+            <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+            <p class="itemNumber">#QUE-007544-002</p>
+            <h3>Item Name 1</h3>
+            <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
+          </div>
+
+          <div class="prodTotal cartSection">
+            <p>$15.00</p>
+          </div>
+          <div class="cartSection removeWrap">
+            <a href="#" class="remove">x</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="items odd">
+        <div class="infoWrap">
+          <div class="cartSection">
+            <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+            <p class="itemNumber">#QUE-007544-002</p>
+            <h3>Item Name 1</h3>
+            <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
+          </div>
+
+          <div class="prodTotal cartSection">
+            <p>$15.00</p>
+          </div>
+          <div class="cartSection removeWrap">
+            <a href="#" class="remove">x</a>
+          </div>
+        </div>
+      </li>
+      <li class="items even">
+        <div class="infoWrap">
+          <div class="cartSection info">
+
+            <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+            <p class="itemNumber">#QUE-007544-002</p>
+            <h3>Item Name 1</h3>
+            <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
+          </div>
+
+          <div class="prodTotal cartSection">
+            <p>$15.00</p>
+          </div>
+
+          <div class="cartSection removeWrap">
+            <a href="#" class="remove">x</a>
+          </div>
+        </div>
+
+</div>
+<!--footer nè-->
+<footer class="section-p1">
+  <div class="col">
+    <img th:src="@{/img/main_logo.png}" alt="" class="logo" />
+    <h4 th:text="#{pet.html.footer.contact.name}"></h4>
+    <p>
+      <strong th:text="#{pet.html.footer.contact.address}"></strong>
+      <span th:text="#{pet.html.footer.contact.address.value}"></span>
+    </p>
+    <p>
+      <strong th:text="#{pet.html.footer.contact.phone}"></strong>
+      <span th:text="#{pet.html.footer.contact.phone.value}"></span>
+    </p>
+    <p>
+      <strong th:text="#{pet.html.footer.contact.hours}"></strong>
+      <span th:text="#{pet.html.footer.contact.hours.value}"></span>
+    </p>
+    <div class="follow">
+      <h4 th:text="#{pet.html.footer.follow}"></h4>
+      <div class="icon">
+        <a th:href="@{https://fb.com/nguyenhuy158}">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a th:href="@{https://github.com/nguyenhuy158/}">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a th:href="@{https://www.youtube.com/@ntqhuy2k2}">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <h4 th:text="#{pet.html.footer.about}"></h4>
+    <a th:href="@{/about}" th:text="#{pet.html.footer.about}"></a>
+    <a th:href="@{/home}" th:text="#{pet.html.footer.delivery}"></a>
+    <a th:href="@{/home}" th:text="#{pet.html.footer.policy}"></a>
+    <a th:href="@{/home}" th:text="#{pet.html.footer.term}"></a>
+  </div>
+
+  <div class="col">
+    <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.023524698755!2d106.69758091388026!3d10.732668892351265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fbd7d343a57%3A0xb5ca26918dff0578!2zMTkgxJAuIE5ndXnhu4VuIEjhu691IFRo4buNLCBUw6JuIEjGsG5nLCBRdeG6rW4gNywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1680063686308!5m2!1sen!2s"
+            width="500" height="250" style="border: 0; border-radius: 10px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <div class="copyright">
+    <p th:text="#{pet.html.footer.copyright}"></p>
+  </div>
+</footer>
+
+<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/cart.js}"></script>
+</body>
+
+</html>
