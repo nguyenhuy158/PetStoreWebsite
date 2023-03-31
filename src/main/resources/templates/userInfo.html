@@ -27,7 +27,7 @@
           <img src="https://cdn-icons-png.flaticon.com/512/3893/3893170.png" alt="" />
         </div>
 
-        <h2 th:text="*{name}"></h2>
+        <h2 th:text="*{name}" style="font-weight: 500; color: azure; font-size: 27px;"></h2>
 
         <div class="profile_nav">
           <ul>
@@ -39,7 +39,7 @@
           <div class="message-box">
             <div class="buttons-con">
               <div class="action-link-wrap">
-                <a th:href="@{/home}" class="link-button">Go to Home Page</a>
+                <a th:href="@{/home}" class="link-button" th:text="#{pet.html.goToHomePage}"></a>
               </div>
             </div>
           </div>

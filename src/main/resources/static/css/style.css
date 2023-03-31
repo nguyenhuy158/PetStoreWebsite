@@ -555,6 +555,8 @@ body {
   border-bottom-left-radius: 0;
 }
 
+/* ========== Footer ========== */
+
 footer {
   display: flex;
   flex-wrap: wrap;

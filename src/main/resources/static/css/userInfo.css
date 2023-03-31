@@ -5,9 +5,9 @@
 }
 
 body {
-    background: #fff;
+    background-image: url("https://anhnenchat.com/wp-content/uploads/2020/10/hinh-nen-iphone-xs-max-sieu-dep-voi-phong-canh-huu-tinh-1-1060x570.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: top left;
     font-family: 'Rubik', sans-serif;
 }
 
@@ -34,7 +34,6 @@ img {
 }
 
 .profile {
-    background-color: #fff;
     box-shadow: 0 20px 75px #00302c;
     position: absolute;
     top: 50%;
@@ -61,7 +60,7 @@ img {
 }
 
 .profile .user-info .user-info_avatar {
-    border: 5px solid #009688;
+    border: 5px solid #45e4d4;
     border-radius: 30px;
 }
 
@@ -75,6 +74,7 @@ img {
 
 .profile .profile_nav {
     margin-top: 1em;
+    color:aliceblue;
 }
 
 .profile .profile_nav ul {
@@ -91,13 +91,9 @@ img {
     transition: 0.2s all;
 }
 
-.profile .profile_nav li.active {
-    color: #009688;
-}
-
 .profile .profile_nav li:hover {
     cursor: pointer;
-    color: #009688;
+    color: #71e0d5;
 }
 
 .profile .content {
@@ -113,7 +109,7 @@ img {
 
 .profile .content .bg-float {
     text-transform: capitalize;
-    color: rgba(230, 230, 230, 0.2);
+    color: rgba(143, 140, 143, 0.2);
     font-weight: bold;
     position: absolute;
     right: 10px;
@@ -157,14 +153,11 @@ img {
 }
 
 .message-box {
-    height: 300px;
-    width: 500px;
     position: absolute;
-    top: 103%;
-    left: 67%;
+    top: 20%;
+    left: 65%;
     margin-top: -100px;
     margin-left: 50px;
-    color: #fff;
 }
 
 .message-box h1 {
@@ -178,10 +171,10 @@ img {
 }
 
 .buttons-con .action-link-wrap a {
-    background: #5a5c6c;
+    background: #93a3d3;
     padding: 8px 25px;
     border-radius: 10px;
-    color: #fff;
+    color: #ffffff;
     font-weight: bold;
     font-size: 16px;
     transition: all 0.3s linear;
@@ -192,5 +185,5 @@ img {
 
 .buttons-con .action-link-wrap a:hover {
     background: #dadade;
-    color: #2c7570;
+    color: #3eafa8;
 }
