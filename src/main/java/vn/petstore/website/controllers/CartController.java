@@ -1,6 +1,8 @@
 package vn.petstore.website.controllers;
 
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,13 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.RequiredArgsConstructor;
 import vn.petstore.website.model.Cart;
 import vn.petstore.website.model.CartDto;
 import vn.petstore.website.services.CartService;
 import vn.petstore.website.services.UserService;
-
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -37,6 +37,7 @@ public class CartController {
         model.addAttribute("subTotal", subtotal);
         model.addAttribute("grandTotal", grandTotal);
         model.addAttribute("tax", tax);
+        model.addAttribute("isLogin", userService.isLogin());
 
         return "cart";
     }

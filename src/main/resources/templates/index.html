@@ -1,106 +1,104 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}" />
 
-    <title th:text="#{pet.html.title.name}"></title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+<!-- default header -->
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<head th:replace="fragments/header.html :: header(${pageTitle})">
+</head>
 
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
-  </head>
+<!-- more attribute -->
 
-  <body>
-    <!--nav-->
-    <section th:replace="fragments/navbar.html :: navbar()"></section>
+<head>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
 
-    <!--hero-->
-    <section id="hero">
-      <div class="hero__content">
-        <h2 th:text="#{pet.html.hero.content.info1}"></h2>
-        <h3 th:text="#{pet.html.hero.content.info2}"></h3>
-        <h3 th:text="#{pet.html.hero.content.info3}"></h3>
-        <p th:text="#{pet.html.hero.content.info4}"></p>
-        <a th:href="@{/search}">
-          <button th:text="#{pet.html.hero.content.searchNow}"></button>
+<body>
+  <!--nav-->
+  <section th:replace="fragments/navbar.html :: navbar()"></section>
+
+  <!--hero-->
+  <section id="hero">
+    <div class="hero__content">
+      <h2 th:text="#{pet.html.hero.content.info1}"></h2>
+      <h3 th:text="#{pet.html.hero.content.info2}"></h3>
+      <h3 th:text="#{pet.html.hero.content.info3}"></h3>
+      <p th:text="#{pet.html.hero.content.info4}"></p>
+      <a th:href="@{/search}">
+        <button th:text="#{pet.html.hero.content.searchNow}"></button>
+      </a>
+    </div>
+
+    <div class="w3-content w3-display-container">
+      <img th:src="@{/img/slider/slider_img1.jpg}" alt="Slider Image" class="mySlides fade" />
+      <img th:src="@{/img/slider/slider_img2.jpg}" alt="Slider Image" class="mySlides fade" />
+      <img th:src="@{/img/slider/slider_img3.jpg}" alt="Slider Image" class="mySlides fade" />
+      <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width: 75%">
+        <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
+        <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
+        <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="feature" class="section-p1">
+    <div class="fe-box">
+      <img src="./img/fe1.png" alt="" class="fe-img" x />
+      <h6 th:text="#{pet.html.feature.freeShip}"></h6>
+    </div>
+    <div class="fe-box">
+      <img src="./img/fe2.png" alt="" class="fe-img" />
+      <h6 th:text="#{pet.html.feature.order}"></h6>
+    </div>
+    <div class="fe-box">
+      <img src="./img/fe3.png" alt="" class="fe-img" />
+      <h6 th:text="#{pet.html.feature.saveMoney}"></h6>
+    </div>
+    <div class="fe-box">
+      <img src="./img/fe4.png" alt="" class="fe-img" />
+      <h6 th:text="#{pet.html.feature.promotion}"></h6>
+    </div>
+    <div class="fe-box">
+      <img src="./img/fe5.png" alt="" class="fe-img" />
+      <h6 th:text="#{pet.html.feature.happySell}"></h6>
+    </div>
+    <div class="fe-box">
+      <img src="./img/fe6.png" alt="" class="fe-img" />
+      <h6 th:text="#{pet.html.feature.Support}"></h6>
+    </div>
+  </section>
+
+  <section id="product1" class="section-p1">
+    <h2 th:text="#{pet.html.title.gear}"></h2>
+    <p th:text="#{pet.html.title.collection}" style="font-size: 18px; padding-top: 5px"></p>
+    <div th:if="${products != null}" class="pro-container">
+      <div th:each="product : ${products}" class="pro">
+        <!-- link to view detail -->
+        <a style="text-decoration: none" th:href="@{/product-detail(id=${product.id})}">
+          <!--content-->
+
+          <img th:src="*{product.thumbnail?.get(0)}" alt="" />
+          <div class="des">
+            <span th:text="*{product.category.name}"></span>
+            <h5 th:text="*{product.name}"></h5>
+            <span class="star">
+              <span th:text="*{product.rating}"></span>
+              <i class="fas fa-star"></i>
+            </span>
+
+            <h4 th:text="${product.price}" class=""></h4>
+          </div>
+          <a th:href="@{/cart/addProduct(id=${product.id})}"><i class="fal fa-shopping-cart cart"></i></a>
         </a>
       </div>
+    </div>
+  </section>
 
-      <div class="w3-content w3-display-container">
-        <img th:src="@{/img/slider/slider_img1.jpg}" alt="Slider Image" class="mySlides fade" />
-        <img th:src="@{/img/slider/slider_img2.jpg}" alt="Slider Image" class="mySlides fade" />
-        <img th:src="@{/img/slider/slider_img3.jpg}" alt="Slider Image" class="mySlides fade" />
-        <div
-          class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
-          style="width: 75%"
-        >
-          <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
-          <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
-          <span class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
-        </div>
-      </div>
-    </section>
+  <footer th:replace="fragments/footer.html :: footer()"></footer>
 
-    <section id="feature" class="section-p1">
-      <div class="fe-box">
-        <img src="./img/fe1.png" alt="" class="fe-img" x />
-        <h6 th:text="#{pet.html.feature.freeShip}"></h6>
-      </div>
-      <div class="fe-box">
-        <img src="./img/fe2.png" alt="" class="fe-img" />
-        <h6 th:text="#{pet.html.feature.order}"></h6>
-      </div>
-      <div class="fe-box">
-        <img src="./img/fe3.png" alt="" class="fe-img" />
-        <h6 th:text="#{pet.html.feature.saveMoney}"></h6>
-      </div>
-      <div class="fe-box">
-        <img src="./img/fe4.png" alt="" class="fe-img" />
-        <h6 th:text="#{pet.html.feature.promotion}"></h6>
-      </div>
-      <div class="fe-box">
-        <img src="./img/fe5.png" alt="" class="fe-img" />
-        <h6 th:text="#{pet.html.feature.happySell}"></h6>
-      </div>
-      <div class="fe-box">
-        <img src="./img/fe6.png" alt="" class="fe-img" />
-        <h6 th:text="#{pet.html.feature.Support}"></h6>
-      </div>
-    </section>
+  <script th:src="@{/js/script.js}"></script>
+  <script th:src="@{/js/slider.js}"></script>
+</body>
 
-    <section id="product1" class="section-p1">
-      <h2 th:text="#{pet.html.title.gear}"></h2>
-      <p th:text="#{pet.html.title.collection}" style="font-size: 18px; padding-top: 5px"></p>
-      <div th:if="${products != null}" class="pro-container">
-        <div th:each="product : ${products}" class="pro">
-          <!-- link to view detail -->
-          <a style="text-decoration: none" th:href="@{/productDetail(id=${product.id})}">
-            <!--content-->
-
-            <img th:src="*{product.thumbnail?.get(0)}" alt="" />
-            <div class="des">
-              <span th:text="*{product.category.name}"></span>
-              <h5 th:text="*{product.name}"></h5>
-              <span class="star">
-                <span th:text="*{product.rating}"></span>
-                <i class="fas fa-star"></i>
-              </span>
-
-              <h4 th:text="${product.price}" class=""></h4>
-            </div>
-            <a th:href="@{/cart/addProduct(id=${product.id})}"><i class="fal fa-shopping-cart cart"></i></a>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer th:replace="fragments/footer.html :: footer()"></footer>
-
-    <script th:src="@{/js/script.js}"></script>
-    <script th:src="@{/js/slider.js}"></script>
-  </body>
 </html>

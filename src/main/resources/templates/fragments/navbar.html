@@ -5,30 +5,22 @@
 
   <div>
     <ul id="navbar">
-      <li><a class="active" th:href="@{/home}" th:text="#{pet.html.header.navbar.home}"></a></li>
+      <li><a th:href="@{/home}" th:text="#{pet.html.header.navbar.home}" class="active"></a></li>
       <li><a th:href="@{/search}" th:text="#{pet.html.header.navbar.search}"></a></li>
-      <li><a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
-      <li><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
-      <li>
-        <a th:if="${isLogout != null}" th:href="@{/userInfo}" th:text="#{pet.html.header.navbar.userInfo}"></a>
-      </li>
-
-      <li><a th:if="${isLogout != null}" th:href="@{/history}" th:text="#{pet.html.header.navbar.history}"></a></li>
-
-      <li>
-        <a
-          th:if="${isLogout != null}"
-          href="javascript: document.logoutForm.submit()"
-          th:text="#{pet.html.header.navbar.logout}"
-        ></a>
-      </li>
+      <li th:if="${isLogin}"><a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}"></a></li>
+      <li th:if="${isLogin}"><a th:href="@{/history}" th:text="#{pet.html.header.navbar.history}"></a></li>
+      <li th:if="${isLogin}"><a th:href="@{/user-info}" th:text="#{pet.html.header.navbar.userInfo}"></a></li>
+      <li th:if="${isLogin}"><a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}"></a></li>
+      <li th:if="${isLogin}"><a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a></li>
     </ul>
   </div>
+
   <div id="mobile">
     <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
     <i id="bar" class="fas fa-outdent"></i>
   </div>
-  <!--    logout-->
+
+  <!-- form logout -->
   <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
     <input type="submit" value="Logout" />
   </form>

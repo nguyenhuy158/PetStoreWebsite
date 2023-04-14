@@ -1,6 +1,5 @@
 package vn.petstore.website.config;
 
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import lombok.AllArgsConstructor;
+import vn.petstore.website.emun.Role;
 import vn.petstore.website.services.CustomUserDetailService;
 
 @Configuration
@@ -31,8 +33,19 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/sign-up", "/img/**", "/css/**", "/js/**").permitAll()
-                .anyRequest().authenticated() //
+                .requestMatchers(
+                        "/",
+                        "/sign-up/**",
+                        "/search/**",
+                        "/img/**",
+                        "/css/**",
+                        "/js/**")
+                .permitAll()
+                .and()
+                .authorizeHttpRequests()
+                .requestMatchers("/admin/**").hasAnyAuthority(Role.ADMIN.name())
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin(login -> login
                         .loginPage("/login")

@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" th:href="@{/img/logo/logo-shop.png}" />
 
-    <title th:text="#{pet.html.title.name}"></title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+<!-- default header -->
 
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
-  </head>
+<head th:replace="fragments/header.html :: header(${pageTitle})">
+</head>
 
-  <body>
-    <!--chổ navbar đồ nè-->
-    <section th:replace="fragments/navbar.html :: navbar()"></section>
+<!-- more attribute -->
 
-    <!--dòng chữ header to to-->
-    <section id="page-header">
-      <h2 th:text="#{pet.html.search.page-title}"></h2>
-      <p th:text="#{pet.html.search.title-description}"></p>
-    </section>
+<head>
+  <title th:text="#{pet.html.title.name}"></title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <!--chổ render dữ liệu nè-->
-    <section id="product1" class="section-p1">
-      <div class="pro-container">
-        <div th:each="product : ${productPage.content}" class="pro">
-          <!-- link to view detail -->
-          <a style="text-decoration: none" th:href="@{/productDetail(id=${product.id})}">
-            <!--content-->
-            <img th:src="*{product.thumbnail?.get(0)}" alt="" />
-            <div class="des">
-              <span th:text="*{product.category.name}"></span>
-              <h5 th:text="*{product.name}"></h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4 th:text="${product.price}" class=""></h4>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+  <!--chổ navbar đồ nè-->
+  <section th:replace="fragments/navbar.html :: navbar()"></section>
+
+  <!--dòng chữ header to to-->
+  <section id="page-header">
+    <h2 th:text="#{pet.html.search.page-title}"></h2>
+    <p th:text="#{pet.html.search.title-description}"></p>
+  </section>
+
+  <!--chổ render dữ liệu nè-->
+  <section id="product1" class="section-p1">
+    <div class="pro-container">
+      <div th:each="product : ${productPage.content}" class="pro">
+        <!-- link to view detail -->
+        <a style="text-decoration: none" th:href="@{/product-detail(id=${product.id})}">
+          <!--content-->
+          <img th:src="*{product.thumbnail?.get(0)}" alt="" />
+          <div class="des">
+            <span th:text="*{product.category.name}"></span>
+            <h5 th:text="*{product.name}"></h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-            <a th:href="@{/cart/addProduct(id=${product.id})}"><i class="fal fa-shopping-cart cart"></i></a>
-          </a>
-        </div>
+            <h4 th:text="${product.price}" class=""></h4>
+          </div>
+          <a th:href="@{/cart/addProduct(id=${product.id})}"><i class="fal fa-shopping-cart cart"></i></a>
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!--phân trang-->
-    <section th:if="${productPage.totalPages > 0}" id="pagination" class="section-p1 dflex_gap">
-      <a
-        th:each="pageNumber : ${pageNumbers}"
-        th:href="@{/search(size=${productPage.size}, page=${pageNumber})}"
-        th:text="${pageNumber}"
-        th:class="${pageNumber==productPage.number + 1} ? active"
-      >
-      </a>
-    </section>
+  <!--phân trang-->
+  <section th:if="${productPage.totalPages > 0}" id="pagination" class="section-p1 dflex_gap">
+    <a th:each="pageNumber : ${pageNumbers}" th:href="@{/search(size=${productPage.size}, page=${pageNumber})}"
+      th:text="${pageNumber}" th:class="${pageNumber==productPage.number + 1} ? active">
+    </a>
+  </section>
 
-    <footer th:replace="fragments/footer.html :: footer()"></footer>
+  <footer th:replace="fragments/footer.html :: footer()"></footer>
 
-    <script th:src="@{/js/script.js}"></script>
-  </body>
+  <script th:src="@{/js/script.js}"></script>
+</body>
+
 </html>

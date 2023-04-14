@@ -29,17 +29,24 @@ public class MainController {
         List<Product> allProducts = productService.getAllProducts(PRODUCT_LIMIT);
         model.addAttribute("products", allProducts);
         model.addAttribute("isLogout", userService.getCurrentUser());
+        model.addAttribute("isLogin", userService.isLogin());
+
         return "index";
     }
 
     @GetMapping("/about")
-    public String about() {
+    public String about(Model model) {
+        model.addAttribute("isLogin", userService.isLogin());
+
+        System.out.println("/about");
+        System.out.println(userService.isLogin());
+
         return "about";
     }
 
-    @GetMapping("/userInfo")
+    @GetMapping("/user-info")
     public String userInfo(Model model) {
         model.addAttribute("currentUser", userService.getCurrentUser());
-        return "userInfo";
+        return "user-info";
     }
 }

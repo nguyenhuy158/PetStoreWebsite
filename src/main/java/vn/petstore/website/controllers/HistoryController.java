@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import vn.petstore.website.model.HistoryItemDto;
 import vn.petstore.website.model.Transaction;
 import vn.petstore.website.services.HistoryService;
+import vn.petstore.website.services.UserService;
 
 @Controller
 public class HistoryController {
@@ -20,11 +21,16 @@ public class HistoryController {
     @Autowired
     HistoryService historyService;
 
+    @Autowired
+    UserService userService;
+
     @RequestMapping(value = { "/history" }, method = RequestMethod.GET)
     public String getHistory(Model model) {
 
         List<HistoryItemDto> historyItemDtos = historyService.getHistoryItemDtos();
         model.addAttribute("historyItemDtos", historyItemDtos);
+        model.addAttribute("isLogin", userService.isLogin());
+
         return "history";
     }
 

@@ -1,6 +1,14 @@
 package vn.petstore.website.controllers;
 
-import lombok.RequiredArgsConstructor;
+import static vn.petstore.website.constances.Const.PRODUCT_ID;
+import static vn.petstore.website.constances.Const.PRODUCT_LIMIT;
+import static vn.petstore.website.constances.Const.PRODUCT_PAGE;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,17 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.RequiredArgsConstructor;
 import vn.petstore.website.model.Cart;
 import vn.petstore.website.model.Product;
 import vn.petstore.website.repository.ProductPagingRepository;
 import vn.petstore.website.services.ProductService;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
-import static vn.petstore.website.constances.Const.*;
+import vn.petstore.website.services.UserService;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,12 +33,17 @@ public class SearchController {
     ProductService productService;
 
     @Autowired
+    UserService userService;
+
+    @Autowired
     ProductPagingRepository productPagingRepository;
 
     // @GetMapping("/search")
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(Model model, @RequestParam("page") Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size) {
+        model.addAttribute("isLogin", userService.isLogin());
+
         int currentPage = page.orElse(PRODUCT_PAGE);
         int pageSize = size.orElse(PRODUCT_LIMIT);
 
@@ -51,7 +59,7 @@ public class SearchController {
         return "search";
     }
 
-    @RequestMapping(value = "/productDetail", method = RequestMethod.GET)
+    @RequestMapping(value = "/product-detail", method = RequestMethod.GET)
     public String productDetail(Model model, @RequestParam("id") Optional<Long> id) {
         Long productId = id.orElse(PRODUCT_ID);
 
@@ -62,7 +70,8 @@ public class SearchController {
 
         model.addAttribute("product", productById);
         model.addAttribute("cartOnlyQuantity", new Cart());
+        model.addAttribute("isLogin", userService.isLogin());
 
-        return "productDetail";
+        return "product-detail";
     }
 }
