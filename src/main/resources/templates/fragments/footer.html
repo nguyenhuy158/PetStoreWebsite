@@ -1,19 +1,56 @@
-<footer th:fragment="footer()" class="bg-dark text-light py-3">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <ul class="list-inline text-md-right">
-                    <img style="height: 150px" th:src="@{/images/logo.png}" alt="" class="img-fluid">
-                </ul>
-                <p>&copy; 2023 - Nguyen Tran Quang Huy - [52000668]</p>
-                <a href="https://github.com/nguyenhuy158">@Github:nguyenhuy158</a>
-            </div>
-            <div class="col-md-6">
-                <iframe class="w-100 h-100 rounded"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0235246992333!2d106.69757554922484!3d10.732668892313697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528b2747a81a3%3A0x33c1813055acb613!2sTon%20Duc%20Thang%20University!5e0!3m2!1sen!2s!4v1680927611773!5m2!1sen!2s"
-                    style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
+<footer th:fragment="footer()" class="section-p1">
+  <div class="col">
+    <img th:src="@{/img/main_logo.png}" alt="" class="logo" />
+    <h4 th:text="#{pet.html.footer.contact.name}"></h4>
+    <p>
+      <strong th:text="#{pet.html.footer.contact.address}"></strong>
+      <span th:text="#{pet.html.footer.contact.address.value}"></span>
+    </p>
+    <p>
+      <strong th:text="#{pet.html.footer.contact.phone}"></strong>
+      <span th:text="#{pet.html.footer.contact.phone.value}"></span>
+    </p>
+    <p>
+      <strong th:text="#{pet.html.footer.contact.hours}"></strong>
+      <span th:text="#{pet.html.footer.contact.hours.value}"></span>
+    </p>
+    <div class="follow">
+      <h4 th:text="#{pet.html.footer.follow}"></h4>
+      <div class="icon">
+        <a th:href="@{https://fb.com/nguyenhuy158}">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a th:href="@{https://github.com/nguyenhuy158/}">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a th:href="@{https://www.youtube.com/@ntqhuy2k2}">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
     </div>
+  </div>
+
+  <div class="col">
+    <h4 th:text="#{pet.html.footer.about}"></h4>
+    <a href=" #" th:text="#{pet.html.footer.about}"></a>
+    <a href="#" th:text="#{pet.html.footer.delivery}"></a>
+    <a href="#" th:text="#{pet.html.footer.policy}"></a>
+    <a href="#" th:text="#{pet.html.footer.term}"></a>
+  </div>
+
+  <div class="col">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.023524698755!2d106.69758091388026!3d10.732668892351265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fbd7d343a57%3A0xb5ca26918dff0578!2zMTkgxJAuIE5ndXnhu4VuIEjhu691IFRo4buNLCBUw6JuIEjGsG5nLCBRdeG6rW4gNywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1680063686308!5m2!1sen!2s"
+      width="500"
+      height="250"
+      style="border: 0; border-radius: 10px"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+  <div class="copyright">
+    <p th:text="#{pet.html.footer.copyright}"></p>
+  </div>
 </footer>
