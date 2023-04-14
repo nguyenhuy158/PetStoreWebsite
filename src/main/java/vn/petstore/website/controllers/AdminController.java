@@ -1,12 +1,13 @@
 package vn.petstore.website.controllers;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import lombok.RequiredArgsConstructor;
 import vn.petstore.website.model.Admin;
 import vn.petstore.website.model.Gear;
 import vn.petstore.website.services.AdminService;
@@ -22,7 +23,7 @@ public class AdminController {
     public String login(Model model) {
         System.out.println("get ne 1");
         model.addAttribute("admin", new Admin());
-        return "admin/login";
+        return "admin/index";
     }
 
     @PostMapping("/admin/login")

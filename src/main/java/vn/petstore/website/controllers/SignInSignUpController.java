@@ -1,6 +1,5 @@
 package vn.petstore.website.controllers;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -9,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import lombok.RequiredArgsConstructor;
+import vn.petstore.website.emun.Role;
 import vn.petstore.website.model.User;
 import vn.petstore.website.repository.UserRepository;
 
@@ -61,10 +62,13 @@ public class SignInSignUpController {
         if (byUserName != null) {
             boolean matches = new BCryptPasswordEncoder().matches(user.getPassword(), byUserName.getPassword());
             if (matches) {
-                return "index";
+                if (byUserName.getRole().name().equals(Role.ADMIN.name())) {
+                    return "redirect:/admin";
+                }
+                return "redirect:/";
             }
         }
-        return "redirect:sign-up";
+        return "redirect:/sign-up";
     }
 
 }
