@@ -41,11 +41,13 @@ public class SecurityConfiguration {
                         "/css/**",
                         "/js/**")
                 .permitAll()
+                // and
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/admin/**").hasAnyAuthority(Role.ADMIN.name())
                 .anyRequest()
                 .authenticated()
+                // and
                 .and()
                 .formLogin(login -> login
                         .loginPage("/login")
@@ -58,6 +60,7 @@ public class SecurityConfiguration {
                         .deleteCookies("JSESSIONID")
                         .permitAll());
 
+        // build
         return http.build();
     }
 
