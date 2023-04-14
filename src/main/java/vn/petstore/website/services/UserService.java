@@ -1,9 +1,10 @@
 package vn.petstore.website.services;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
 import vn.petstore.website.model.CustomUserDetails;
 import vn.petstore.website.model.User;
 
@@ -24,4 +25,9 @@ public class UserService {
     public Long getCurrentUserId() {
         return getCurrentUser().getId();
     }
+
+    public boolean isLogin() {
+        return getCurrentUser() != null;
+    }
+
 }
