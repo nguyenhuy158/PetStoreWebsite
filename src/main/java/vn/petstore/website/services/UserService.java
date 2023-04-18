@@ -5,6 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import vn.petstore.website.emun.Role;
 import vn.petstore.website.model.CustomUserDetails;
 import vn.petstore.website.model.User;
 
@@ -28,6 +29,10 @@ public class UserService {
 
     public boolean isLogin() {
         return getCurrentUser() != null;
+    }
+
+    public boolean isAdmin() {
+        return getCurrentUser().getRole().name().equals(Role.ADMIN.name());
     }
 
 }

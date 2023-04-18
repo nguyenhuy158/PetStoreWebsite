@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 
-<head th:replace="fragments/header.html :: header(${pageTitle})">
+<head th:replace="fragments/header.html :: header(${pageTitle})"> </head>
+<!-- more attribute -->
+<head>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 
 <html>
-
-<body>
+  <body>
     <!-- nav bar -->
     <div class="container">
-        <nav th:replace="fragments/navbar.html :: navbar()">
-        </nav>
+      <nav th:replace="fragments/navbar.html :: navbar()"></nav>
     </div>
 
     <div class="container">
-        <h1> </h1>
-        <div class="alert alert-dismissible alert-warning">
-            <h4 class="alert-heading">Oh! 404</h4>
-            <p class="mb-0">Sorry, we couldn't find the page you were looking for.</p>
-        </div>
+      <h1></h1>
+      <div class="alert alert-dismissible alert-warning">
+        <h4 class="alert-heading">Oh! 404</h4>
+        <p class="mb-0">Sorry, we couldn't find the page you were looking for.</p>
+      </div>
 
-        <footer th:replace="fragments/footer.html :: footer()">
-        </footer>
+      <footer th:replace="fragments/footer.html :: footer()"></footer>
     </div>
-</body>
-
+  </body>
 </html>

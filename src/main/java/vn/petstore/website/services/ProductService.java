@@ -1,18 +1,20 @@
 package vn.petstore.website.services;
 
-import lombok.RequiredArgsConstructor;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+import vn.petstore.website.dto.PaginatedProductResponse;
 import vn.petstore.website.model.Product;
 import vn.petstore.website.repository.ProductRepository;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -48,5 +50,31 @@ public class ProductService {
         }
 
         return new PageImpl<Product>(list, PageRequest.of(currentPage, pageSize), products.size());
+    }
+
+    public PaginatedProductResponse readProducts(Pageable pageable) {
+        Page<Product> products = productRepository.findAll(pageable);
+        return PaginatedProductResponse.builder()
+                .numberOfItems(products.getTotalElements())
+                .numberOfPages(products.getTotalPages())
+                .products(products.getContent())
+                .build();
+    }
+
+    public PaginatedProductResponse filterBooks(String keyword, Pageable pageable) {
+        Page<Product> products = productRepository.findAllByNameContains(keyword, pageable);
+        // products.and(productRepository.findAllByBrandContains(keyword, pageable));
+        // products.and(productRepository.findAllByColorContains(keyword, pageable));
+        try {
+            double parseDouble = Double.parseDouble(keyword);
+            products.and(productRepository.findAllByPriceEquals(parseDouble, pageable));
+        } catch (Exception e) {
+            // System.out.println(e.getMessage());
+        }
+        return PaginatedProductResponse.builder()
+                .numberOfItems(products.getTotalElements())
+                .numberOfPages(products.getTotalPages())
+                .products(products.getContent())
+                .build();
     }
 }
