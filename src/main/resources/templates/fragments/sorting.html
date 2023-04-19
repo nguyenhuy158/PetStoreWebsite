@@ -1,12 +1,16 @@
 <th scope="col" th:fragment="sorting(field, label)">
-    <a
-        th:href="@{'/products?' + ${keyword!=null && keyword!=''? 'keyword=' + keyword + '&' : ''}
+  <a
+    th:href="@{'/admin?' + ${keyword!=null && keyword!=''? 'keyword=' + keyword + '&' : ''}
                 + 'page=' + ${currentPage} + '&size=' + ${pageSize}
-                + ${sortField!=null ? '&sort=' + field + ',' + (sortField == field ? reverseSortDirection : sortDirection) : ''}}">
-        [[${label}]] </a>
-    <i th:if="${sortField == field}"
-        th:class="${sortDirection == 'asc' ? 'fas fa-arrow-up-short-wide' : 'fas fa-arrow-down-wide-short'}">
-    </i>
+                + ${sortField!=null ? '&sort=' + field + ',' + (sortField == field ? reverseSortDirection : sortDirection) : ''}}"
+  >
+    [[${label}]]
+  </a>
+  <i
+    th:if="${sortField == field}"
+    th:class="${sortDirection == 'asc' ? 'fas fa-arrow-up-short-wide' : 'fas fa-arrow-down-wide-short'}"
+  >
+  </i>
 
-    <i th:if="${sortField != field}" class="fa-solid fa-sort"></i>
+  <i th:if="${sortField != field}" class="fa-solid fa-sort"></i>
 </th>

@@ -27,6 +27,8 @@ public class PetApp implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         User ntqhuy2k2 = userRepository.findByUsername("ntqhuy2k2");
+        // System.out.println("'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''");
+        // System.out.println(ntqhuy2k2);
         if (ntqhuy2k2 == null) {
             User user = new User();
             user.setUsername("ntqhuy2k2");

@@ -78,6 +78,8 @@ public class AdminController {
             model.addAttribute("pageNumbers", pageNumbers);
         }
 
+        // done
+        System.out.println("get admin/index done");
         return "admin/index";
     }
 
