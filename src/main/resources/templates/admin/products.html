@@ -24,6 +24,18 @@
     <!--nav-->
     <section th:replace="/fragments/navbar.html :: navbar()"></section>
 
+    <!--new product-->
+    <div th:if="${isAdmin}" class="row justify-content-center text-center my-2">
+      <div class="col-md-8 col-lg-6">
+        <div class="header">
+          <h2>Manage Products</h2>
+        </div>
+        <div class="m-2">
+          <a class="btn btn-lg btn-primary" th:href="@{/admin/products/new}"> Add New Product </a>
+        </div>
+      </div>
+    </div>
+
     <!--search-->
     <div class="container">
       <div class="container">
@@ -71,7 +83,7 @@
                       style="object-fit: cover"
                       width="100"
                       height="100"
-                      th:src="${product.thumbnail.get(0) != null ? product.thumbnail.get(0) : 'https://placehold.co/100x100/png'}"
+                      th:src="${product?.thumbnail?.size() != 0 and product?.thumbnail?.get(0) != null ? product?.thumbnail?.get(0) : 'https://placehold.co/100x100/png'}"
                       alt=""
                     />
                   </td>

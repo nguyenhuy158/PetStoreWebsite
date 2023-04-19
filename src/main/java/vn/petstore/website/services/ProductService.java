@@ -77,4 +77,24 @@ public class ProductService {
                 .products(products.getContent())
                 .build();
     }
+
+    public void save(Product product) {
+        productRepository.save(product);
+    }
+
+    public Product get(Long id) throws Exception {
+        Optional<Product> result = productRepository.findById(id);
+        if (result.isPresent()) {
+            return result.get();
+        }
+        throw new Exception("Could not find any users with ID " + id);
+    }
+
+    public void delete(Long id) throws Exception {
+        Long count = productRepository.countById(id);
+        if (count == null || count == 0) {
+            throw new Exception("Could not find any products with ID " + id);
+        }
+        productRepository.deleteById(id);
+    }
 }

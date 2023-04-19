@@ -14,14 +14,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.RequiredArgsConstructor;
 import vn.petstore.website.dto.PaginatedProductResponse;
 import vn.petstore.website.model.Admin;
 import vn.petstore.website.model.Gear;
+import vn.petstore.website.model.Product;
 import vn.petstore.website.services.AdminService;
 import vn.petstore.website.services.ProductService;
 import vn.petstore.website.services.UserService;
@@ -95,6 +98,52 @@ public class AdminController {
 
         // done
         return "admin/products";
+    }
+
+    @GetMapping("/products/new")
+    public String showNewForm(Model model) {
+        model.addAttribute("isLogin", userService.isLogin());
+
+        model.addAttribute("product", new Product());
+        model.addAttribute("pageTitle", "Add New Product");
+        return "admin/product_form";
+    }
+
+    @PostMapping("/products/save")
+    public String saveProduct(Product product, RedirectAttributes ra) {
+        productService.save(product);
+        ra.addFlashAttribute("message", "The product has been saved successfully.");
+        return "redirect:/admin/products";
+    }
+
+    @GetMapping("/products/edit/{id}")
+    public String showEditForm(@PathVariable("id") Long id, Model model, RedirectAttributes ra) {
+        model.addAttribute("isLogin", userService.isLogin());
+        model.addAttribute("pageTitle", "Products");
+        model.addAttribute("admin", new Admin());
+        model.addAttribute("isAdmin", userService.isAdmin());
+
+        try {
+            Product product = productService.get(id);
+            model.addAttribute("product", product);
+            model.addAttribute("pageTitle", "Edit product (ID: " + id + ")");
+
+            return "admin/product_form";
+        } catch (Exception e) {
+            ra.addFlashAttribute("message", e.getMessage());
+            return "redirect:/admin/products";
+        }
+    }
+
+    @GetMapping("/products/delete/{id}")
+    public String deleteUser(@PathVariable("id") Long id, RedirectAttributes ra) {
+        try {
+            productService.delete(id);
+            ra.addFlashAttribute("message", "The product ID " + id + " has been deleted.");
+        } catch (Exception e) {
+            ra.addFlashAttribute("message", e.getMessage());
+        }
+        return "redirect:/admin/products";
     }
 
     @PostMapping("/admin/login")
