@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ import vn.petstore.website.services.UserService;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
@@ -38,14 +40,27 @@ public class AdminController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/admin")
-    public String login(
+    @GetMapping(value = { "/", "" })
+    public String login(Model model) {
+
+        model.asMap().clear();
+        model.addAttribute("pageTitle", "Products");
+        model.addAttribute("admin", new Admin());
+        model.addAttribute("isAdmin", userService.isAdmin());
+
+        return "admin/index";
+    }
+
+    @GetMapping("/products")
+    public String products(
             @RequestParam(name = "keyword", defaultValue = "") Optional<String> keyword,
             @RequestParam(defaultValue = "0") Integer currentPage,
             @RequestParam(defaultValue = "10") Integer pageSize,
             @RequestParam(defaultValue = "id,asc") String[] sort,
             Model model) {
+
         model.asMap().clear();
+        model.addAttribute("pageTitle", "Products");
         model.addAttribute("admin", new Admin());
         model.addAttribute("isAdmin", userService.isAdmin());
 
@@ -79,8 +94,7 @@ public class AdminController {
         }
 
         // done
-        System.out.println("get admin/index done");
-        return "admin/index";
+        return "admin/products";
     }
 
     @PostMapping("/admin/login")

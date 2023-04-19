@@ -1,6 +1,6 @@
 <th scope="col" th:fragment="sorting(field, label)">
   <a
-    th:href="@{'/admin?' + ${keyword!=null && keyword!=''? 'keyword=' + keyword + '&' : ''}
+    th:href="@{'/admin/products?' + ${keyword!=null && keyword!=''? 'keyword=' + keyword + '&' : ''}
                 + 'page=' + ${currentPage} + '&size=' + ${pageSize}
                 + ${sortField!=null ? '&sort=' + field + ',' + (sortField == field ? reverseSortDirection : sortDirection) : ''}}"
   >

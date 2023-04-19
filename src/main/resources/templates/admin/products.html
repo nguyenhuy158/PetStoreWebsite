@@ -27,7 +27,7 @@
     <!--search-->
     <div class="container">
       <div class="container">
-        <form th:action="@{/admin}" class="d-flex my-4">
+        <form th:action="@{/admin/products}" class="d-flex my-4">
           <input
             name="keyword"
             class="form-control me-sm-2"
@@ -64,7 +64,7 @@
               <th:block th:each="product, idx : ${paginatedProductResponse?.products}">
                 <tr th:classappend="${idx.index % 2 == 0} ? 'table-active' : 'table-light'">
                   <td class="align-middle vertical-center">
-                    <a th:href="@{/admin/} + ${product.id}"> [[${product.id}]] </a>
+                    <a th:href="@{/admin/products/} + ${product.id}"> [[${product.id}]] </a>
                   </td>
                   <td>
                     <img
@@ -79,15 +79,15 @@
                   <td class="align-middle vertical-center text-truncate">[[${product.name}]]</td>
                   <td class="align-middle vertical-center text-truncate">[[${product.price}]]</td>
                   <td class="align-middle">
-                    <a class="h4 p-1" th:href="@{'/admin/edit/' + ${product.id}}">
+                    <a class="h4 p-1" th:href="@{'/admin/products/edit/' + ${product.id}}">
                       <i class="fa-solid fa-pen-to-square"></i>
                     </a>
 
-                    <a class="h4 p-1" th:href="@{'/admin/delete/' + ${product.id}}">
+                    <a class="h4 p-1" th:href="@{'/admin/products/delete/' + ${product.id}}">
                       <i class="fa-solid fa-trash"></i>
                     </a>
 
-                    <a class="h4 p-1" th:href="@{'/admin/' + ${product.id}}">
+                    <a class="h4 p-1" th:href="@{/product-detail(id=${product.id})}">
                       <i class="fa-solid fa-eye"></i>
                     </a>
                   </td>
@@ -105,7 +105,7 @@
         <ul class="pagination justify-content-center">
           <!--Pre button-->
           <li class="page-item" th:classappend="${currentPage==0} ? disabled">
-            <a class="page-link" th:href="@{/admin(keyword=${keyword}, currentPage=${currentPage-1})}">
+            <a class="page-link" th:href="@{/admin/products(keyword=${keyword}, currentPage=${currentPage-1})}">
               <i class="fa-solid fa-backward"></i>
             </a>
           </li>
@@ -118,7 +118,7 @@
           >
             <a
               class="page-link"
-              th:href="@{/admin(keyword=${keyword}, currentPage=${pageNumber - 1})}"
+              th:href="@{/admin/products(keyword=${keyword}, currentPage=${pageNumber - 1})}"
               th:text="${pageNumber}"
             >
             </a>
@@ -129,7 +129,7 @@
             class="page-item"
             th:classappend="${currentPage==paginatedProductResponse.getNumberOfPages() - 1} ? disabled"
           >
-            <a class="page-link" th:href="@{/admin(keyword=${keyword}, currentPage=${currentPage+1})}">
+            <a class="page-link" th:href="@{/admin/products(keyword=${keyword}, currentPage=${currentPage+1})}">
               <i class="fa-solid fa-forward"></i>
             </a>
           </li>
@@ -143,7 +143,7 @@
     <!-- script -->
     <script type="text/javascript">
       function clearSearch() {
-        window.location = "[[@{/admin}]]";
+        window.location = "[[@{/admin/products}]]";
       }
     </script>
   </body>
