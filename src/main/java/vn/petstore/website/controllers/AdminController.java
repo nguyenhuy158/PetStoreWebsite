@@ -170,16 +170,16 @@ public class AdminController {
 
         PaginatedUserResponse paginatedUserResponse;
         if (keyword.isPresent()) {
-            paginatedUserResponse = productService
+            paginatedUserResponse = userService
                     .filterBooks(keyword.get(), PageRequest.of(currentPage, pageSize,
                             Sort.by(order)));
         } else {
-            paginatedUserResponse = productService
+            paginatedUserResponse = userService
                     .readProducts(PageRequest.of(currentPage, pageSize, Sort.by(order)));
         }
         model.addAttribute("paginatedUserResponse", paginatedUserResponse);
         model.addAttribute("currentNumberProduct",
-                Math.min(paginatedProductResponse.getNumberOfItems(), (currentPage
+                Math.min(paginatedUserResponse.getNumberOfItems(), (currentPage
                         + 1) * pageSize));
         model.addAttribute("currentPage", currentPage);
         model.addAttribute("keyword", keyword.get());
@@ -188,7 +188,7 @@ public class AdminController {
         model.addAttribute("sortDirection", sortDirection);
         model.addAttribute("reverseSortDirection", sortDirection.equals("asc") ? "desc" : "asc");
 
-        int totalPages = paginatedProductResponse.getNumberOfPages();
+        int totalPages = paginatedUserResponse.getNumberOfPages();
         if (totalPages > 0) {
             List<Integer> pageNumbers = IntStream.rangeClosed(1,
                     totalPages).boxed().collect(Collectors.toList());

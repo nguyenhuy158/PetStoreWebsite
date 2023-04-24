@@ -4,12 +4,12 @@ import java.util.List;
 
 import lombok.Builder;
 import lombok.Data;
-import vn.petstore.website.model.CustomUserDetails;
+import vn.petstore.website.model.User;
 
 @Data
 @Builder
 public class PaginatedUserResponse {
-    private List<CustomUserDetails> products;
+    private List<User> users;
     private Long numberOfItems;
     private int numberOfPages;
 }
