@@ -16,10 +16,14 @@ public class MyErrorController implements ErrorController {
 
     @Autowired
     UserService userDetailsServiceImpl;
+    @Autowired
+    UserService userService;
 
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request, Model model) {
+        model.asMap().clear();
         model.addAttribute("isLogin", userDetailsServiceImpl.isLogin());
+        model.addAttribute("isAdmin", userService.isAdmin());
 
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 

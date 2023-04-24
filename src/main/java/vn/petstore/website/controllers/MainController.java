@@ -26,8 +26,16 @@ public class MainController {
 
     @GetMapping(value = { "/", "/home" })
     public String index(Model model) {
-        List<Product> allProducts = productService.getAllProducts(PRODUCT_LIMIT);
-        model.addAttribute("products", allProducts);
+        // hander if current user is admin
+        if (userService.isAdmin()) {
+            return "redirect:/admin";
+        }
+
+        // hander if current user not admin
+        List<Product> products = productService.getAllProducts(PRODUCT_LIMIT);
+
+        model.asMap().clear();
+        model.addAttribute("products", products);
         model.addAttribute("isLogout", userService.getCurrentUser());
         model.addAttribute("isLogin", userService.isLogin());
 

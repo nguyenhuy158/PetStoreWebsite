@@ -48,11 +48,13 @@ public class AdminController {
     public String login(Model model) {
 
         model.asMap().clear();
+        model.addAttribute("tabHome", true);
         model.addAttribute("isLogin", userService.isLogin());
         model.addAttribute("pageTitle", "Dashboard");
         model.addAttribute("admin", new Admin());
         model.addAttribute("isAdmin", userService.isAdmin());
 
+        System.out.println("user is admin" + userService.getUserById(userService.getCurrentUserId()));
         return "admin/index";
     }
 
@@ -66,7 +68,7 @@ public class AdminController {
 
         model.asMap().clear();
         model.addAttribute("isLogin", userService.isLogin());
-        model.addAttribute("pageTitle", "Products");
+        model.addAttribute("pageTitle", "Products Manager");
         model.addAttribute("admin", new Admin());
         model.addAttribute("isAdmin", userService.isAdmin());
 
@@ -108,7 +110,7 @@ public class AdminController {
         model.addAttribute("isLogin", userService.isLogin());
 
         model.addAttribute("product", new Product());
-        model.addAttribute("pageTitle", "Add New Product");
+        model.addAttribute("pageTitle", "Add Product");
         return "admin/product_form";
     }
 
@@ -122,7 +124,7 @@ public class AdminController {
     @GetMapping("/products/edit/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model, RedirectAttributes ra) {
         model.addAttribute("isLogin", userService.isLogin());
-        model.addAttribute("pageTitle", "Products");
+        model.addAttribute("pageTitle", "Edit Product");
         model.addAttribute("admin", new Admin());
         model.addAttribute("isAdmin", userService.isAdmin());
 

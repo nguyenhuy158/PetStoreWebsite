@@ -6,42 +6,22 @@
   <div>
     <ul id="navbar">
       <li>
-        <a
-          th:href="@{${isAdmin} ? '/admin' : '/home'}"
-          th:text="#{pet.html.header.navbar.home}"
-          th:classappend="${tabHome} ? 'active' : ''"
-        ></a>
+        <a th:href="@{${isAdmin} ? '/admin' : '/home'}" th:text="#{pet.html.header.navbar.home}" th:classappend="${tabHome} ? 'active' : ''"></a>
       </li>
-      <li th:if="${isAdmin == false}">
-        <a
-          th:href="@{/search}"
-          th:text="#{pet.html.header.navbar.search}"
-          th:classappend="${tabSearch} ? 'active' : ''"
-        ></a>
+      <li th:if="${isAdmin != true}">
+        <a th:href="@{/search}" th:text="#{pet.html.header.navbar.search}" th:classappend="${tabSearch} ? 'active' : ''"></a>
       </li>
       <li th:if="${isLogin and isAdmin == false}">
         <a th:href="@{/cart}" th:text="#{pet.html.header.navbar.cart}" th:classappend="${tabCart} ? 'active' : ''"></a>
       </li>
       <li th:if="${isLogin and isAdmin == false}">
-        <a
-          th:href="@{/history}"
-          th:text="#{pet.html.header.navbar.history}"
-          th:classappend="${tabHistory} ? 'active' : ''"
-        ></a>
+        <a th:href="@{/history}" th:text="#{pet.html.header.navbar.history}" th:classappend="${tabHistory} ? 'active' : ''"></a>
       </li>
       <li th:if="${isLogin and isAdmin == false}">
-        <a
-          th:href="@{/user-info}"
-          th:text="#{pet.html.header.navbar.userInfo}"
-          th:classappend="${tabCart} ? 'active' : ''"
-        ></a>
+        <a th:href="@{/user-info}" th:text="#{pet.html.header.navbar.userInfo}" th:classappend="${tabCart} ? 'active' : ''"></a>
       </li>
       <li th:if="${isLogin and isAdmin == false}">
-        <a
-          th:href="@{/about}"
-          th:text="#{pet.html.header.navbar.about}"
-          th:classappend="${tabCart} ? 'active' : ''"
-        ></a>
+        <a th:href="@{/about}" th:text="#{pet.html.header.navbar.about}" th:classappend="${tabCart} ? 'active' : ''"></a>
       </li>
       <li th:if="${isLogin}">
         <a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a>
