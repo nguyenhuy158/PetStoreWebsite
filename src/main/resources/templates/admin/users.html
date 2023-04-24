@@ -53,14 +53,14 @@
         <table class="table table-bordered table-hover">
           <thead class="thead-dark">
             <tr>
-              <th class="col" th:replace="fragments/sorting :: sorting('id','Id')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('name','Image')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('username','Category')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('address','Name')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('email','Price')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('phone','Price')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('gender','Price')"></th>
-              <!-- <th class="col" th:replace="fragments/sorting :: sorting('role','Price')"></th> -->
+              <th class="col" th:replace="fragments/sorting :: sortingUser('id','Id')"></th>
+              <th class="col" th:replace="fragments/sorting :: sortingUser('name','Name')"></th>
+              <th class="col" th:replace="fragments/sorting :: sortingUser('username','Username')"></th>
+              <th class="col" th:replace="fragments/sorting :: sortingUser('address','Address')"></th>
+              <th class="col" th:replace="fragments/sorting :: sortingUser('email','Email')"></th>
+              <th class="col" th:replace="fragments/sorting :: sortingUser('phone','Phone')"></th>
+              <th class="col" th:replace="fragments/sorting :: sortingUser('gender','Gender')"></th>
+              <!-- <th class="col" th:replace="fragments/sorting :: sortingUser('role','Role')"></th> -->
               <th class="col">Handler</th>
             </tr>
           </thead>
