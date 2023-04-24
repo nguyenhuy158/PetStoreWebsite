@@ -47,6 +47,7 @@ public class AdminController {
     public String login(Model model) {
 
         model.asMap().clear();
+        model.addAttribute("isLogin", userService.isLogin());
         model.addAttribute("pageTitle", "Products");
         model.addAttribute("admin", new Admin());
         model.addAttribute("isAdmin", userService.isAdmin());
