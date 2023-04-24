@@ -28,17 +28,17 @@ public class MyErrorController implements ErrorController {
 
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
                 model.addAttribute("pageTitle", "404");
-                return "error-404";
+                return "error/error-404";
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
                 model.addAttribute("pageTitle", "500");
-                return "error-500";
+                return "error/error-500";
             } else if (statusCode == HttpStatus.CONFLICT.value()) {
                 model.addAttribute("pageTitle", "409");
-                return "error";
+                return "error/error";
             }
         }
-        model.addAttribute("pageTitle", "Error");
-        return "error";
+        model.addAttribute("pageTitle", "Error/Error");
+        return "error/error";
 
     }
 }
