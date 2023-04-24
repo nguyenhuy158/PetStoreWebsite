@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- default header -->
+
+  <head th:replace="/fragments/header.html :: header(${pageTitle})"> </head>
+
+  <!-- more attribute -->
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <head>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+
+  <body>
+    <!--nav-->
+    <section th:replace="/fragments/navbar.html :: navbar()"></section>
+
+    <!--footer-->
+    <footer th:replace="/fragments/footer.html :: footer()"></footer>
+
+    <!-- script -->
+    <script type="text/javascript">
+      function clearSearch() {
+        window.location = "[[@{/admin/products}]]";
+      }
+    </script>
+  </body>
+</html>
