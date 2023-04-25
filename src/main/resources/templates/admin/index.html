@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/admin/index.css}" />
   </head>
 
   <body>
@@ -31,10 +32,9 @@
           <!--product manager-->
           <div class="card" bis_skin_checked="1">
             <div class="card-body" bis_skin_checked="1">
-              <h4 class="card-title">product manager</h4>
-              <h6 class="card-subtitle mb-2 text-muted">subtitle</h6>
-              <p class="card-text">some describe</p>
-              <a th:href="@{/admin/products}" class="card-link">Go to manager dashboar</a>
+              <h3 class="card-title">Quản lý sản phẩm</h3>
+              <p class="card-text">Xem và quản lý các sản phẩm trên web</p>
+              <a th:href="@{/admin/products}" class="card-link"><button>Click here to manage</button></a>
             </div>
           </div>
         </div>
@@ -43,10 +43,9 @@
           <!--user manager-->
           <div class="card" bis_skin_checked="1">
             <div class="card-body" bis_skin_checked="1">
-              <h4 class="card-title">user manager</h4>
-              <h6 class="card-subtitle mb-2 text-muted">subtitle</h6>
-              <p class="card-text">some describe</p>
-              <a th:href="@{/admin/users}" class="card-link">Go to manager dashboar</a>
+              <h3 class="card-title">Quản lý khách hàng</h3>
+              <p class="card-text">Xem thông tin và quản lý khách hàng</p>
+              <a th:href="@{/admin/users}" class="card-link"><button>Click here to manage</button></a>
             </div>
           </div>
         </div>
@@ -55,10 +54,9 @@
           <!--order manager-->
           <div class="card" bis_skin_checked="1">
             <div class="card-body" bis_skin_checked="1">
-              <h4 class="card-title">order manager</h4>
-              <h6 class="card-subtitle mb-2 text-muted">subtitle</h6>
-              <p class="card-text">some describe</p>
-              <a th:href="@{/admin/orders}" class="card-link">Go to manager dashboar</a>
+              <h3 class="card-title">Quản lý đơn hàng</h3>
+              <p class="card-text">Xem chi tiết và quản lý đơn hàng</p>
+              <a th:href="@{/admin/orders}" class="card-link" style="font-size: 15px; padding: 5px 10px;"><button>Click here to manage</button></a>
             </div>
           </div>
         </div>
