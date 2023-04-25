@@ -1,15 +1,23 @@
 <th scope="col" th:fragment="sorting(field, label)">
-  <a
-    th:href="@{'/admin/products?' + ${keyword!=null && keyword!=''? 'keyword=' + keyword + '&' : ''}
+  <a th:href="@{'/admin/products?' + ${keyword!=null && keyword!=''? 'keyword=' + keyword + '&' : ''}
                 + 'page=' + ${currentPage} + '&size=' + ${pageSize}
-                + ${sortField!=null ? '&sort=' + field + ',' + (sortField == field ? reverseSortDirection : sortDirection) : ''}}"
-  >
+                + ${sortField!=null ? '&sort=' + field + ',' + (sortField == field ? reverseSortDirection : sortDirection) : ''}}">
     [[${label}]]
   </a>
-  <i
-    th:if="${sortField == field}"
-    th:class="${sortDirection == 'asc' ? 'fas fa-arrow-up-short-wide' : 'fas fa-arrow-down-wide-short'}"
-  >
+  <i th:if="${sortField == field}" th:class="${sortDirection == 'asc' ? 'fas fa-arrow-up-short-wide' : 'fas fa-arrow-down-wide-short'}">
+  </i>
+
+  <i th:if="${sortField != field}" class="fa-solid fa-sort"></i>
+</th>
+
+
+<th scope="col" th:fragment="sortingUser(field, label)">
+  <a th:href="@{'/admin/users?' + ${keyword!=null && keyword!=''? 'keyword=' + keyword + '&' : ''}
+                + 'page=' + ${currentPage} + '&size=' + ${pageSize}
+                + ${sortField!=null ? '&sort=' + field + ',' + (sortField == field ? reverseSortDirection : sortDirection) : ''}}">
+    [[${label}]]
+  </a>
+  <i th:if="${sortField == field}" th:class="${sortDirection == 'asc' ? 'fas fa-arrow-up-short-wide' : 'fas fa-arrow-down-wide-short'}">
   </i>
 
   <i th:if="${sortField != field}" class="fa-solid fa-sort"></i>
