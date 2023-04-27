@@ -50,8 +50,8 @@
       <h2 th:text="${product.price}" class=""></h2>
 
       <!-- description -->
-      <h4 th:text="#{pet.html.prodetails.description}"></h4>
-      <span th:text="*{product.description}"> </span>
+      <h4 th:text="#{pet.html.prodetails.description}" style="padding-bottom: 20px; text-decoration: underline;"></h4>
+      <span th:text="*{product.description}" style="font-weight: 430;"></span>
 
       <!-- area for user -->
       <th:block th:if="${isAdmin != true}">
