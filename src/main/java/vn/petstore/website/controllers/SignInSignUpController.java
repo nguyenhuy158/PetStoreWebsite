@@ -56,11 +56,14 @@ public class SignInSignUpController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String checkLogin(@ModelAttribute User user) {
+        System.out.println("post login");
         String username = user.getUsername();
         User byUserName = userRepository.findByUsername(username);
 
         if (byUserName != null) {
             boolean matches = new BCryptPasswordEncoder().matches(user.getPassword(), byUserName.getPassword());
+            System.out.println("login " + byUserName);
+
             if (matches) {
                 if (byUserName.getRole().name().equals(Role.ADMIN.name())) {
                     return "redirect:/admin";

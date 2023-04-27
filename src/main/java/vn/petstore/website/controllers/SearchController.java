@@ -71,6 +71,7 @@ public class SearchController {
         model.addAttribute("product", productById);
         model.addAttribute("cartOnlyQuantity", new Cart());
         model.addAttribute("isLogin", userService.isLogin());
+        model.addAttribute("isAdmin", userService.isAdmin());
 
         return "product-detail";
     }
