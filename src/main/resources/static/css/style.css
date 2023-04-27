@@ -675,11 +675,10 @@ footer .copyright {
 
 #prodetails {
   display: flex;
-  margin-top: 20px;
 }
 
 #prodetails .single-pro-img {
-  width: 40%;
+  width: 33%;
   margin-right: 50px;
 }
 
@@ -695,11 +694,15 @@ footer .copyright {
 
 #prodetails .single-pro-details {
   width: 50%;
-  padding-top: 30px;
+  padding: 130px 0 0 70px;
 }
 
 #prodetails .single-pro-details h4 {
-  padding: 40px 0 20px 0;
+  padding: 10px 0 10px 0;
+}
+
+.single-pro-details form{
+  margin-top: 20px;
 }
 
 #prodetails .single-pro-details h2 {
