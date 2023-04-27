@@ -73,6 +73,7 @@
               </tr>
             </thead>
             <tbody>
+
               <th:block th:each="product, idx : ${paginatedProductResponse?.products}">
                 <tr th:classappend="${idx.index % 2 == 0} ? 'table-active' : 'table-light'">
                   <td class="align-middle vertical-center">
@@ -105,6 +106,7 @@
                   </td>
                 </tr>
               </th:block>
+              
             </tbody>
           </table>
         </div>
