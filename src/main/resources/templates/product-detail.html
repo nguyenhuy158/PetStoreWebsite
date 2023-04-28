@@ -46,11 +46,11 @@
     <div class="single-pro-details">
       <!-- common info -->
       <h5 th:text="*{product.category.name}"></h5>
-      <h4 th:text="*{product.name}"></h4>
-      <h2 th:text="${product.price}" class=""></h2>
+      <h4 th:text="*{product.name}" class="product-name"></h4>
+      <h2 th:text="${product.price}" ></h2>
 
       <!-- description -->
-      <h4 th:text="#{pet.html.prodetails.description}" style="padding-bottom: 20px; text-decoration: underline;"></h4>
+      <h4 th:text="#{pet.html.prodetails.description}" class="pro-descript"></h4>
       <span th:text="*{product.description}" style="font-weight: 430;"></span>
 
       <!-- area for user -->
