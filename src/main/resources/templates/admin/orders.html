@@ -26,9 +26,9 @@
       <div class="header">
         <h2>[[${pageTitle}]]</h2>
       </div>
-      <div class="m-2">
-        <a class="btn btn-lg btn-primary" th:href="@{/admin/products/new}"> Add New Product </a>
-      </div>
+      <!-- <div class="m-2">
+        <a class="btn btn-lg btn-primary" th:href="@{/admin/products/new}"> Add New O </a>
+      </div> -->
     </div>
   </div>
 
@@ -54,36 +54,34 @@
           <thead class="thead-dark">
             <tr>
               <th class="col" th:replace="fragments/sorting :: sorting('id','Id')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('image','Image')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('category','Category')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('name','Name')"></th>
-              <th class="col" th:replace="fragments/sorting :: sorting('price','Price')"></th>
+              <th class="col" th:replace="fragments/sorting :: sorting('user.name','Username')"></th>
+              <th class="col" th:replace="fragments/sorting :: sorting('user.address','Address')"></th>
+              <th class="col" th:replace="fragments/sorting :: sorting('user.phone','Phone')"></th>
+              <th class="col" th:replace="fragments/sorting :: sorting('size','Price')"></th>
               <th class="col">Handler</th>
             </tr>
           </thead>
           <tbody>
 
-            <th:block th:each="product, idx : ${paginatedProductResponse?.products}">
+            <th:block th:each="order, idx : ${paginatedOrderResponse?.orders}">
               <tr th:classappend="${idx.index % 2 == 0} ? 'table-active' : 'table-light'">
                 <td class="align-middle vertical-center">
-                  <a th:href="@{/admin/products/} + ${product.id}"> [[${product.id}]] </a>
+                  <a th:href="@{/admin/orders/} + ${order.id}"> [[${order.id}]] </a>
                 </td>
-                <td>
-                  <img style="object-fit: cover" width="100" height="100" th:src="${product?.thumbnail?.size() != 0 and product?.thumbnail?.get(0) != null ? product?.thumbnail?.get(0) : 'https://placehold.co/100x100/png'}" alt="" />
-                </td>
-                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${product.category?.name}]]</td>
-                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${product.name}]]</td>
-                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${product.price}]]</td>
+                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${order.user.name}]]</td>
+                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${order.user.address}]]</td>
+                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${order.user.phone}]]</td>
+                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${order.transactionDetailList.size()}]]</td>
                 <td class="align-middle">
-                  <a class="h4 p-1" th:href="@{'/admin/products/edit/' + ${product.id}}">
+                  <!-- <a class="h4 p-1" th:href="@{'/admin/orders/edit/' + ${order.id}}">
                     <i class="fa-solid fa-pen-to-square"></i>
-                  </a>
+                  </a> -->
 
-                  <a class="h4 p-1" th:href="@{'/admin/products/delete/' + ${product.id}}">
+                  <a class="h4 p-1" th:href="@{'/admin/orders/delete/' + ${order.id}}">
                     <i class="fa-solid fa-trash"></i>
                   </a>
 
-                  <a class="h4 p-1" th:href="@{/product-detail(id=${product.id})}">
+                  <a class="h4 p-1" th:href="@{/order-detail(id=${order.id})}">
                     <i class="fa-solid fa-eye"></i>
                   </a>
                 </td>
