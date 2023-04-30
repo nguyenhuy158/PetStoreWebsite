@@ -217,6 +217,9 @@ public class AdminController {
             @RequestParam(defaultValue = "10") Integer pageSize,
             @RequestParam(defaultValue = "id,asc") String[] sort,
             Model model) {
+
+        System.out.println("------------------------/orders");
+
         model.asMap().clear();
         model.addAttribute("isLogin", userService.isLogin());
         model.addAttribute("pageTitle", "Order Manager");
@@ -228,18 +231,18 @@ public class AdminController {
         Direction direction = sortDirection.equals("desc") ? Sort.Direction.DESC : Sort.Direction.ASC;
         Order order = new Order(direction, sortField);
 
-        PaginatedOrderResponse paginatedUserResponse;
+        PaginatedOrderResponse paginatedOrderResponse;
         if (keyword.isPresent()) {
-            paginatedUserResponse = transactionService
+            paginatedOrderResponse = transactionService
                     .filterBooks(keyword.get(), PageRequest.of(currentPage, pageSize,
                             Sort.by(order)));
         } else {
-            paginatedUserResponse = transactionService
+            paginatedOrderResponse = transactionService
                     .readProducts(PageRequest.of(currentPage, pageSize, Sort.by(order)));
         }
-        model.addAttribute("paginatedUserResponse", paginatedUserResponse);
+        model.addAttribute("paginatedOrderResponse", paginatedOrderResponse);
         model.addAttribute("currentNumberProduct",
-                Math.min(paginatedUserResponse.getNumberOfItems(), (currentPage
+                Math.min(paginatedOrderResponse.getNumberOfItems(), (currentPage
                         + 1) * pageSize));
         model.addAttribute("currentPage", currentPage);
         model.addAttribute("keyword", keyword.get());
@@ -248,13 +251,14 @@ public class AdminController {
         model.addAttribute("sortDirection", sortDirection);
         model.addAttribute("reverseSortDirection", sortDirection.equals("asc") ? "desc" : "asc");
 
-        int totalPages = paginatedUserResponse.getNumberOfPages();
+        int totalPages = paginatedOrderResponse.getNumberOfPages();
         if (totalPages > 0) {
             List<Integer> pageNumbers = IntStream.rangeClosed(1,
                     totalPages).boxed().collect(Collectors.toList());
             model.addAttribute("pageNumbers", pageNumbers);
         }
 
+        System.out.println("------------------------" + paginatedOrderResponse.getNumberOfItems());
         // done
         return "admin/orders";
     }

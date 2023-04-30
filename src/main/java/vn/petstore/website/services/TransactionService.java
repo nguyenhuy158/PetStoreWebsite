@@ -51,6 +51,8 @@ public class TransactionService {
 
     public PaginatedOrderResponse readProducts(Pageable pageable) {
         Page<Transaction> orders = transactionRepository.findAll(pageable);
+
+        System.out.println("---------------------------size()" + orders.getContent().size());
         return PaginatedOrderResponse.builder()
                 .numberOfItems(orders.getTotalElements())
                 .numberOfPages(orders.getTotalPages())
@@ -69,6 +71,7 @@ public class TransactionService {
         // // System.out.println(e.getMessage());
         // }
         Page<Transaction> orders = transactionRepository.findAll(pageable);
+        System.out.println("---------------------------size() filter" + orders.getContent().size());
 
         return PaginatedOrderResponse.builder()
                 .numberOfItems(orders.getTotalElements())

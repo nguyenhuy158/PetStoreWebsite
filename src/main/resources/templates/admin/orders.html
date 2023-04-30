@@ -43,6 +43,85 @@
     </div>
   </div>
 
+  <!-- Table for admin -->
+  <div th:if="${isAdmin}" class="container">
+    <!-- table result -->
+    <div class="container-fluid text-center">
+      <div th:if="${message}" class="alert alert-success text-center">[[${message}]]</div>
+
+      <div>
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th class="col" th:replace="fragments/sorting :: sorting('id','Id')"></th>
+              <th class="col" th:replace="fragments/sorting :: sorting('image','Image')"></th>
+              <th class="col" th:replace="fragments/sorting :: sorting('category','Category')"></th>
+              <th class="col" th:replace="fragments/sorting :: sorting('name','Name')"></th>
+              <th class="col" th:replace="fragments/sorting :: sorting('price','Price')"></th>
+              <th class="col">Handler</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <th:block th:each="product, idx : ${paginatedProductResponse?.products}">
+              <tr th:classappend="${idx.index % 2 == 0} ? 'table-active' : 'table-light'">
+                <td class="align-middle vertical-center">
+                  <a th:href="@{/admin/products/} + ${product.id}"> [[${product.id}]] </a>
+                </td>
+                <td>
+                  <img style="object-fit: cover" width="100" height="100" th:src="${product?.thumbnail?.size() != 0 and product?.thumbnail?.get(0) != null ? product?.thumbnail?.get(0) : 'https://placehold.co/100x100/png'}" alt="" />
+                </td>
+                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${product.category?.name}]]</td>
+                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${product.name}]]</td>
+                <td class="align-middle vertical-center text-truncate product-content" style="font-weight: 450; font-size: 15px;">[[${product.price}]]</td>
+                <td class="align-middle">
+                  <a class="h4 p-1" th:href="@{'/admin/products/edit/' + ${product.id}}">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </a>
+
+                  <a class="h4 p-1" th:href="@{'/admin/products/delete/' + ${product.id}}">
+                    <i class="fa-solid fa-trash"></i>
+                  </a>
+
+                  <a class="h4 p-1" th:href="@{/product-detail(id=${product.id})}">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+            </th:block>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!--Paging-->
+  <div class="row">
+    <div class="col">
+      <ul class="pagination justify-content-center">
+        <!--Pre button-->
+        <li class="page-item" th:classappend="${currentPage==0} ? disabled">
+          <a class="page-link" th:href="@{/admin/orders(keyword=${keyword}, currentPage=${currentPage-1})}">
+            <i class="fa-solid fa-backward"></i>
+          </a>
+        </li>
+
+        <!--Order button-->
+        <li th:each="pageNumber : ${pageNumbers}" class="page-item" th:classappend="${pageNumber==currentPage + 1} ? active">
+          <a class="page-link" th:href="@{/admin/orders(keyword=${keyword}, currentPage=${pageNumber - 1})}" th:text="${pageNumber}">
+          </a>
+        </li>
+
+        <!--Last button-->
+        <li class="page-item" th:classappend="${currentPage==paginatedOrderResponse.getNumberOfPages() - 1} ? disabled">
+          <a class="page-link" th:href="@{/admin/orders(keyword=${keyword}, currentPage=${currentPage+1})}">
+            <i class="fa-solid fa-forward"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <!--footer-->
   <footer th:replace="/fragments/footer.html :: footer()"></footer>

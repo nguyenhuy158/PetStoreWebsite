@@ -102,20 +102,20 @@
       <ul class="pagination justify-content-center">
         <!--Pre button-->
         <li class="page-item" th:classappend="${currentPage==0} ? disabled">
-          <a class="page-link" th:href="@{/admin/products(keyword=${keyword}, currentPage=${currentPage-1})}">
+          <a class="page-link" th:href="@{/admin/users(keyword=${keyword}, currentPage=${currentPage-1})}">
             <i class="fa-solid fa-backward"></i>
           </a>
         </li>
 
         <!--Order button-->
         <li th:each="pageNumber : ${pageNumbers}" class="page-item" th:classappend="${pageNumber==currentPage + 1} ? active">
-          <a class="page-link" th:href="@{/admin/products(keyword=${keyword}, currentPage=${pageNumber - 1})}" th:text="${pageNumber}">
+          <a class="page-link" th:href="@{/admin/users(keyword=${keyword}, currentPage=${pageNumber - 1})}" th:text="${pageNumber}">
           </a>
         </li>
 
         <!--Last button-->
         <li class="page-item" th:classappend="${currentPage==paginatedUserResponse.getNumberOfPages() - 1} ? disabled">
-          <a class="page-link" th:href="@{/admin/products(keyword=${keyword}, currentPage=${currentPage+1})}">
+          <a class="page-link" th:href="@{/admin/users(keyword=${keyword}, currentPage=${currentPage+1})}">
             <i class="fa-solid fa-forward"></i>
           </a>
         </li>
