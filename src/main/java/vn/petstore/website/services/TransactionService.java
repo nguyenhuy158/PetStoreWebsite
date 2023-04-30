@@ -3,8 +3,11 @@ package vn.petstore.website.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import vn.petstore.website.dto.PaginatedOrderResponse;
 import vn.petstore.website.model.HistoryItemDto;
 import vn.petstore.website.model.Transaction;
 import vn.petstore.website.repository.TransactionRepository;
@@ -44,6 +47,34 @@ public class TransactionService {
 
     public Transaction getTrasactionById(Long transactionId) {
         return transactionRepository.findById(transactionId).get();
+    }
+
+    public PaginatedOrderResponse readProducts(Pageable pageable) {
+        Page<Transaction> orders = transactionRepository.findAll(pageable);
+        return PaginatedOrderResponse.builder()
+                .numberOfItems(orders.getTotalElements())
+                .numberOfPages(orders.getTotalPages())
+                .orders(orders.getContent())
+                .build();
+    }
+
+    public PaginatedOrderResponse filterBooks(String keyword, Pageable pageable) {
+        // Page<Transaction> users =
+        // transactionRepository.findAllByUsernameContains(keyword, pageable);
+        // // products.and(productRepository.findAllByBrandContains(keyword, pageable));
+        // // products.and(productRepository.findAllByColorContains(keyword, pageable));
+        // try {
+        // users.and(transactionRepository.findAllByPhoneContains(keyword, pageable));
+        // } catch (Exception e) {
+        // // System.out.println(e.getMessage());
+        // }
+        Page<Transaction> orders = transactionRepository.findAll(pageable);
+
+        return PaginatedOrderResponse.builder()
+                .numberOfItems(orders.getTotalElements())
+                .numberOfPages(orders.getTotalPages())
+                .orders(orders.getContent())
+                .build();
     }
 
 }

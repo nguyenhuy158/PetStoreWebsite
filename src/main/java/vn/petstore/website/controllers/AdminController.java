@@ -21,13 +21,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.RequiredArgsConstructor;
+import vn.petstore.website.dto.PaginatedOrderResponse;
 import vn.petstore.website.dto.PaginatedProductResponse;
 import vn.petstore.website.dto.PaginatedUserResponse;
 import vn.petstore.website.model.Admin;
 import vn.petstore.website.model.Gear;
 import vn.petstore.website.model.Product;
 import vn.petstore.website.services.AdminService;
+import vn.petstore.website.services.CartService;
 import vn.petstore.website.services.ProductService;
+import vn.petstore.website.services.TransactionService;
 import vn.petstore.website.services.UserService;
 
 @Controller
@@ -43,6 +46,12 @@ public class AdminController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    CartService cartService;
+
+    @Autowired
+    TransactionService transactionService;
 
     @GetMapping(value = { "/", "" })
     public String login(Model model) {
@@ -199,6 +208,55 @@ public class AdminController {
 
         // done
         return "admin/users";
+    }
+
+    @GetMapping("/orders")
+    public String orders(
+            @RequestParam(name = "keyword", defaultValue = "") Optional<String> keyword,
+            @RequestParam(defaultValue = "0") Integer currentPage,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(defaultValue = "id,asc") String[] sort,
+            Model model) {
+        model.asMap().clear();
+        model.addAttribute("isLogin", userService.isLogin());
+        model.addAttribute("pageTitle", "Order Manager");
+        model.addAttribute("admin", new Admin());
+        model.addAttribute("isAdmin", userService.isAdmin());
+
+        String sortField = sort[0];
+        String sortDirection = sort[1];
+        Direction direction = sortDirection.equals("desc") ? Sort.Direction.DESC : Sort.Direction.ASC;
+        Order order = new Order(direction, sortField);
+
+        PaginatedOrderResponse paginatedUserResponse;
+        if (keyword.isPresent()) {
+            paginatedUserResponse = transactionService
+                    .filterBooks(keyword.get(), PageRequest.of(currentPage, pageSize,
+                            Sort.by(order)));
+        } else {
+            paginatedUserResponse = transactionService
+                    .readProducts(PageRequest.of(currentPage, pageSize, Sort.by(order)));
+        }
+        model.addAttribute("paginatedUserResponse", paginatedUserResponse);
+        model.addAttribute("currentNumberProduct",
+                Math.min(paginatedUserResponse.getNumberOfItems(), (currentPage
+                        + 1) * pageSize));
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("keyword", keyword.get());
+        model.addAttribute("pageSize", pageSize + 1);
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDirection", sortDirection);
+        model.addAttribute("reverseSortDirection", sortDirection.equals("asc") ? "desc" : "asc");
+
+        int totalPages = paginatedUserResponse.getNumberOfPages();
+        if (totalPages > 0) {
+            List<Integer> pageNumbers = IntStream.rangeClosed(1,
+                    totalPages).boxed().collect(Collectors.toList());
+            model.addAttribute("pageNumbers", pageNumbers);
+        }
+
+        // done
+        return "admin/orders";
     }
 
     // don't use
