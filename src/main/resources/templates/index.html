@@ -45,27 +45,27 @@
 
     <section id="feature" class="section-p1">
       <div class="fe-box">
-        <img src="./img/fe1.png" alt="" class="fe-img" x />
+        <img data-src="./img/fe1.png" alt="" class="lazy fe-img" x />
         <h6 th:text="#{pet.html.feature.freeShip}"></h6>
       </div>
       <div class="fe-box">
-        <img src="./img/fe2.png" alt="" class="fe-img" />
+        <img data-src="./img/fe2.png" alt="" class="lazy fe-img" />
         <h6 th:text="#{pet.html.feature.order}"></h6>
       </div>
       <div class="fe-box">
-        <img src="./img/fe3.png" alt="" class="fe-img" />
+        <img data-src="./img/fe3.png" alt="" class="lazy fe-img" />
         <h6 th:text="#{pet.html.feature.saveMoney}"></h6>
       </div>
       <div class="fe-box">
-        <img src="./img/fe4.png" alt="" class="fe-img" />
+        <img data-src="./img/fe4.png" alt="" class="lazy fe-img" />
         <h6 th:text="#{pet.html.feature.promotion}"></h6>
       </div>
       <div class="fe-box">
-        <img src="./img/fe5.png" alt="" class="fe-img" />
+        <img data-src="./img/fe5.png" alt="" class="lazy fe-img" />
         <h6 th:text="#{pet.html.feature.happySell}"></h6>
       </div>
       <div class="fe-box">
-        <img src="./img/fe6.png" alt="" class="fe-img" />
+        <img data-src="./img/fe6.png" alt="" class="lazy fe-img" />
         <h6 th:text="#{pet.html.feature.Support}"></h6>
       </div>
     </section>
@@ -79,7 +79,7 @@
           <a style="text-decoration: none" th:href="@{/product-detail(id=${product.id})}">
             <!--content-->
 
-            <img th:src="*{product.thumbnail?.get(0)}" alt="" />
+            <img th:data-src="*{product.thumbnail?.get(0)}" alt="" class="lazy"/>
             <div class="des">
               <span th:text="*{product.category.name}"></span>
               <h5 th:text="*{product.name}"></h5>
@@ -101,6 +101,7 @@
 
     <script th:src="@{/js/script.js}"></script>
     <script th:src="@{/js/slider.js}"></script>
+
   </body>
 
 </html>
