@@ -31,7 +31,7 @@
       <li th:if="${isLogin}">
         <a href="javascript: document.logoutForm.submit()" th:text="#{pet.html.header.navbar.logout}"></a>
       </li>
-      <li>
+      <li th:if="${isAdmin != true}">
         <a href="/login">Login/Register</a>
       </li>
     </ul>
