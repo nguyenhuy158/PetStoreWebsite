@@ -52,10 +52,10 @@ mvn test
 
 ![Home page](/src/main/resources/static/images/2023-11-11%2015-39-43.png)
 
-![Home page](/src/main/resources/static/images/2023-11-11%2015-40-34.png)
+![Products list](/src/main/resources/static/images/2023-11-11%2015-40-34.png)
 
-![Home page](/src/main/resources/static/images/2023-11-11%2015-40-56.png)
+![Footer](/src/main/resources/static/images/2023-11-11%2015-40-56.png)
 
-![Home page](/src/main/resources/static/images/2023-11-11%2015-41-18.png)
+![Dashboard](/src/main/resources/static/images/2023-11-11%2015-41-18.png)
 
-![Home page](/src/main/resources/static/images/2023-11-11%2015-42-56.png)
+![Products manager](/src/main/resources/static/images/2023-11-11%2015-42-56.png)
