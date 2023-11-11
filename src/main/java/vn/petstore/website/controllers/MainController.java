@@ -35,6 +35,7 @@ public class MainController {
         List<Product> products = productService.getAllProducts(PRODUCT_LIMIT);
 
         model.asMap().clear();
+        model.addAttribute("pageTitle", "Pet Store - Home");
         model.addAttribute("products", products);
         model.addAttribute("isLogout", userService.getCurrentUser());
         model.addAttribute("isLogin", userService.isLogin());

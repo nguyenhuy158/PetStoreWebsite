@@ -18,7 +18,6 @@ git clone https://github.com/nguyenhuy158/PetStoreWebsite
 
 ```
 cd PetStoreWebsite
-
 ```
 
 3. Update the `src/main/resources/application.properties` file with your database credentials.
@@ -32,7 +31,6 @@ You can run the application using either of the following methods:
 
 ```
 mvn spring-boot:run
-
 ```
 
 - From your IDE, run the `main` method in the `PetStoreWebsiteApplication` class.
