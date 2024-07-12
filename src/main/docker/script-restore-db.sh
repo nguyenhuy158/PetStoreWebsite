@@ -1,1 +1,1 @@
-cat data.sql | docker exec -i c219c72151f4 /usr/bin/mysql -u root --password=petstoremaidinh PetStore
+docker cp ./src/main/docker/config.cnf docker-pet_store_3_chang_trai-1:/config.cnf ; cat ./src/main/docker/data.sql | docker exec -i docker-pet_store_3_chang_trai-1 /usr/bin/mysql --defaults-extra-file=/config.cnf PetStore
