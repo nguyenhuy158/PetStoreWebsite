@@ -17,14 +17,14 @@ public class DatabaseConfig {
         // Set your database properties here
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/PetStore?createDatabaseIfNotExist=true&characterEncoding=utf8&collation=utf8_unicode_ci");
-        dataSource.setUsername("root");
-        dataSource.setPassword("");
+        dataSource.setUsername("huyhuy");
+        dataSource.setPassword("huyhuy");
 
         try {
             dataSource.getConnection();
         } catch (SQLException e) {
-            System.out.println("[DB] " + e.getMessage());
-            System.out.println("[DB] Unable to connect to the database. Please check your connection settings.");
+            System.out.println("[DB] DatabaseConfig " + e.getMessage());
+            System.out.println("[DB] DatabaseConfig Unable to connect to the database. Please check your connection settings.");
         }
 
         return dataSource;

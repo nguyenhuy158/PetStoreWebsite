@@ -8,6 +8,8 @@ services:
     environment:
       - MYSQL_DATABASE=PetStore
       - MYSQL_ROOT_PASSWORD=petstoremaidinh
+      - MYSQL_USER=huyhuy
+      - MYSQL_PASSWORD=huyhuy
     ports:
       - "3306:3306"
 volumes:

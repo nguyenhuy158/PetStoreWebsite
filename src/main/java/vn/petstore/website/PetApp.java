@@ -96,8 +96,8 @@ public class PetApp implements CommandLineRunner {
             }
 
         } catch (SQLException | IOException e) {
-            System.out.println("[DB] " + e.getMessage());
-            System.out.println("[DB] Unable to connect to the database. Please check your connection settings.");
+            System.out.println("[DB] PetApp" + e.getMessage());
+            System.out.println("[DB] PetApp Unable to connect to the database. Please check your connection settings.");
         }
     }
 }
